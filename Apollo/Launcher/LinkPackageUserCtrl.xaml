@@ -1,0 +1,123 @@
+﻿<!--
+//! Copyright(c) 2022 Frontier Development Plc
+//
+//! LinkPackageUserCtrl, combines a title, instructions 
+//! and a link button.
+//
+//! Author:     Alan MacAree
+//! Created:    11 Nov 2022
+-->
+
+<UserControl x:Class="Launcher.LinkPackageUserCtrl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:sys="clr-namespace:System;assembly=mscorlib"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+
+    <UserControl.Resources>
+        <!-- Positions -->
+        <sys:Int32 x:Key="TitleRow">1</sys:Int32>
+        <sys:Int32 x:Key="InstructionRow">3</sys:Int32>
+        <sys:Int32 x:Key="MainButtonRow">5</sys:Int32>
+        <sys:Int32 x:Key="ButtonRow">1</sys:Int32>
+        <sys:Int32 x:Key="ButtonCol">1</sys:Int32>
+        <sys:Int32 x:Key="DisplayCol">1</sys:Int32>
+
+        <!-- Grid Widths-->
+        <GridLength x:Key="DisplayWidthRatio">10*</GridLength>
+        <GridLength x:Key="GapWidthRatio">*</GridLength>
+
+        <GridLength x:Key="ButtonGapWidthRatio">*</GridLength>
+        <GridLength x:Key="ButtonDisplayWidthRatio">3*</GridLength>
+
+        <GridLength x:Key="TextWidthRatio">10*</GridLength>
+
+        <!-- Grid Heights-->
+        <GridLength x:Key="DisplayHeightRatio">5*</GridLength>
+        <GridLength x:Key="GapHeight">0</GridLength>
+
+        <GridLength x:Key="ButtonDisplayHeightRatio">10*</GridLength>
+        <GridLength x:Key="ButtonGapHeight">0.5*</GridLength>
+
+        <!-- Font Size-->
+        <sys:Double x:Key="ButtonFontSize">20</sys:Double>
+        <sys:Double x:Key="TitleFontSize">30</sys:Double>
+        <sys:Double x:Key="DescriptionFontSize">16</sys:Double>
+
+        
+    </UserControl.Resources>
+
+
+    <!-- Grid to hold the text and buttons -->
+    <Grid ShowGridLines="false">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="{StaticResource GapHeight}"></RowDefinition>
+            <RowDefinition Height="{StaticResource DisplayHeightRatio}"></RowDefinition>
+            <RowDefinition Height="{StaticResource GapHeight}"></RowDefinition>
+            <RowDefinition Height="{StaticResource DisplayHeightRatio}"></RowDefinition>
+            <RowDefinition Height="{StaticResource GapHeight}"></RowDefinition>
+            <RowDefinition Height="{StaticResource DisplayHeightRatio}"></RowDefinition>
+            <RowDefinition Height="{StaticResource GapHeight}"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="{StaticResource GapWidthRatio}"></ColumnDefinition>
+            <ColumnDefinition Width="{StaticResource TextWidthRatio}"></ColumnDefinition>
+            <ColumnDefinition Width="{StaticResource GapWidthRatio}"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <!-- The Title -->
+
+        <Label Content="{Binding Path=Title, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}}" 
+            Grid.Row="{StaticResource TitleRow}"
+            Grid.ColumnSpan="3"
+            Style="{StaticResource TitleLabel}"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center">
+        </Label>
+
+
+        <!-- The instructions -->
+        <TextBlock Grid.Column="{StaticResource DisplayCol}"
+            Grid.Row="{StaticResource InstructionRow}" 
+            Text="{Binding Path=Instructions, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}}" 
+            Style="{StaticResource NormalWrappedTextBlock}"
+            TextAlignment="Center"
+            VerticalAlignment="Top">
+        </TextBlock>
+
+        
+            <!-- Grid to place the buton-->
+        <Grid Grid.Row="{StaticResource MainButtonRow}"
+                Grid.ColumnSpan="3">
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="{StaticResource ButtonGapWidthRatio}"></ColumnDefinition>
+                <ColumnDefinition Width="{StaticResource ButtonDisplayWidthRatio}"></ColumnDefinition>
+                <ColumnDefinition Width="{StaticResource ButtonGapWidthRatio}"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="{StaticResource ButtonGapHeight}"></RowDefinition>
+                <RowDefinition Height="{StaticResource ButtonDisplayHeightRatio}"></RowDefinition>
+                <RowDefinition Height="{StaticResource ButtonGapHeight}"></RowDefinition>
+            </Grid.RowDefinitions>
+
+            <!-- The button -->
+            <Button Content="{Binding Path=ButtonText, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}}" 
+                Grid.Column="{StaticResource ButtonCol}"
+                Grid.Row="{StaticResource ButtonRow}"
+                FontSize="{StaticResource ButtonFontSize}"
+                Style="{StaticResource LinkButtonStyle}"
+                Click="OnClick">
+            </Button>
+
+        </Grid>
+
+    </Grid>
+
+</UserControl>
+

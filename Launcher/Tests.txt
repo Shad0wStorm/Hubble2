@@ -1,0 +1,9 @@
+This solution folder contains projects used to test features but which are not
+part of the release of any FORC Client project.
+
+They are not unit tests and do not need to be run as part of the standard build
+process and do not need to be actively maintained. It would be nice if they at
+least build so people using "Build Solution" do not get errors.
+
+If you need to test a specific feature it is worth checking if an existing test
+covers it and can be extended for the identified issue.

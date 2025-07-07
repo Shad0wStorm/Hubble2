@@ -1,0 +1,346 @@
+This document is intended to bring together potential improvements for
+consideration.
+
+If further development is undertaken on the launcher rather than continuing
+with the current approach of on demand changes then these proposals may offer
+some direction. Alternatively if a replacement launcher is implemented then
+they may act as a guide for new development to avoid running in to similar
+problems.
+
+
+Project Updater - Installation Types
+
+Project updater as it stands is a monolithic process and includes some unused
+code related to installer based product installation which has not been used
+for Elite for some time. Potentially it could be removed, the only case for
+which it could be used currently is if a user who has an installer based
+version of the game installed and attempts to upgrade it to a manifest based
+installation. The number of users this would affect is low since manifests have
+been used since before release and anyone installing at that early stage is
+likely to have upgraded already.
+
+If the launcher is to become a more general client for multiple games where
+third party games with installers are possible then support would want to be
+retained.
+
+It may be preferable to refactor into a higher level installer interface for
+common tasks such as install/uninstall/validate which would then have
+independent implementations, continuing to share the download manager, to make
+it easier to add/maintain different installation techniques.
+
+
+Project Updater - Manifest Installations
+
+The existing manifest based installation process considers each file in turn
+and processing for each file is the same in all cases. The one exception is the
+versioninfo.txt file which is renamed after the download of all files is
+complete to ensure the game is not marked as up to date if it is interrupted.
+
+For each file the existing file (if any) is validated against the hash in the
+manifest. If they match there is no need for any further processing for the
+file. If there is no match then we look for a file earlier in the manifest
+with the same hash. If that is found the file is copied from the previous
+entry instead of redownloading from the server. It is possible to be sure that
+the file contents are as expected as if there were any issues they should have
+been cought when the earlier file was processed. If no existing file
+can be used/copied then it is necessary to download the new file. If any change
+was made to the file then the file is validated against the hash to confirm
+that the contents have been received correctly.
+
+This approach is simple files are always processed in the same order which
+makes it easier to track a problem to a specific file since the problem will
+occur at the same time.
+
+There are some disadvantages however. There is no concurrency of processing.
+The total download is likely to be limited by the network when transferring
+data but parallel downloads may help if data is coming via different routes.
+The interleaving of different processing steps does mean that the active task
+is changing which may have an impact. For example if a file takes a long time
+to perform the initial validation, or several files are all up to date followed
+by a file requiring downloading, the lack of network traffic while validation
+is performed may result in the network being temporarily shut down perhaps to
+save energy. It also means that until all the files have been processed it is
+not known what processing is required making it hard to predict remaining time
+to complete which has been reported by some users. By processing the files in
+the same order each time initial downloads, where the local cloud endpoint is
+empty, will require all clients to download from source (or at least wait for
+the file to be cached locally). If the order were randomised then each client
+would be downloading different files. Initial files would still be slow, but
+as the download progresses there is a bigger chance that the requested file
+would have been previously requested by another client allowing it to be served
+directly from the cache.
+
+Previous attempts have focused on pre-processing the manifest contents to
+change the order of the contents with an eye to then processing the new list in
+the revised order, potentially on multiple threads in parallel.
+
+A better option may be to break up into sub tasks:
+
+a)	Process the initial manifest entries performing the initial validation step
+	for files that already exist.
+b)	Process the requires update list.
+		Where the hash/size match a file in the command list insert a copy
+		action and attach it to the existing command to ensure it is not
+		processed until the update is complete.
+		Where the hash/size match a file in the	up to date list insert a copy
+		action to the command list.
+		Otherwise the file needs an update and there is no outstanding update
+		action so add the update to the command list.
+c)  Process the command list.
+
+This offers various options for concurrency. a) can be performed for multiple
+files in parallel as can c). Potentially it would be possible to overlap the
+command list with the entries, as soon as a file requiring an update is
+identified the update could start. The disadvantage is that until all the files
+have been validated we do not know which files are already present making the
+decision of whether a copy or download is required more difficult. Even with
+the existing system there is a possibility that more work will be performed
+than is strictly required. For example with files A, B, C if after an update
+the contents of B and C swap it will be necessary to download both B and C
+again since when B is processed C will not have been considered and will not
+match. When C is then processed B no longer matches leading to it being
+redownloaded. This is not a likely scenario at a file level, a similar
+situation may arise if multiple directories are renamed. Picking up tasks early
+also makes progress difficult to calculate since items are being taken off the
+list while others are still being added.
+
+
+Project Updater - Virtual Cache Integration
+
+Currently the virtual cache is populated up front leading to a noticable pause
+at the start of an update operation. Feeding the results of the update back
+into the virtual cache could have some advantages.
+
+a)	When files are updated we know both the hash and the size so it is not
+	necessary to recalculate them. It would still be necessary to check the
+	time stamps on start up to detect files that have been modified since the
+	cache was last updated but in most cases should avoid having to read the
+	file and calculate the hash.
+
+b)	If integrated with the Manifest Installation changes above it would avoid
+	manually handling the "copy" case. Once a file was downloaded it would be
+	added to the cache and the next file with the same hash/size would then be
+	downloaded from the cache, effectively a copy, rather than coming from the
+	server.
+	
+Potential issues include attempting to copy a file which is	currently being
+updated (remove/lock file in cache while it is being updated) and it does not
+completely handle the 'swap' case. One option would be to move replaced files
+to a local cache folder for the duration of the update so they can still be
+used, and then discard them once the update is complete. It also requires
+communication between the virtual cache and the updater which is not a link
+that currently exists. One possibility is to add an interface (or possibly
+extend the DownloadManagerBase interface) and use that to perform file
+operations within the updater. The default implementation would pass them on
+to the file system as currently but when working with the virtual cache the
+internal state can be updated.
+
+
+Cobra Bay - Self Update
+
+Currently the application is installed via an INNO based installer requiring
+the user to download and install new versions when they become available. It
+should also be noted that installation is very different between Windows and
+OSX, therefore resolving the problem on one is unlikely to work on the other.
+
+On the Windows side the preferred solution is probably to pass back a path to
+an updater application in the version check. If the launcher is determined to
+be out of date the updater is downloaded and executed. The updater then waits
+for the launcher to exit (using the single instance mutex). Once the existing
+launcher has terminated the updater can then download/install/run any files
+as required. This could potentially reuse the manifest processing code. Note
+that doing so would require multiple files to be downloaded before the updater
+is run since the library DLLs are likely to be different from the versions
+shipped with the previous version of the launcher losing the elegance of the
+single download. By handling the update externally, and requiring the initial
+download before running the update process it is possible to trigger updates
+that are not supported by the existing launcher. It would be possible to
+extend the capabilities of the integrated launcher code, e.g. to download a zip
+file and extract that to work around the multiple file download issue but the
+more responsibility the launcher takes the more dependent on it having the
+necessary features becomes. Another option would be to download a self
+extracting zip capable of running the contents when complete.
+
+7zip provides self extracting installer modules as part of the 7z_extra package
+which appears not to be installed on these machines. Using that it should be
+possible to download a single executable, run it, and have it extract
+everything necessary to perform a self update.
+
+Any approach will be complicated by the need to deal with a launcher installed
+into an administrator area, such as program files therefore requiring
+elevation.
+
+
+Rewrite
+
+The current launcher was written as a temporary solution/proof of concept which
+has never been revisited. As such there are some significant limitations.
+
+It is written in C# with a windows UI in WPF. This requires Mono to be
+installed on OSX and an alternative native UI though the majority of the code
+is shared. This requires merging of changes between branches and means the two
+versions can drift apart depending on where work is carried out.
+
+Both versions use a Web Browser control to display a significant portion of the
+UI. Since there are no cross platform browser controls, and the OSX browsers do
+not allow the same level of interaction between browser and native application.
+On Windows the standard WebBrowser control is based on Internet Explorer and
+can have issues where the system installation is damaged and fails to run
+correctly. The Windows launcher has been made more stable by delaying creation
+of the WebBrowser control to a point where a failure to create it can be
+detected. In the best case this results in the browser area being missing,
+the window will show the most recent built in background image rather than
+crashing.
+
+The preferred option is to use HTML5/JavaScript for the main user interface
+since it is a common system with comprehensive tools and would allow the entire
+look and feel to be modified without updating the core application. There is a
+significant disadvantage in that web browsers sandbox the pages they display
+making it impossible to carry out the native tasks required to install and run
+the games made available through the launcher. Browser based applications are
+permitted to store limited files locally but not to the extent necessary for
+game installaton and native applications can not be run directly.
+
+There are three main work arounds:
+
+1)	A Native Protocol Handler can be written and the web page would then
+	direct certain actions to the protocol which would be responsible for
+	carrying out the native actions required. This is fine for one shot actions
+	but may not work well with long running actions that require feedback. As a
+	result some experimentation is required to determine practicallity of the
+	approach. The protocol handler needs to be registered with the system so it
+	can be started on demand. As the page is loaded first the client must
+	always be online to access the page. A local page could be used, but most
+	browsers restrict the default capabilities of local pages, requiring manual
+	intervention to run scripts on the page for example.
+
+2)	A native server can be written which the user would run which would trigger
+	the opening of the browser page. The page could then communicate with the
+	main server and the local server as required. This could cause issues with
+	cross site scripting being detected as a risk. An alternative would be to
+	use the native server as a proxy/cache so that all requests are made
+	through the local server which will pull data from the live server when
+	required. This makes it more practical to use offline content since the
+	last known version of a page can be used if no live connection is
+	available. Doing so increases the complexity of the native server and all
+	transferred information is being redirected. Issues with the existing
+	launcher have demonstrated that even something as simple as transferring a
+	file of http is not as reliable as expected.
+
+3)	Integrate a third party browser into the native application to allow closer
+	coupling. This makes the browser experience more consistent, options 1 and
+	2 both use the 'current' browser making it necessary for the pages to work
+	accross different browsers/platforms. On the downside it requires
+	identifying a browser library that can integrate and be used on any of the
+	supported platforms with an appropriate front end.
+
+Intermediate languages (C#/Java/Python) all have the disadvantage that while
+having more features out of the box though the standard libraries all require
+the language runtime to be installed in some form. Relying on the system to
+provide the runtime introduces the possibility of incompatabilities between
+tested and installed versions. Even on Windows where the C# Common Language
+Runtime is installed as standard issues have been encountered where some
+facilities are not easily available (due to building for the version of the CLR
+shipped with Windows 7 to avoid forcing a download on everyone) or the
+installation is damaged in some way resulting in failure to start the
+application. Such an application can be distributed with the required runtime
+(at least for Java and Python) but that increases the size of the downloads
+required, and potentially leads to licensing issues.
+
+A native application requires less to be provided by the system, but may
+require more work to provide the necessary features. Each of those implemented
+features also requires testing and risks introducing new issues. Libraries are
+available that would resolve some of these issues. For example QT was
+considered as a potential cross platform native library. Unfortunately the
+licensing costs are relatively high and the browser integration is based on a
+system similar to option 2 above so it does not avoid the need to write the
+server integration. There is an older interface closer to option 3 but that is
+deprecated so targetting it is not recommended.
+
+Another question is where the interface between the browser code and the native
+operations is set. Making the native operations too comprehensive may make it
+difficult to track progress and restricts the ability to modify behaviour
+without needing an update to the native portion. Having too much on the browser
+side risks affecting performance and potentially pushes more work onto the UI.
+The size of the interface may also influence how much duplication is required
+to support multiple platforms if it is not possible to use the same sources for
+each native interface. This is also affected by the goals of the new launcher
+and the practicality of handling certain aspects on the browser side.
+Authentication for example may be difficult to handle browser side but would be
+more convenient if it worked in conjunction with the browser since if the
+browser was logged in links to the website could also make use of the logged in
+identity.
+
+Node.js seems like a potential condidate for implementing option 2 since it is
+cross platform and allows servers to be written simply using JavaScript. When
+combined with Socket.io on the client side two way communication is possible.
+The Node.js libraries appear to support local file operations and starting of
+child processes. Since it acts as a server it appears to support serving pages
+as well as socket communication. It also means the server (carrying out the 
+native operations) and client (the web interface the user directly interacts
+with) can be written in the same language.
+
+We do already have a cross platform native library available in the form of
+FGDK4 which could be used for the native portion of the code though there are
+several gaps that could make using it for the launcher problematic. We do not
+have anything approaching an HTML renderer that could be used to display the
+UI to the user. Scaleform/GFx is a possibility since it is used for the game
+UI. It would potentially make it easier to share resources between game and
+launcher, though updating the launcher may not be as simple as updating a web
+page. If self update is supported this could be used for bring down changes
+when required. The workflow for generating updates may also be a negative.
+There may be performance implications since the launcher would then be using
+the graphics card in addition to the game when the game is running. Rather than
+using FGDK4 as a UI the native commands could be made available via a network
+interface for carrying out low level commands and have something else provide
+the UI, e.g. a browser based solution using web requests or protocol handlers.
+Either is likely to need changes to add the required features, while file
+operations are well catered for the networking is based around game usage not
+web. Core FGDK4 library fHttp provides some web acces but only supports
+responses that can be retrieved in one part and with a limited size so it would
+need extending to support the chunk based transfer required for larger files.
+
+One of the perceived advantages of a shared codebase is that it reduces
+maintenance costs since fixes on one platform are automatically picked up by
+any others. In practice it may be that the cost of developing cross platform
+is higher than having multiple platform specific applications, especially where
+they are maintained by individuals practiced on working with the platform they
+are working on.
+
+So far technical solutions have been considered, but it is difficult to make a
+decision on the best direction when it is not clear what role the launcher is
+going to take in the future. The behaviour of the current launcher is closely
+tied to Elite and may not be suitable for other projects (particularly if it
+may be available to third parties). Better support for multiple projects is
+wanted but should the watchdog related behaviour be considered part of the
+launcher or game. Since the original 'crash detection' version of the WatchDog
+was written several changes have been made to it that tie it closely to the
+Elite executable. To use it with a different game would require the same
+changes to be made to the new product, or a different version of WatchDog.
+Third parties may prefer to use their own crash detection/reporting software
+that reports back to their systems rather than ours (unless our system is part
+of our offering to third parties). Given the low level system interaction
+required by WatchDog it is unlikely that it would ever be something other than
+a platform specific tool so making it game specific does not add much overhead
+and ensures it can be developed independently and games using an older version
+are not forced to update the game for every WatchDog change made for other
+projects. The hardware survey is in a similar situation since collecting the
+data is platform specific.
+
+The current product servers rely on trusting the client in so much that the
+servers are stateless, all necessary information is included in every query.
+The authentication token is just stored by the client and sent with requests
+so it can be (is?) encrypted so that only the server can investigate the
+contents preventing (easy) modification of the data by the client. Even so,
+once the token is received by the client it can be used from a different
+application - some users have resorted to this technique to run the game when
+the official process fails or to run multiple copies of the game on the same
+machine at the same time. Using javascript provides easier access to the source
+code for review or modification, but even with a fully native client it is
+unfortunately necessary to assume it is compromised. As a simple example, with
+the current framework the client asks the server for a list of available
+products to be offered to the user. A compromised client could potentially add
+products to the list based on the list returned from a user with the extra
+available. I am not certain at what point (if at all) this would get caught
+with the current system. My hope would be that the game server would reject the
+user at the point the game connects.

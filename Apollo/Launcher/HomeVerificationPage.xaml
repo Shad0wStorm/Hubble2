@@ -1,0 +1,188 @@
+﻿<!--
+//! Copyright(c) 2022 Frontier Development Plc
+//
+//! Home Varification Page
+//
+//! Author:     Alan MacAree
+//! Created:    08 Sept 2022
+-->
+    
+<Page x:Class="Launcher.HomeVerificationPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:resx="clr-namespace:LocalResources.Properties;assembly=LocalResources"
+      xmlns:fduc="clr-namespace:FDUserControls;assembly=FDUserControls"
+      xmlns:sys="clr-namespace:System;assembly=mscorlib"
+      xmlns:pl="clr-namespace:Launcher.Styles"
+      mc:Ignorable="d" 
+      Loaded="Page_Loaded"
+      Unloaded="Page_Unloaded"
+      d:DesignHeight="450" d:DesignWidth="800">
+    
+    <Page.Resources>
+        <!-- Gaps -->
+        <GridLength x:Key="VerticalBorder">5</GridLength>
+        <GridLength x:Key="HorizonatalBorder">5</GridLength>
+        <!-- Font Size-->
+        <sys:Double x:Key="ButtonFontSize">18</sys:Double>
+
+        <SolidColorBrush  x:Key="TextColour">White</SolidColorBrush>
+    </Page.Resources>
+
+    <!-- Use the MainPageLayout to setup the page-->
+    <pl:MainPageLayout>
+        
+        <!-- Display the page title -->
+        <pl:MainPageLayout.PageTitle>
+            <Label Content="{x:Static resx:Resources.LW_VerificationTitle}" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="{StaticResource TextColour}"></Label>
+        </pl:MainPageLayout.PageTitle>
+
+        <!-- Display the page sub title, note that Content is replaced at runtime by the users email address-->
+        <pl:MainPageLayout.PageSubTitle>
+            <Label x:Name="PART_PlayersEmail" Content="Player's email address" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="{StaticResource TextColour}"></Label>
+        </pl:MainPageLayout.PageSubTitle>
+        
+        <pl:MainPageLayout.Content>
+            <!-- Sub grid for the text and user controls -->
+            <Grid Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"></RowDefinition>
+                    <RowDefinition Height="{StaticResource VerticalBorder}"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                </Grid.RowDefinitions>
+
+                <!-- Instructions for user -->
+                <StackPanel Grid.Row="0">
+                    <Label Content="{x:Static resx:Resources.LW_VerificationInstLine1}" 
+                           Style="{StaticResource NormalTextLabel}" 
+                           HorizontalAlignment="Center">
+                    </Label>
+                    <Label Content="{x:Static resx:Resources.LW_VerificationInstLine2}" 
+                           Style="{StaticResource NormalTextLabel}" 
+                           HorizontalAlignment="Center">
+                    </Label>
+                    
+                    <!-- Note that this text includes user email address, formatted in code -->
+                    <Label x:Name="PART_Line3WithEmailAddress" 
+                           Style="{StaticResource NormalTextLabel}" 
+                           HorizontalAlignment="Center">
+                    </Label>
+                    <Label Content="{x:Static resx:Resources.LW_VerificationInstLine4}" 
+                           Style="{StaticResource NormalTextLabel}" 
+                           HorizontalAlignment="Center">
+                    </Label>
+                    <Label Content="{x:Static resx:Resources.LW_VerificationInstLine5}" 
+                           Style="{StaticResource NormalTextLabel}" 
+                           HorizontalAlignment="Center">
+                    </Label>
+                </StackPanel>
+
+                <!-- Verification area, with title, editbox for the verification code and button -->
+                <Grid Grid.Row="2">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="{StaticResource VerticalBorder}"></RowDefinition>
+                        <RowDefinition Height="auto"></RowDefinition>
+                        <RowDefinition Height="{StaticResource VerticalBorder}"></RowDefinition>
+                        <RowDefinition Height="*"></RowDefinition>
+
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="3*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+
+                    <!-- Verification area title -->
+                    <Label Content="{x:Static resx:Resources.LW_VerificationCode}" 
+                           Style="{StaticResource TitleLabel}"
+                           Grid.Row="1" 
+                           Grid.Column="1" 
+                           HorizontalAlignment="Center" 
+                           Foreground="{StaticResource TextColour}">
+                    </Label>
+
+                    <!-- Subgrid to place the editbox for the verification code, error display and button -->
+                    <Grid Grid.Column="1"
+                          Grid.Row="3">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="{StaticResource VerticalBorder}"></RowDefinition>
+                            <RowDefinition Height="2*"></RowDefinition>
+                            <RowDefinition Height="*"></RowDefinition>
+                            <RowDefinition Height="2.5*"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="2*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        
+                        <!-- Verification code editbox -->
+                        <fduc:EditBoxUserCtrl x:Name="PART_VerificationEditBox" 
+                                              IsDefault="True" 
+                                              Grid.Row="1" 
+                                              Grid.Column="1"
+                                              LabelContent="{x:Static resx:Resources.LW_Code}">
+                        </fduc:EditBoxUserCtrl>
+                        
+                        <!-- Verification error, hidden most of the time -->
+                        <fduc:ErrorMessageUserCtrl x:Name="PART_ErrorMessage"  
+                                                   Margin="5,5,5,5" 
+                                                   Visibility="Hidden" 
+                                                   Background="Transparent" 
+                                                   Grid.Row="1" 
+                                                   Grid.Column="2">
+                        </fduc:ErrorMessageUserCtrl>
+                        
+                        <!-- Submit button -->
+                        <Button x:Name="PART_SubmitBtn"
+                                Grid.Row="3"
+                                Grid.Column="1"
+                                Grid.RowSpan="1"
+                                FontSize="{StaticResource ButtonFontSize}"
+                                Content="{x:Static resx:Resources.LW_Submit}"
+                                Click="OnSubmit">
+                        </Button>
+                    </Grid>
+                </Grid>
+
+                <!-- Botton of page with link to resend the verification code to the user and a return to previos page -->
+                <Grid Grid.Row="4">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"></RowDefinition>
+                        <RowDefinition Height="*"></RowDefinition>
+                        <RowDefinition Height="*"></RowDefinition>
+                    </Grid.RowDefinitions>
+
+                    <Viewbox Grid.Row="1">
+
+                        <StackPanel Grid.Row="1">
+                            <!-- Link to resend the verification code to the user -->
+                            <TextBlock Width="Auto" HorizontalAlignment="Center">
+                                <Hyperlink NavigateUri="https://api.zaonce.net/this/url/never/exists/"
+                                           RequestNavigate="OnResendCode">
+                                    <Run Text="{x:Static resx:Resources.LW_VerificationCodeResend}"></Run>
+                                </Hyperlink>
+                            </TextBlock>
+
+                            <Separator Visibility="Hidden"></Separator>
+
+                            <!-- Link to return to the previous page -->
+                            <TextBlock Width="Auto" HorizontalAlignment="Center">
+                                <Hyperlink NavigateUri="https://api.zaonce.net/this/url/never/exists/"
+                                           RequestNavigate="OnReturnToPreviousPage">
+                                    <Run x:Name="PART_ReturnToPreviousPageCtrl"></Run>
+                                </Hyperlink>
+                            </TextBlock>
+                        </StackPanel>
+                    </Viewbox>
+                </Grid>
+
+            </Grid>
+
+        </pl:MainPageLayout.Content>
+    </pl:MainPageLayout>
+</Page>
+

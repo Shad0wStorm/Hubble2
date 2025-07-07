@@ -1,0 +1,48 @@
+﻿<!--
+//! Copyright(c) 2022 Frontier Development Plc
+//
+//! FrontPage, this is the main page that is displayed to the user
+//! once the user is logged in. 
+//
+// !The page is split into two:
+// ! Left side, also known as the Product Side
+// ! Right side, also known as the dynamic content    
+//
+//! Author:     Alan MacAree
+//! Created:    19 Aug 2022
+-->
+    
+<Page x:Class="Launcher.FrontPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Launcher"
+      mc:Ignorable="d" 
+      Initialized="OnInitialised"
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="FrontPage">
+
+    <Page.Resources>
+        <!-- Main right column ratio to left column, right column is the product's "dynamic content" -->
+        <GridLength x:Key="dynamicContentToImgRatio">1.83*</GridLength>
+    </Page.Resources>
+
+    <!-- Main Window Grid -->
+    <Grid x:Name="PART_MainGrid">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="{StaticResource dynamicContentToImgRatio}"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <!-- Product, or left side, this displays the current selected product -->
+        <local:ProductUserCtrl x:Name="PART_ProductUserCtrl" Grid.Column="0"></local:ProductUserCtrl>
+
+        <!-- Product Dynamic Content, or right side -->
+        <local:DynContentUserCtrl x:Name="PART_DynContentUserCtrl" Grid.Column="1"></local:DynContentUserCtrl>
+
+    </Grid>
+</Page>

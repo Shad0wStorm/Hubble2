@@ -1,0 +1,73 @@
+﻿<!--
+//! Copyright(c) 2022 Frontier Development Plc
+//
+//! LogoUserCtrl UserControl, displays a Frontier
+//  Logo.
+//
+//! Author:     Alan MacAree
+//! Created:    08 Nov 2022
+-->
+    
+<UserControl x:Class="Launcher.LogoUserCtrl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Launcher"
+             xmlns:sys="clr-namespace:System;assembly=mscorlib"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+
+    <UserControl.Resources>
+        <!-- Size ratios -->
+        <GridLength x:Key="TopLeftGapRatio">0.2*</GridLength>
+        <GridLength x:Key="FLogoHeightRatio">0.6*</GridLength>
+        <GridLength x:Key="FLogoWidthRatio">0.7*</GridLength>
+
+        <!-- Positions-->
+        <sys:Int32 x:Key="ImageRow">1</sys:Int32>
+        <sys:Int32 x:Key="ImageCol">1</sys:Int32>
+        <sys:Int32 x:Key="MainFrameRow">0</sys:Int32>
+        <sys:Int32 x:Key="MainFrameCol">0</sys:Int32>
+    </UserControl.Resources>
+    
+    <!-- Split the screen up into 9 squares-->
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <!-- Setup a grid to display the Frontier Logo -->
+        <Grid Grid.Row="0" 
+              Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="{StaticResource TopLeftGapRatio}"></RowDefinition>
+                <RowDefinition Height="{StaticResource FLogoHeightRatio}"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="{StaticResource TopLeftGapRatio}"></ColumnDefinition>
+                <ColumnDefinition Width="{StaticResource FLogoWidthRatio}"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <Image Source="Images/FrontierLogo.png" 
+                Grid.Row="{StaticResource ImageRow}" 
+                Grid.Column="{StaticResource ImageCol}"
+                HorizontalAlignment="Left">
+            </Image>
+
+        </Grid>
+    </Grid>
+</UserControl>

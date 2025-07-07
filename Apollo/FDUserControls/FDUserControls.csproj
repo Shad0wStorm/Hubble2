@@ -1,0 +1,217 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{BE0AD112-91D5-47AB-AA12-68AA261EE1E9}</ProjectGuid>
+    <OutputType>library</OutputType>
+    <RootNamespace>FDUserControls</RootNamespace>
+    <AssemblyName>FDUserControls</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="LocalResources">
+      <HintPath>..\..\LocalResources\bin\$(Configuration)\LocalResources.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Article.cs" />
+    <Compile Include="ArticleFullTextPage.xaml.cs">
+      <DependentUpon>ArticleFullTextPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ArticlePresenterUserCtrl.xaml.cs">
+      <DependentUpon>ArticlePresenterUserCtrl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ArticleUserCtrl.xaml.cs">
+      <DependentUpon>ArticleUserCtrl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Consts.cs" />
+    <Compile Include="ConverterBoolToGridLength.cs" />
+    <Compile Include="ConverterBoolToVisibility.cs" />
+    <Compile Include="ConverterNullToVisibility.cs" />
+    <Compile Include="ConverterValueToPercentage.cs" />
+    <Compile Include="EditBoxUserCtrl.xaml.cs">
+      <DependentUpon>EditBoxUserCtrl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ConverterHeightToFontSize.cs" />
+    <Compile Include="ErrorMessageUserCtrl.xaml.cs">
+      <DependentUpon>ErrorMessageUserCtrl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="FDUtils.cs" />
+    <Compile Include="FeaturedProduct.cs" />
+    <Compile Include="FeaturedProductUserCtrl.xaml.cs">
+      <DependentUpon>FeaturedProductUserCtrl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GridLayoutUserCtrl.xaml.cs">
+      <DependentUpon>GridLayoutUserCtrl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="HeroImageUserCtrl.xaml.cs">
+      <DependentUpon>HeroImageUserCtrl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="HTMLStringUtils.cs" />
+    <Compile Include="Information.cs" />
+    <Compile Include="IRetrieveFileFromUri.cs" />
+    <Compile Include="ISettingsCtrlUI.cs" />
+    <Compile Include="LanguageUserCtrl.xaml.cs">
+      <DependentUpon>LanguageUserCtrl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ILogEvent.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="SettingsCtrl.xaml.cs">
+      <DependentUpon>SettingsCtrl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UpdateInfoUserCtrl.xaml.cs">
+      <DependentUpon>UpdateInfoUserCtrl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WaitUserCtrl.xaml.cs">
+      <DependentUpon>WaitUserCtrl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WheelSpeederScrollViewer.cs" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="ArticleFullTextPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ArticlePresenterUserCtrl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ArticleUserCtrl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="EditBoxUserCtrl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ErrorMessageUserCtrl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="FeaturedProductUserCtrl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GridLayoutUserCtrl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="HeroImageUserCtrl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="LanguageUserCtrl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SettingsCtrl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UpdateInfoUserCtrl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WaitUserCtrl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\PasswordShown.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\DownArrow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\PasswordHidden.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\WarningImage.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ESRB\ESRB_teen.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\PEGI\age-16-white.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Arx.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ESRB\ESRB_teenEn.png" />
+    <Resource Include="Images\ESRB\ESRB_teenEs.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\PEGI\age-12-white.png" />
+    <Resource Include="Images\PEGI\age-18-white.png" />
+    <Resource Include="Images\PEGI\age-3-white.png" />
+    <Resource Include="Images\PEGI\age-4-white.png" />
+    <Resource Include="Images\PEGI\age-6-white.png" />
+    <Resource Include="Images\PEGI\age-7-white.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

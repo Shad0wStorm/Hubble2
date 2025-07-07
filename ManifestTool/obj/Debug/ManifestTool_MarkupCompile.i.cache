@@ -1,0 +1,20 @@
+﻿ManifestTool
+
+
+winexe
+C#
+.cs
+G:\GitLab Repo\EDLauncher\Src\ManifestTool\obj\Debug\
+ManifestTool
+none
+false
+DEBUG;TRACE
+G:\GitLab Repo\EDLauncher\Src\ManifestTool\App.xaml
+5383524014
+
+20-171961076
+12-1062409809
+AddProductWindow.xaml;ExportSettingsDialog.xaml;ManifestTool.xaml;ProgressWindow.xaml;TemporaryMessageBox.xaml;
+
+False
+

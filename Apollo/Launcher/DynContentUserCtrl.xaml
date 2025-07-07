@@ -1,0 +1,66 @@
+﻿<!--
+//! Copyright(c) 2022 Frontier Development Plc
+//
+//! DynContentUserCtrl, holds the dyncamic content
+//
+//! Author:     Alan MacAree
+//! Created:    07 Nov 2022
+-->
+    
+<UserControl x:Class="Launcher.DynContentUserCtrl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:fduc="clr-namespace:FDUserControls;assembly=FDUserControls"
+             xmlns:sys="clr-namespace:System;assembly=mscorlib"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+
+    <UserControl.Resources>
+        <!-- Grid heights-->
+        <GridLength x:Key="TopRow">35</GridLength>
+        <GridLength x:Key="BottomRow">8</GridLength>
+        
+        <!-- Our wheel speed factor, this speeds up the scrolling when using a mouse wheel-->
+        <sys:Double x:Key="WheelSpeedFactor">1.4</sys:Double>
+    </UserControl.Resources>
+    
+    <!-- Use a Grid to create a top and bottom boarder -->
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="{StaticResource TopRow}"></RowDefinition>
+            <RowDefinition x:Name="PART_HeroDisplayRow" Height="*"></RowDefinition>
+            <RowDefinition Height="{StaticResource BottomRow}"></RowDefinition>
+        </Grid.RowDefinitions>
+        
+        <!-- Our scrollable area -->
+        <fduc:WheelSpeederScrollViewer ScrollChanged="OnScrollChanged"
+                                       Grid.Row="1"   
+                                       WheelSpeedFactor="{StaticResource WheelSpeedFactor}"
+                                       VerticalScrollBarVisibility="Auto" >
+            <StackPanel>
+                <!-- Hero Image -->
+                <!-- Because we want it to be prefixed, height is fixed as well -->
+                <fduc:HeroImageUserCtrl x:Name="PART_HeroImageUserCtrl"
+                                        Height="350"
+                                        Width="{Binding Path=Width, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type UserControl}}}">
+                </fduc:HeroImageUserCtrl>
+
+                <!-- Galnet News -->
+                <fduc:ArticlePresenterUserCtrl x:Name="PART_GalnetNewsPresentation"></fduc:ArticlePresenterUserCtrl>
+            
+                <!-- Community News -->
+                <fduc:ArticlePresenterUserCtrl x:Name="PART_CommunityNewsPresentation"></fduc:ArticlePresenterUserCtrl>
+            
+                <!-- Community Goals -->
+                <fduc:ArticlePresenterUserCtrl x:Name="PART_CommunityGoalsPresentation"></fduc:ArticlePresenterUserCtrl>
+            
+                <!-- Featured Products -->
+                <fduc:ArticlePresenterUserCtrl x:Name="PART_FeaturedProductsPresentation"></fduc:ArticlePresenterUserCtrl>
+            </StackPanel>
+        </fduc:WheelSpeederScrollViewer>
+    </Grid>
+
+</UserControl>
+    

@@ -1,0 +1,52 @@
+﻿<!--
+//! Copyright(c) 2022 Frontier Development Plc
+//
+//! HomeCreateAccountPage, this page useds
+//  MainPageLayout to layout the page contents
+//
+//! Author:     Alan MacAree
+//! Created:    22 Sept 2022
+-->
+    
+<UserControl x:Class="FDUserControls.ErrorMessageUserCtrl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             IsTabStop="False"
+             d:DesignHeight="450" d:DesignWidth="800">
+
+    <UserControl.Resources>
+        <!-- Gaps -->
+        <GridLength x:Key="HorizontalBorder">5</GridLength>
+    </UserControl.Resources>
+    
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto"></ColumnDefinition>
+            <ColumnDefinition Width="{StaticResource HorizontalBorder}"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        
+        <!-- The error icon -->
+        <Image  x:Name="PART_RevealImage"
+                Source="Images/WarningImage.png" 
+                Height="50"
+                Width="50"
+                Grid.Column="0"
+                VerticalAlignment="Top">
+        </Image>
+
+        <!-- The text part of the error -->
+        <TextBlock x:Name="PART_ErrorMessageTB"  
+                   Grid.Column="2"
+                   Text="{Binding Path=ErrorMessage, UpdateSourceTrigger=PropertyChanged, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}}"
+                   Style="{StaticResource OrangeTextBlock}" 
+                   Background="Transparent" 
+                   TextWrapping="Wrap">
+        </TextBlock>
+
+
+    </Grid>
+</UserControl>

@@ -1,0 +1,167 @@
+﻿<!--
+//! Copyright(c) 2022 Frontier Development Plc
+//
+//! TextBoxUserCtrl, this is a textbox with an embedded lable.
+//
+//! Author:     Alan MacAree
+//! Created:    02 Sept 2022
+--> 
+
+<UserControl x:Class="FDUserControls.EditBoxUserCtrl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:FDUserControls"
+             xmlns:sys="clr-namespace:System;assembly=mscorlib"
+             SizeChanged="OnSizeChanged"
+             Loaded="OnLoaded"
+             Unloaded="OnUnloaded"
+             mc:Ignorable="d">
+
+    <!-- Consts used in our User Control -->
+    <UserControl.Resources>
+        <!-- Gaps -->
+        <GridLength x:Key="VerticalBorder">0</GridLength>
+        <GridLength x:Key="HorizonatalBorder">3</GridLength>
+        <GridLength x:Key="HorizonatalBorderEnd">10</GridLength>
+        <!-- Positions-->
+        <sys:Int32 x:Key="LabelCol">1</sys:Int32>
+        <sys:Int32 x:Key="EditBoxCol">3</sys:Int32>
+        <sys:Int32 x:Key="ShowPWIconCol">4</sys:Int32>
+        <!-- Colours -->
+        <SolidColorBrush  x:Key="BackgroundColour">White</SolidColorBrush>
+        <SolidColorBrush  x:Key="ForegroundColour">Black</SolidColorBrush>
+        <SolidColorBrush  x:Key="WaterMarkForegroundColour">LightGray</SolidColorBrush>
+
+        <!-- Converter, this handles the textbox font size relative to its height -->
+        <local:ConverterHeightToFontSize x:Key="HeightConverter"/>
+        <!-- Converters, converts a bool to a visibility-->
+        <local:ConverterBoolToVisibility x:Key="BoolToVisibilityConverter" IsReversed="False"></local:ConverterBoolToVisibility>
+        <local:ConverterBoolToVisibility x:Key="ReversedBoolToVisibilityConverter" IsReversed="True"></local:ConverterBoolToVisibility>
+        <!-- Converter, used to zero out GridLengths -->
+        <local:ConverterBoolToGridLength x:Key="BoolToGridLengthConverter"></local:ConverterBoolToGridLength>
+
+    </UserControl.Resources>
+
+    <Grid Background="Transparent">
+        <!-- Use a Border to give the rounded effect -->
+        <Border BorderThickness="0" 
+                Background="{StaticResource BackgroundColour}"
+                CornerRadius="8"
+                Padding="4">
+
+            <!-- Layout the internal controls, allowing for borders -->
+            <Grid Background="{StaticResource BackgroundColour}" >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="{StaticResource VerticalBorder}"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="{StaticResource VerticalBorder}"></RowDefinition>
+                </Grid.RowDefinitions>
+
+                <!-- Note: the PART_SpaceColumn width is dynamically changed at runtime -->
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="{StaticResource HorizonatalBorder}"></ColumnDefinition>
+                    <ColumnDefinition Name="PART_LabelColumn" Width="auto"></ColumnDefinition>
+                    <ColumnDefinition Name="PART_SpaceColumn" Width="auto"></ColumnDefinition>
+                    <ColumnDefinition Name="PART_EditBoxColumn" Width="*"></ColumnDefinition>
+                    <ColumnDefinition Name="PART_IconColumn" Width="auto"></ColumnDefinition>
+                    <ColumnDefinition Width="{StaticResource HorizonatalBorderEnd}"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+
+                <!-- Viewbox is used to auto size the Label -->
+                <!-- Note that a ViewBox cannot be used to contain the edit text or password, this -->
+                <!-- is because we want edit text and password to scroll, and ViewBox will not allow that-->
+                <Viewbox x:Name="PART_ViewLabel" Grid.Row="1" Grid.Column="{StaticResource LabelCol}" HorizontalAlignment="Left" VerticalAlignment="Center">
+                    <Label x:Name="PART_Label"
+                        Content="{Binding Path=LabelContent, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}}" 
+                        Background="{StaticResource BackgroundColour}" 
+                        Foreground="{StaticResource ForegroundColour}">
+                    </Label>
+                </Viewbox>
+
+                <!-- This control is used to display a Watermark, this is done by changing the forground of the -->
+                <!-- watermark text based on the contents of the text fields -->
+                <TextBox x:Name="PART_WaterMark" 
+                    Grid.Row="1" 
+                    Grid.Column="{StaticResource EditBoxCol}"
+                    Focusable="False"
+                    VerticalContentAlignment="Center"
+                    BorderThickness="0"
+                    Visibility="Visible"
+                    IsTabStop="False"
+                    Text="{Binding Path=WaterMark, UpdateSourceTrigger=PropertyChanged, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}}" 
+                    Background="{StaticResource BackgroundColour}" 
+                    Foreground="{Binding Path=WaterMarkColor, UpdateSourceTrigger=PropertyChanged, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}}"
+                    FontSize="{Binding RelativeSource={RelativeSource Self}, Path=ActualHeight ,Converter={StaticResource HeightConverter}, ConverterParameter=FontSize}"
+                    Height="{Binding Height, ElementName=PART_ViewLabel}">
+                </TextBox>
+                
+                <!-- Our internal Textbox that allows the user to enter stuff, note that the font size & visibility is controlled by converters -->
+                <!-- FontSize and height linked to PART_Label -->
+                <TextBox x:Name="PART_TextBox" 
+                    Grid.Row="1" 
+                    Grid.Column="{StaticResource EditBoxCol}"
+                    VerticalContentAlignment="Center"
+                    BorderThickness="0"
+                    Visibility="{Binding Path=IsPasswordField, RelativeSource={RelativeSource Mode=FindAncestor,AncestorType={x:Type UserControl}}, Converter={StaticResource ReversedBoolToVisibilityConverter}}"
+                    Text="{Binding Path=TextBoxText, UpdateSourceTrigger=PropertyChanged, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}}" 
+                    TextChanged="OnTextChanged"
+                    PreviewKeyDown="OnPreviewKeyDown"
+                    Background="Transparent" 
+                    MaxLength="{Binding Path=MaxLength, UpdateSourceTrigger=PropertyChanged, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}}"
+                    Foreground="{StaticResource ForegroundColour}"
+                    FontSize="{Binding RelativeSource={RelativeSource Self}, Path=ActualHeight ,Converter={StaticResource HeightConverter}, ConverterParameter=FontSize}"
+                    Height="{Binding Height, ElementName=PART_ViewLabel}">
+                </TextBox>
+
+                <!--Background="{StaticResource BackgroundColour}" -->
+                <!-- Our internal PasswordBox that allows the user to enter a password, note that the font size & visibility is controlled by converters -->
+                <!-- Note that it is not possible to bind the Password-->
+                <PasswordBox x:Name="PART_PasswordBox" 
+                    Grid.Row="1" 
+                    Grid.Column="{StaticResource EditBoxCol}"
+                    VerticalContentAlignment="Center"
+                    BorderThickness="0" 
+                    Visibility="{Binding Path=IsPasswordField, RelativeSource={RelativeSource Mode=FindAncestor,AncestorType={x:Type UserControl}}, Converter={StaticResource BoolToVisibilityConverter}}"
+                    Background="Transparent" 
+                    Foreground="{StaticResource ForegroundColour}"
+                    PasswordChanged="OnPasswordChanged"
+                    PreviewKeyDown="OnPreviewKeyDown"
+                    PasswordChar="⁎"  
+                    MaxLength="{Binding Path=MaxLength, UpdateSourceTrigger=PropertyChanged, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}}"
+                    FontSize="{Binding RelativeSource={RelativeSource Self}, Path=ActualHeight ,Converter={StaticResource HeightConverter}, ConverterParameter=FontSize}"
+                    Height="{Binding Height, ElementName=PART_ViewLabel}">
+                </PasswordBox>
+                
+                <!-- This Grid holds our reveal/toggle password image, it is hidden when this ctrl is not a password -->
+                <Grid Grid.Row="1" 
+                      Grid.Column="{StaticResource ShowPWIconCol}" 
+                      Visibility="{Binding Path=IsPasswordField, RelativeSource={RelativeSource Mode=FindAncestor,AncestorType={x:Type UserControl}}, Converter={StaticResource BoolToVisibilityConverter}}">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"></RowDefinition>
+                        <RowDefinition Height="1.5*"></RowDefinition>
+                        <RowDefinition Height="*"></RowDefinition>
+                    </Grid.RowDefinitions>
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="{StaticResource HorizonatalBorderEnd}"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="1.5*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+
+                    <!-- Our reveal  image, this changes depending if the user has clicked on it or not-->
+                    <Image  x:Name="PART_RevealImage"
+                            Source="Images/PasswordHidden.png" 
+                            Visibility="{Binding Path=IsPasswordField, RelativeSource={RelativeSource Mode=FindAncestor,AncestorType={x:Type UserControl}}, Converter={StaticResource BoolToVisibilityConverter}}"
+                            PreviewMouseDown="OnImagePreviewMouseDown"
+                            Stretch="UniformToFill"  
+                            Grid.Row="1" 
+                            Grid.Column="2">
+                    </Image>
+                </Grid>
+            </Grid>
+        </Border>
+    </Grid>
+</UserControl>

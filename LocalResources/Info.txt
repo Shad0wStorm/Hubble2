@@ -1,0 +1,46 @@
+﻿This project acts as a repository for all localised text resources across the
+various FORC client components.
+
+The aim is to reduce the number of language DLLs shipped and have a more
+obvious process for maintaining the localised resources. Currently each project
+has local resources which can lead to duplication and makes getting updated
+text localised more difficult.
+
+The disadvantage is that we maybe providing localisation strings for components
+that are not actually required.
+
+PLAN
+
+Potentially provide a C# tool to manage conversion between the source
+spreadsheet, the resx file(s) actually compiled into the application as well as
+exporting/importing changes to a second spreadsheet that can be sent out for
+localisation reducing the need to hunt through the source spreadsheet for
+changes.
+
+This could optionally allow subsets of the projects to be included to reduce
+the impact of unwanted strings being released.
+
+Operations:
+
+1) Convert
+Take the contents of the source spreadsheet and ensure they are included in the
+resx file and any language specific resx files. Retain check for resources in
+the resx file that have not originated in the spreadsheet. There should be none
+of these, image resources continue to be language independent and stored in
+the individual project resx files. This will however spot a case where a
+developer adds a new resource directly into the resx file rather than adding it
+to the spreadsheet and converting.
+
+2) Export
+Take the contents of the source spreadsheet and create a new spreadsheet
+containing any entries for which the text has changed and/or one or more
+languages does not have a translation. May need a mechanism in the source
+spreadsheet to indicate that a given resource does not require localisation and
+should not therefore be included in the export spreadsheet. Also store the hash
+of the english version in the source spreadsheet so we can detect when a value
+is out of date and whether the content changes between export and import.
+
+3) Import
+Update the contents of the source spreadsheet from the contents of the imported
+spreadsheet, which should be an updated version of the Export spreadsheet.
+

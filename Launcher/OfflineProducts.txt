@@ -1,0 +1,20 @@
+Extend VersionInfo.txt to include a value indicating a Project can be used
+offline. Also a page reference for a UI front end.
+
+Offline Projects will always be in the list of Available Products.
+
+Project Runner will check for offline projects and run them without the
+magic options used for security. This means that if the user modifies the
+versioninfo.txt file to say a project is offline when it is not it would appear
+but running it would fail to provide the necessary information and it would
+fail on start up. It also tidies up some issues with the original
+mplementation where language options etc. would not be passed to the started
+game.
+
+CobraBay needs to manage an active project and select it from the available
+projects.
+
+How do we handle logging on when an offline project is selected since the play
+button will be displayed rather than the log in button.
+
+How do we select which of the available projects are selected.

@@ -1,0 +1,67 @@
+﻿<!--
+//! Copyright(c) 2022 Frontier Development Plc
+//
+//! VersionsPage, allows a user to select a game
+//
+//! Author:     Alan MacAree
+//! Created:    11 Nov 2022
+-->
+    
+<Page x:Class="Launcher.VersionsPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:resx="clr-namespace:LocalResources.Properties;assembly=LocalResources"
+      xmlns:local="clr-namespace:Launcher"
+      xmlns:sys="clr-namespace:System;assembly=mscorlib"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="VersionsPage">
+
+    <Page.Resources>
+        <!-- Font Size-->
+        <sys:Double x:Key="ButtonFontSize">20</sys:Double>
+    </Page.Resources>
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0"></ColumnDefinition>
+            <ColumnDefinition Width="10*"></ColumnDefinition>
+            <ColumnDefinition Width="0"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="2*"></RowDefinition>
+            <RowDefinition Height="10*"></RowDefinition>
+            <RowDefinition Height="2*"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <!-- ProjectSelectionUserCtrl where all available games that the user owns is displayed -->
+        <local:ProjectSelectionUserCtrl x:Name="PART_ProjectSelectionUserCtrl"
+                                                Grid.Column="1" 
+                                                Grid.Row="1"
+                                                HorizontalAlignment="Center">
+        </local:ProjectSelectionUserCtrl>
+
+        <!-- Back button -->
+        <Grid Grid.Row="2" Grid.Column="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="2*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="3*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+            </Grid.RowDefinitions>
+
+            <Button Content="{x:Static resx:Resources.BTNT_Back}" 
+                        Grid.Row="1" 
+                        Grid.Column="1"
+                        FontSize="{StaticResource ButtonFontSize}"
+                        Click="OnBackClick">
+            </Button>
+        </Grid>
+    </Grid>
+</Page>

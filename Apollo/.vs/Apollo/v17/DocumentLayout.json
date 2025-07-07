@@ -1,0 +1,94 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "G:\\GitLab Repo\\EDLauncher\\Src\\Apollo\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{CA7306E9-FB90-4D49-A59F-422468167ABB}|Launcher\\Launcher.csproj|g:\\gitlab repo\\edlauncher\\src\\apollo\\launcher\\productuserctrl.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{CA7306E9-FB90-4D49-A59F-422468167ABB}|Launcher\\Launcher.csproj|solutionrelative:launcher\\productuserctrl.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CA7306E9-FB90-4D49-A59F-422468167ABB}|Launcher\\Launcher.csproj|g:\\gitlab repo\\edlauncher\\src\\apollo\\launcher\\frontpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{CA7306E9-FB90-4D49-A59F-422468167ABB}|Launcher\\Launcher.csproj|solutionrelative:launcher\\frontpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CA7306E9-FB90-4D49-A59F-422468167ABB}|Launcher\\Launcher.csproj|g:\\gitlab repo\\edlauncher\\src\\apollo\\launcher\\homeloginpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{CA7306E9-FB90-4D49-A59F-422468167ABB}|Launcher\\Launcher.csproj|solutionrelative:launcher\\homeloginpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 3,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:1:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{40ea2e6b-2121-4bb8-a43e-c83c04b51041}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ProductUserCtrl.xaml",
+              "DocumentMoniker": "G:\\GitLab Repo\\EDLauncher\\Src\\Apollo\\Launcher\\ProductUserCtrl.xaml",
+              "RelativeDocumentMoniker": "Launcher\\ProductUserCtrl.xaml",
+              "ToolTip": "G:\\GitLab Repo\\EDLauncher\\Src\\Apollo\\Launcher\\ProductUserCtrl.xaml",
+              "RelativeToolTip": "Launcher\\ProductUserCtrl.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-03-20T14:36:15.846Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "FrontPage.xaml",
+              "DocumentMoniker": "G:\\GitLab Repo\\EDLauncher\\Src\\Apollo\\Launcher\\FrontPage.xaml",
+              "RelativeDocumentMoniker": "Launcher\\FrontPage.xaml",
+              "ToolTip": "G:\\GitLab Repo\\EDLauncher\\Src\\Apollo\\Launcher\\FrontPage.xaml",
+              "RelativeToolTip": "Launcher\\FrontPage.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-03-20T14:35:19.752Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "HomeLoginPage.xaml",
+              "DocumentMoniker": "G:\\GitLab Repo\\EDLauncher\\Src\\Apollo\\Launcher\\HomeLoginPage.xaml",
+              "RelativeDocumentMoniker": "Launcher\\HomeLoginPage.xaml",
+              "ToolTip": "G:\\GitLab Repo\\EDLauncher\\Src\\Apollo\\Launcher\\HomeLoginPage.xaml",
+              "RelativeToolTip": "Launcher\\HomeLoginPage.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-03-20T14:33:42.701Z",
+              "EditorCaption": ""
+            }
+          ]
+        },
+        {
+          "DockedWidth": 1858,
+          "SelectedChildIndex": -1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

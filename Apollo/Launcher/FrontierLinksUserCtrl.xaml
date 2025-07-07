@@ -1,0 +1,68 @@
+﻿<!--
+//! Copyright(c) 2022 Frontier Development Plc
+//
+//! FrontierLinksCtrl
+//
+//! Author:     Alan MacAree
+//! Created:    11 Nov 2022
+-->
+    
+<UserControl x:Class="Launcher.FrontierLinksCtrl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:resx="clr-namespace:LocalResources.Properties;assembly=LocalResources"
+             xmlns:local="clr-namespace:Launcher"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+
+    <UserControl.Resources>
+        <!-- Gaps -->
+        <GridLength x:Key="VirtualGap">5</GridLength>
+    </UserControl.Resources>
+    
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="{StaticResource VirtualGap}"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="{StaticResource VirtualGap}"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="{StaticResource VirtualGap}"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <!-- Frontier Store Links-->
+        <local:LinkPackageUserCtrl x:Name="PART_TutorialsPackageUserCtrl"
+                                  Grid.Row="0"
+                                  Title="{x:Static resx:Resources.TITLE_Tutorials}"
+                                  Instructions="{x:Static resx:Resources.TXT_BrowseTutorialsNote}"
+                                  ButtonText="{x:Static resx:Resources.BTNT_BrowseTutorials}">
+        </local:LinkPackageUserCtrl>
+        
+        <!-- Frontier Store Links-->
+        <local:LinkPackageUserCtrl x:Name="PART_FSLinkPackageUserCtrl"
+                                  Grid.Row="2"
+                                  Title="{x:Static resx:Resources.TITLE_FrontierStore}"
+                                  Instructions="{x:Static resx:Resources.TXT_BrowseFrontierStoreNote}"
+                                  ButtonText="{x:Static resx:Resources.BTNT_BrowseStore}">
+        </local:LinkPackageUserCtrl>
+        
+        <!-- MY Account -->
+        <local:LinkPackageUserCtrl x:Name="PART_MyAccountPackageUserCtrl"
+                                  Grid.Row="4"
+                                  Title="{x:Static resx:Resources.TITLE_MyAccount}"
+                                  Instructions="{x:Static resx:Resources.TXT_MyAccountNote}"
+                                  ButtonText="{x:Static resx:Resources.BTNT_MyAccount}">
+        </local:LinkPackageUserCtrl>
+        
+        <!-- Elite Forums -->
+        <local:LinkPackageUserCtrl x:Name="PART_EFLinkPackageUserCtrl"
+                                  Grid.Row="6"
+                                  Title="{x:Static resx:Resources.TITLE_EliteForums}"
+                                  Instructions="{x:Static resx:Resources.TXT_JoinEliteForumsNote}"
+                                  ButtonText="{x:Static resx:Resources.BTNT_GotoForums}">
+        </local:LinkPackageUserCtrl>
+    </Grid>
+</UserControl>

@@ -1,0 +1,64 @@
+﻿<!--
+//! Copyright(c) 2022 Frontier Development Plc
+//
+//! Default Hyperlink Style
+//
+//! Author:     Alan MacAree
+//! Created:    08 Sep 2022
+-->
+    
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+                    xmlns:sys="clr-namespace:System;assembly=mscorlib">
+
+    <!-- HyperLink Colour -->
+    <SolidColorBrush  x:Key="HLNormalColour">#B4956D</SolidColorBrush>
+    <SolidColorBrush  x:Key="HLMouseOverColour">#FFFFFF</SolidColorBrush>
+    <SolidColorBrush  x:Key="HLDisabledColour">#9E9E9E</SolidColorBrush>
+
+    <!-- Normal Text Font -->
+    <FontFamily x:Key="NormaltextFont">pack://application:,,,/Fonts/#Sintony Regular</FontFamily>
+
+    <!-- Normal Text Font Size-->
+    <sys:Double x:Key="NormalTextFontSize">16</sys:Double> 
+
+    <Style TargetType="{x:Type Hyperlink}" x:Key="HyperLinkNormalTextStyle">
+        <Setter Property="FontSize" Value="{StaticResource NormalTextFontSize}"></Setter>
+        <!-- <Setter Property="FontFamily" Value="{StaticResource SINTONYREGULAR}"></Setter>-->
+    </Style>
+
+    <Style TargetType="{x:Type Hyperlink}" BasedOn="{StaticResource HyperLinkNormalTextStyle}">
+        <Setter Property="Foreground" Value="{StaticResource HLNormalColour}"></Setter>
+
+        <Style.Triggers>
+            <!-- Mouse Over & Enabled -->
+            <MultiTrigger>
+                <MultiTrigger.Conditions>
+                    <Condition Property="IsMouseOver" Value="True"></Condition>
+                    <Condition Property="IsEnabled" Value="True"></Condition>
+                </MultiTrigger.Conditions>
+                <MultiTrigger.Setters>
+                    <Setter Property="Foreground" Value="{StaticResource HLMouseOverColour}"></Setter>
+                </MultiTrigger.Setters>
+            </MultiTrigger>
+            
+            <!-- Has focus, enabled, but no mouse over -->
+            <MultiTrigger>
+                <MultiTrigger.Conditions>
+                    <Condition Property="IsMouseOver" Value="False"></Condition>
+                    <Condition Property="IsEnabled" Value="True"></Condition>
+                    <Condition Property="IsKeyboardFocused" Value="True"></Condition>
+                </MultiTrigger.Conditions>
+                <MultiTrigger.Setters>
+                    <Setter Property="Foreground" Value="{StaticResource HLMouseOverColour}"></Setter>
+                </MultiTrigger.Setters>
+            </MultiTrigger>
+            
+            <!-- Disabled -->
+            <Trigger Property="IsEnabled" Value="False" >
+                <Setter Property="Foreground" Value="{StaticResource HLDisabledColour}"></Setter>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+     
+</ResourceDictionary>   

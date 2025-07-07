@@ -1,0 +1,15 @@
+echo Copying WatchDog
+Copy  "$(SolutionDir)Release\WatchDog.exe"  "$(TargetDir)"
+Copy  "$(SolutionDir)x64\64 bit tools\WatchDog.exe"  "$(TargetDir)\WatchDog64.exe"
+echo Copying HardwareReporter
+Copy "$(SolutionDir)..\HardwareReporter\bin\$(ConfigurationName)\HardwareReporter.exe" "$(TargetDir)"
+Copy "$(SolutionDir)..\HardwareReporter\bin\$(ConfigurationName)\HardwareReporter.exe.config" "$(TargetDir)"
+echo Copying CrashReporter
+Copy "$(SolutionDir)..\CrashReporter\bin\$(ConfigurationName)\CrashReporter.exe" "$(TargetDir)"
+Copy "$(SolutionDir)..\CrashReporter\bin\$(ConfigurationName)\CrashReporter.exe.config" "$(TargetDir)"
+echo Copying MachineIdentifier
+Copy "$(SolutionDir)..\MachineIdentifier\bin\$(ConfigurationName)\MachineIdentifier.exe" "$(TargetDir)
+Copy "$(SolutionDir)..\MachineIdentifier\bin\$(ConfigurationName)\MachineIdentifier.exe.config" "$(TargetDir)"
+echo Copying ExternalDependencies
+Copy "$(SolutionDir)..\..\..\External\SteamSDK\redistributable_bin\win64\steam_api64.dll" "$(TargetDir)"
+xcopy "$(SolutionDir)..\..\..\External\directx_Jun2010_redist" "$(TargetDir)directx_redist"   /y /e /i

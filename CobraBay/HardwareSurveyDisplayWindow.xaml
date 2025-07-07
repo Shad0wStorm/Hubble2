@@ -1,0 +1,33 @@
+﻿<Window x:Class="CobraBay.HardwareSurveyDisplayWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:resx="clr-namespace:LocalResources.Properties;assembly=LocalResources"
+        Title="{x:Static resx:Resources.DHS_Title}" Height="300" Width="400">
+    <Window.Resources>
+        <Style TargetType="TextBox">
+            <Setter Property="Foreground" Value="#DDD"/>
+            <Setter Property="Background" Value="#111"/>
+            <Setter Property="BorderBrush" Value="Transparent"/>
+            <Setter Property="BorderThickness" Value="0"/>
+        </Style>
+    </Window.Resources>
+    <Grid Background="Black">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Border Grid.Row="0" BorderBrush="OrangeRed" BorderThickness="1" Padding="4" Margin="4">
+            <TextBox Text="{Binding ViewModel.HardwareDescription}" IsReadOnly="True"
+                     HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto"/>
+        </Border>
+        <Grid Grid.Row="1" Margin="4" Grid.IsSharedSizeScope="True">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" SharedSizeGroup="Buttons"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto" SharedSizeGroup="Buttons"/>
+            </Grid.ColumnDefinitions>
+            <Button Grid.Column="0" Content="{x:Static resx:Resources.DHS_Copy}" Click="OnCopy"/>
+            <Button Grid.Column="2" Content="{x:Static resx:Resources.DHS_Done}" Click="OnClose"/>
+        </Grid>
+    </Grid>
+</Window>

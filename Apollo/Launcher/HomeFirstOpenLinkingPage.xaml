@@ -1,0 +1,103 @@
+﻿<!--
+//! Copyright(c) 2022 Frontier Development Plc
+//
+//! HomeFirstOpenLinkingPage, displayed during the process of linking a
+//! a store account with an FD account
+//
+//! Author:     Alan MacAree
+//! Created:    27 Nov 2022
+-->
+    
+<Page x:Class="Launcher.HomeFirstOpenLinkingPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:pl="clr-namespace:Launcher.Styles"
+      xmlns:resx="clr-namespace:LocalResources.Properties;assembly=LocalResources"
+      xmlns:fduc="clr-namespace:FDUserControls;assembly=FDUserControls"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="HomeFirstOpenLinking">
+
+    <Page.Resources>
+        <!-- Standard Gaps -->
+        <GridLength x:Key="VerticalBorder">5</GridLength>
+    </Page.Resources>
+
+    <!-- Use the MainPageLayout to setup the page-->
+    <pl:MainPageLayout>
+
+        <!-- Use the MainPageLayout to setup the page-->
+        <pl:MainPageLayout.Content>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.5*"></ColumnDefinition>
+                    <ColumnDefinition Width="3*"></ColumnDefinition>
+                    <ColumnDefinition Width="0.5*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="0.5*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="0.5*"></RowDefinition>
+                    <RowDefinition Height="0.5*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="3*"></RowDefinition>
+
+                </Grid.RowDefinitions>
+
+                <!-- Title -->
+                <Viewbox Grid.Row="2"
+                         Grid.Column="1">
+                    <TextBlock x:Name="PART_TitleLinking"
+                               HorizontalAlignment="Center"
+                               Style="{StaticResource TitleTextBlock}">
+                    </TextBlock>
+                </Viewbox>
+                
+                <!-- Please wait... -->
+                <Viewbox Grid.Row="3" 
+                         Grid.Column="1">
+                    <Label Content="{x:Static resx:Resources.MSG_PleaseWait}" 
+                           Style="{StaticResource NormalTextLabel}" 
+                           HorizontalAlignment="Center" 
+                           VerticalAlignment="Center">
+                    </Label>
+                </Viewbox>
+
+                <!-- Logos & Wait Spinner-->
+                <Grid Grid.Row="5" 
+                      Grid.Column="1">
+                    
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="2*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="2*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+
+                    <Image Source="Images\FrontierLogo.png" 
+                           Grid.Column="1"
+                           Stretch="Uniform">
+                    </Image>
+
+                    <fduc:WaitUserCtrl x:Name="PART_WaitSpinner" 
+                                           Margin="10" 
+                                           Grid.Column="2"  
+                                           BlobsOuterColour="White" 
+                                           BlobsBackground="White"
+                                           BlobsOuterThickness="0.8" >
+                    </fduc:WaitUserCtrl>
+
+                    <!-- The store logo, replaced at runtime -->
+                    <Image x:Name="PART_StoreImage"
+                           Grid.Column="3"
+                           Stretch="Uniform">
+                    </Image>
+                </Grid>
+            </Grid>
+        </pl:MainPageLayout.Content>
+    </pl:MainPageLayout>
+</Page>

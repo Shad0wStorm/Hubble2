@@ -1,0 +1,247 @@
+﻿<!--
+//! Copyright(c) 2022 Frontier Development Plc
+//
+//! Home Login Page 
+//
+//! Author:     Alan MacAree
+//! Created:    02 Sept 2022
+-->
+
+<Page x:Class="Launcher.HomeLoginPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:pl="clr-namespace:Launcher.Styles"
+      xmlns:resx="clr-namespace:LocalResources.Properties;assembly=LocalResources"
+      xmlns:fduc="clr-namespace:FDUserControls;assembly=FDUserControls"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Loaded="OnPageLoaded"
+      Unloaded="OnPageUnloaded">
+
+    <Page.Resources>
+        <!-- Standard Gaps -->
+        <GridLength x:Key="VerticalBorder">5</GridLength>
+
+        <!-- Colours -->
+        <SolidColorBrush  x:Key="WaterMarkColour">LightGray</SolidColorBrush>
+
+        <!-- Converter, this handles the textbox font size relative to its height -->
+        <fduc:ConverterHeightToFontSize x:Key="HeightConverter"></fduc:ConverterHeightToFontSize>
+
+        <!-- Spinner blob colour -->
+        <SolidColorBrush  x:Key="BlobsNormalColour">#AAEDFF</SolidColorBrush>
+        <SolidColorBrush  x:Key="BlobsNormalOuterColour">White</SolidColorBrush>
+
+    </Page.Resources>
+    
+    <!-- Use the MainPageLayout to setup the page-->
+    <pl:MainPageLayout>
+        <!-- Display the page title -->
+        <pl:MainPageLayout.PageTitle>
+            <Label Content="{x:Static resx:Resources.LB_FrontierLogonTitle}" 
+                   Style="{StaticResource TitleLabel}" 
+                   HorizontalAlignment="Center" 
+                   VerticalAlignment="Center"></Label>
+        </pl:MainPageLayout.PageTitle>
+        <!-- Display the page sub title-->
+        <pl:MainPageLayout.PageSubTitle>
+            <Label Content="{x:Static resx:Resources.LB_FrontierLogonInstruct}" 
+                   Style="{StaticResource NormalTextLabel}" 
+                   HorizontalAlignment="Center" 
+                   VerticalAlignment="Center"></Label>
+        </pl:MainPageLayout.PageSubTitle>
+
+        <!-- Error Message, hidden unless we have an error -->
+        <!-- This is a copy of the Editbox's grid, so that the error
+             message is displayed in the correct location -->
+        <pl:MainPageLayout.RightArea>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1.5*"></RowDefinition>
+                    <RowDefinition Height="1.2*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                </Grid.RowDefinitions>
+
+                <!-- Sub grid to contain the EditBoxUserCtrls -->
+                <Grid Grid.Row="0" Grid.RowSpan="7">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="{StaticResource VerticalBorder}"></RowDefinition>
+                        <RowDefinition Height="*"></RowDefinition>
+                        <RowDefinition Height="{StaticResource VerticalBorder}"></RowDefinition>
+                        <RowDefinition Height="*"></RowDefinition>
+                    </Grid.RowDefinitions>
+
+                    <fduc:ErrorMessageUserCtrl x:Name="PART_ErrorMessageTB"  
+                                               Margin="5,5,5,5" 
+                                               IsTabStop="False"
+                                               Visibility="Hidden" 
+                                               Background="Transparent" 
+                                               ErrorMessage="{x:Static resx:Resources.TXT_Check}"
+                                               Grid.Row="1"
+                                               Grid.RowSpan="4">
+                    </fduc:ErrorMessageUserCtrl>
+                </Grid>
+            </Grid>
+        </pl:MainPageLayout.RightArea>
+        
+        <pl:MainPageLayout.Content>
+
+            <!-- Sub grid for the text and user controls -->
+            <!-- The values have been generated to match the ratios in the design for this page-->
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1.5*"></RowDefinition>
+                    <RowDefinition Height="1.2*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                </Grid.RowDefinitions>
+
+                <!-- Sub grid to contain the EditBoxUserCtrls -->
+                <Grid Grid.Row="0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="{StaticResource VerticalBorder}"></RowDefinition>
+                        <RowDefinition Height="*"></RowDefinition>
+                        <RowDefinition Height="{StaticResource VerticalBorder}"></RowDefinition>
+                        <RowDefinition Height="*"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="5*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+
+                    <!-- Add our EditBoxUserCtrls, the internals of these are aligned via C# code -->
+                    <fduc:EditBoxUserCtrl x:Name="PART_EmailEditBox" 
+                                      Grid.Column="1" 
+                                      Grid.Row="1" 
+                                      IsDefault="True" 
+                                      LabelContent="{x:Static resx:Resources.LB_Email}"
+                                      WaterMark="{x:Static resx:Resources.TXT_ExampleEmail}"
+                                      WaterMarkColor="{StaticResource WaterMarkColour}">
+                    </fduc:EditBoxUserCtrl>
+
+                    <fduc:EditBoxUserCtrl  x:Name="PART_PasswordEditBox" 
+                                       Grid.Column="1" 
+                                       Grid.Row="3" 
+                                       IsPasswordField="True" 
+                                       LabelContent="{x:Static resx:Resources.LB_Password}"
+                                       WaterMark="{x:Static resx:Resources.TXT_Example123}"
+                                       WaterMarkColor="{StaticResource WaterMarkColour}">
+                    </fduc:EditBoxUserCtrl>
+                </Grid>
+
+                <!-- Sub Grid to place the Remember me checkbox -->
+                <Grid Grid.Row="1" >
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"></RowDefinition>
+                        <RowDefinition Height="1.5*"></RowDefinition>
+                        <RowDefinition Height="*"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="0.7*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+
+                    <Viewbox Grid.Row="1" 
+                             Grid.Column="1" 
+                             HorizontalAlignment="Center">
+                        <CheckBox x:Name="PART_RememberMeCB" 
+                                  Content="{x:Static resx:Resources.IMGT_RememberMe}">
+                        </CheckBox>
+                    </Viewbox>
+                </Grid>
+
+                <!-- Sub Grid to place the login button, Wait and Errorbox-->
+                <Grid Grid.Row="2" >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="1.5*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+
+                    <Button x:Name="PART_LogInBtn" 
+                            Content="{x:Static resx:Resources.BTNT_Login}" 
+                            IsDefault="True" 
+                            Grid.Column="1" 
+                            Click="PART_LogInBtn_Click" 
+                            IsEnabled="False">
+                    </Button>
+
+                    <fduc:WaitUserCtrl x:Name="PART_WaitSpinner" 
+                                       Margin="5,5,5,5" 
+                                       Visibility="Hidden" 
+                                       Grid.Column="2" 
+                                       BlobsBackground="{StaticResource BlobsNormalColour}" 
+                                       BlobsOuterColour="{StaticResource BlobsNormalOuterColour}" 
+                                       BlobsOuterThickness="0.8"
+                                       IsTabStop="False">
+                    </fduc:WaitUserCtrl>
+
+                    </Grid>
+
+                <!-- Sub Grid that places the forgot password link -->
+                <Grid Grid.Row="3">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="{StaticResource VerticalBorder}"></RowDefinition>
+                        <RowDefinition Height="*"></RowDefinition>
+                        <RowDefinition Height="{StaticResource VerticalBorder}"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="0.65*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+
+                    <Viewbox Grid.Row="1" Grid.Column="1">
+                        <TextBlock Width="Auto">
+                            <Hyperlink x:Name="PART_ForgotPasswordHL" 
+                                       NavigateUri="https://www.frontierstore.net/customer/account/forgotpassword/"
+                                       RequestNavigate="PART_ForgotPasswordHL_RequestNavigate">
+                                <Run Text="{x:Static resx:Resources.LW_ForgotPassword}"></Run>
+                            </Hyperlink>
+                        </TextBlock>
+                    </Viewbox>
+                </Grid>
+
+                <!-- Sub Grid to place the Signup link -->
+                <Grid Grid.Row="5">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="{StaticResource VerticalBorder}"></RowDefinition>
+                        <RowDefinition Height="*"></RowDefinition>
+                        <RowDefinition Height="{StaticResource VerticalBorder}"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="3*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+
+                    <Viewbox Grid.Row="1" Grid.Column="1">
+                        <TextBlock Width="Auto">
+                            <Hyperlink x:Name="PART_CreateAccHLL"
+                                       NavigateUri="https://api.zaonce.net/this/url/never/exists/"
+                                       RequestNavigate="OnPART_CreateAccHLL_RequestNavigate">
+                                <Run Text="{x:Static resx:Resources.LW_NoFDAccountSignUp}"></Run>
+                            </Hyperlink>
+                        </TextBlock>
+                    </Viewbox>
+
+                </Grid>
+
+            </Grid>
+        </pl:MainPageLayout.Content>
+
+    </pl:MainPageLayout>
+
+
+</Page>

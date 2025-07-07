@@ -1,0 +1,14 @@
+G:\GitLab Repo\EDLauncher\Src\Elevate\bin\Debug\Elevate.exe.config
+G:\GitLab Repo\EDLauncher\Src\Elevate\bin\Debug\Elevate.exe
+G:\GitLab Repo\EDLauncher\Src\Elevate\bin\Debug\Elevate.pdb
+G:\GitLab Repo\EDLauncher\Src\Elevate\obj\Debug\Elevate.csproj.AssemblyReference.cache
+G:\GitLab Repo\EDLauncher\Src\Elevate\obj\Debug\Elevate.csproj.CoreCompileInputs.cache
+G:\GitLab Repo\EDLauncher\Src\Elevate\obj\Debug\Elevate.exe
+G:\GitLab Repo\EDLauncher\Src\Elevate\obj\Debug\Elevate.pdb
+G:\GitLab Repo\QAEDLauncher\Hubble2\Elevate\bin\Debug\Elevate.exe.config
+G:\GitLab Repo\QAEDLauncher\Hubble2\Elevate\bin\Debug\Elevate.exe
+G:\GitLab Repo\QAEDLauncher\Hubble2\Elevate\bin\Debug\Elevate.pdb
+G:\GitLab Repo\QAEDLauncher\Hubble2\Elevate\obj\Debug\Elevate.csproj.AssemblyReference.cache
+G:\GitLab Repo\QAEDLauncher\Hubble2\Elevate\obj\Debug\Elevate.csproj.CoreCompileInputs.cache
+G:\GitLab Repo\QAEDLauncher\Hubble2\Elevate\obj\Debug\Elevate.exe
+G:\GitLab Repo\QAEDLauncher\Hubble2\Elevate\obj\Debug\Elevate.pdb

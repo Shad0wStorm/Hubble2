@@ -1,0 +1,79 @@
+﻿<!--
+//! Copyright(c) 2022 Frontier Development Plc
+//
+//! DownloadInfoUserCtrl, provides information about
+//                        the current download.
+//
+//! Author:     Alan MacAree
+//! Created:    07 Nov 2022
+-->
+
+<UserControl x:Class="Launcher.DownloadInfoUserCtrl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:sys="clr-namespace:System;assembly=mscorlib"
+             xmlns:fduc="clr-namespace:FDUserControls;assembly=FDUserControls"
+             xmlns:resx="clr-namespace:LocalResources.Properties;assembly=LocalResources"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+
+    <UserControl.Resources>
+        <!-- Grid Positions-->
+        <sys:Int32 x:Key="ActionRow">1</sys:Int32>
+        <sys:Int32 x:Key="AmountCompletedRow">3</sys:Int32>
+        <sys:Int32 x:Key="ETARow">5</sys:Int32>
+
+        <!-- Converter, calculates a percentage of a total -->
+        <fduc:ConverterValueToPercentage x:Key="ValueToPercentageConverter"></fduc:ConverterValueToPercentage>
+    </UserControl.Resources>
+    
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="2"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="2"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="2"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="2"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <!-- Action, what this is doing -->
+        <TextBlock Grid.Row="{StaticResource ActionRow}" 
+                   Text="{Binding Path=View.Monitor.Action}"
+                   Style="{StaticResource OrangeTextBlock}"
+                   FontWeight="Bold"
+                   HorizontalAlignment="Center">
+        </TextBlock>
+
+        <!-- Percent done and network speed -->
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Grid.Row="{StaticResource AmountCompletedRow}">
+            <TextBlock VerticalAlignment="Center" Foreground="White">
+                <TextBlock.Text >
+                    <MultiBinding Converter="{StaticResource ValueToPercentageConverter}" ConverterParameter="{x:Static resx:Resources.TXT_Complete}"  Mode="TwoWay">
+                        <Binding Path="View.Monitor.Secondary"></Binding>
+                        <Binding Path="View.Monitor.Total"></Binding>
+                    </MultiBinding>
+                </TextBlock.Text>
+            </TextBlock>
+            <TextBlock Text="{Binding Path=View.Monitor.ProgressRateMB, StringFormat={}{0:0.00} MBps}" 
+                       VerticalAlignment="Center"
+                       Foreground="White">
+            </TextBlock>
+        </StackPanel>
+
+        <!-- Esitmated time to complete -->
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Grid.Row="{StaticResource ETARow}">
+
+            <TextBlock Grid.Row="{StaticResource ETARow}" 
+                   Text="{Binding Path=View.Monitor.ProgressETE, StringFormat={x:Static resx:Resources.MSG_ESTTime}}"
+                   Foreground="LightGray"
+                   HorizontalAlignment="Center">
+            </TextBlock>
+        </StackPanel>
+
+
+    </Grid>
+</UserControl>

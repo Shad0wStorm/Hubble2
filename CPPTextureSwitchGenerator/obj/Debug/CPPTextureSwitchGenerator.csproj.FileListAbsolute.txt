@@ -1,0 +1,14 @@
+G:\GitLab Repo\EDLauncher\Src\CPPTextureSwitchGenerator\bin\Debug\CPPTextureSwitchGenerator.exe.config
+G:\GitLab Repo\EDLauncher\Src\CPPTextureSwitchGenerator\bin\Debug\CPPTextureSwitchGenerator.exe
+G:\GitLab Repo\EDLauncher\Src\CPPTextureSwitchGenerator\bin\Debug\CPPTextureSwitchGenerator.pdb
+G:\GitLab Repo\EDLauncher\Src\CPPTextureSwitchGenerator\obj\Debug\CPPTextureSwitchGenerator.csproj.AssemblyReference.cache
+G:\GitLab Repo\EDLauncher\Src\CPPTextureSwitchGenerator\obj\Debug\CPPTextureSwitchGenerator.csproj.CoreCompileInputs.cache
+G:\GitLab Repo\EDLauncher\Src\CPPTextureSwitchGenerator\obj\Debug\CPPTextureSwitchGenerator.exe
+G:\GitLab Repo\EDLauncher\Src\CPPTextureSwitchGenerator\obj\Debug\CPPTextureSwitchGenerator.pdb
+G:\GitLab Repo\QAEDLauncher\Hubble2\CPPTextureSwitchGenerator\bin\Debug\CPPTextureSwitchGenerator.exe.config
+G:\GitLab Repo\QAEDLauncher\Hubble2\CPPTextureSwitchGenerator\bin\Debug\CPPTextureSwitchGenerator.exe
+G:\GitLab Repo\QAEDLauncher\Hubble2\CPPTextureSwitchGenerator\bin\Debug\CPPTextureSwitchGenerator.pdb
+G:\GitLab Repo\QAEDLauncher\Hubble2\CPPTextureSwitchGenerator\obj\Debug\CPPTextureSwitchGenerator.csproj.AssemblyReference.cache
+G:\GitLab Repo\QAEDLauncher\Hubble2\CPPTextureSwitchGenerator\obj\Debug\CPPTextureSwitchGenerator.csproj.CoreCompileInputs.cache
+G:\GitLab Repo\QAEDLauncher\Hubble2\CPPTextureSwitchGenerator\obj\Debug\CPPTextureSwitchGenerator.exe
+G:\GitLab Repo\QAEDLauncher\Hubble2\CPPTextureSwitchGenerator\obj\Debug\CPPTextureSwitchGenerator.pdb

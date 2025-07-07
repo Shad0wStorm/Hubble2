@@ -1,0 +1,9 @@
+G:\ED Launchers\Src\Apollo\LauncherModel\obj\Debug\LauncherModel.csproj.AssemblyReference.cache
+G:\ED Launchers\Src\Apollo\LauncherModel\obj\Debug\LauncherModel.csproj.CoreCompileInputs.cache
+G:\GitLab Repo\EDLauncher\Src\Apollo\bin\Debug\LauncherModel.dll
+G:\GitLab Repo\EDLauncher\Src\Apollo\bin\Debug\LauncherModel.pdb
+G:\GitLab Repo\EDLauncher\Src\Apollo\LauncherModel\obj\Debug\LauncherModel.csproj.AssemblyReference.cache
+G:\GitLab Repo\EDLauncher\Src\Apollo\LauncherModel\obj\Debug\LauncherModel.csproj.CoreCompileInputs.cache
+G:\GitLab Repo\EDLauncher\Src\Apollo\LauncherModel\obj\Debug\Launcher.64173CC6.Up2Date
+G:\GitLab Repo\EDLauncher\Src\Apollo\LauncherModel\obj\Debug\LauncherModel.dll
+G:\GitLab Repo\EDLauncher\Src\Apollo\LauncherModel\obj\Debug\LauncherModel.pdb

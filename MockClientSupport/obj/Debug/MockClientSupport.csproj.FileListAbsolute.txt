@@ -1,0 +1,2 @@
+G:\GitLab Repo\EDLauncher\Src\MockClientSupport\obj\Debug\MockClientSupport.csproj.AssemblyReference.cache
+G:\GitLab Repo\EDLauncher\Src\MockClientSupport\obj\Debug\MockClientSupport.csproj.CoreCompileInputs.cache

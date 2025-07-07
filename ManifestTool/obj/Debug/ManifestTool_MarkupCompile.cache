@@ -1,0 +1,20 @@
+﻿ManifestTool
+
+
+winexe
+C#
+.cs
+G:\GitLab Repo\QAEDLauncher\Hubble2\ManifestTool\obj\Debug\
+ManifestTool
+none
+false
+DEBUG;TRACE
+G:\GitLab Repo\QAEDLauncher\Hubble2\ManifestTool\App.xaml
+5383524014
+
+191859119250
+121278725255
+AddProductWindow.xaml;ExportSettingsDialog.xaml;ManifestTool.xaml;ProgressWindow.xaml;TemporaryMessageBox.xaml;
+
+False
+

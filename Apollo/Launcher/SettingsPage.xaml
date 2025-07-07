@@ -1,0 +1,89 @@
+﻿<!--
+//! Copyright(c) 2022 Frontier Development Plc
+//
+//! Settings Page
+//
+//! Author:     Alan MacAree
+//! Created:    19 Aug 2022
+-->
+
+<Page x:Class="Launcher.SettingsPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:sys="clr-namespace:System;assembly=mscorlib"
+      xmlns:fduc="clr-namespace:FDUserControls;assembly=FDUserControls"
+      mc:Ignorable="d"
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="SettingsPage">
+
+    <Page.Resources>
+        <!-- List of Setting Buttons position in its sub Grid-->
+        <sys:Int32 x:Key="ChoicesCol">1</sys:Int32>
+
+        <!-- Separator size & Row Col within the main Grid)-->
+        <sys:Int32 x:Key="SeparatorCol">1</sys:Int32>
+        <sys:Int32 x:Key="SeparatorRow">1</sys:Int32>
+        <GridLength x:Key="SeparatorColWidth">10</GridLength>
+
+        <!-- Dynamic Content Row Col within its Sub Grid)-->
+        <sys:Int32 x:Key="DynamicCol">1</sys:Int32>
+        <sys:Int32 x:Key="DynamicRow">1</sys:Int32>
+    </Page.Resources>
+    
+    <!-- Main Grid to encapsulate both sides of the settings page -->
+    <Grid>
+        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="{StaticResource SeparatorColWidth}"></ColumnDefinition>
+            <ColumnDefinition x:Name="DynamicSettingsColumn" Width="1.25*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="80"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="60"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <!-- Sub grid to encapsulate Left side SettingsCtrl -->
+        <Grid Grid.Column="0" Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="2*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <!-- Our SettingsCtrl that displays a list of buttons for different settings -->
+            <fduc:SettingsCtrl x:Name="SettingsCtrl" 
+                               Grid.Column="{StaticResource ChoicesCol}" >
+            </fduc:SettingsCtrl>
+        </Grid>
+
+        <!-- A center line displayed down the page -->
+        <Separator Grid.Column="{StaticResource SeparatorCol}"
+                   Grid.Row="{StaticResource SeparatorRow}" 
+                   HorizontalAlignment="Center" >
+            <Separator.LayoutTransform>
+                <RotateTransform Angle="90" />
+            </Separator.LayoutTransform>
+        </Separator>
+
+        <!-- Sub grid to encapsulate Right side; this contents does change -->
+        <Grid Grid.Column="2" Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="8*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <Frame x:Name="DynSettingsFrame" 
+                   Grid.Column="{StaticResource DynamicCol}" 
+                   Grid.Row="{StaticResource DynamicRow}" 
+                   NavigationUIVisibility="Hidden">
+            </Frame>
+        </Grid>
+    </Grid>
+
+</Page>

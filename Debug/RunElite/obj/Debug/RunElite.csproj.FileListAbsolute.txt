@@ -1,0 +1,14 @@
+G:\GitLab Repo\EDLauncher\Src\Debug\RunElite\bin\Debug\RunElite.exe.config
+G:\GitLab Repo\EDLauncher\Src\Debug\RunElite\bin\Debug\RunElite.exe
+G:\GitLab Repo\EDLauncher\Src\Debug\RunElite\bin\Debug\RunElite.pdb
+G:\GitLab Repo\EDLauncher\Src\Debug\RunElite\obj\Debug\RunElite.csproj.AssemblyReference.cache
+G:\GitLab Repo\EDLauncher\Src\Debug\RunElite\obj\Debug\RunElite.csproj.CoreCompileInputs.cache
+G:\GitLab Repo\EDLauncher\Src\Debug\RunElite\obj\Debug\RunElite.exe
+G:\GitLab Repo\EDLauncher\Src\Debug\RunElite\obj\Debug\RunElite.pdb
+G:\GitLab Repo\QAEDLauncher\Hubble2\Debug\RunElite\bin\Debug\RunElite.exe.config
+G:\GitLab Repo\QAEDLauncher\Hubble2\Debug\RunElite\bin\Debug\RunElite.exe
+G:\GitLab Repo\QAEDLauncher\Hubble2\Debug\RunElite\bin\Debug\RunElite.pdb
+G:\GitLab Repo\QAEDLauncher\Hubble2\Debug\RunElite\obj\Debug\RunElite.csproj.AssemblyReference.cache
+G:\GitLab Repo\QAEDLauncher\Hubble2\Debug\RunElite\obj\Debug\RunElite.csproj.CoreCompileInputs.cache
+G:\GitLab Repo\QAEDLauncher\Hubble2\Debug\RunElite\obj\Debug\RunElite.exe
+G:\GitLab Repo\QAEDLauncher\Hubble2\Debug\RunElite\obj\Debug\RunElite.pdb

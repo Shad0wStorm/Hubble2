@@ -1,0 +1,138 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{06273C2B-0889-491C-96BD-9ECEBA4B401D}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>FORCServerSupport</RootNamespace>
+    <AssemblyName>FORCServerSupport</AssemblyName>
+    <TargetFrameworkVersion>v4.8.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;DEVELOPMENT</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Dev-Release|AnyCPU'">
+    <OutputPath>bin\Dev-Release\</OutputPath>
+    <DefineConstants>TRACE;DEVELOPMENT</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == '64 bit tools|AnyCPU'">
+    <OutputPath>bin\64 bit tools\</OutputPath>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Net.Http, Version=4.2.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\System.Net.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\Launcher\VersionInfo.cs">
+      <Link>VersionInfo.cs</Link>
+    </Compile>
+    <Compile Include="CMS Queries\ProductUpdateInfoQuery.cs" />
+    <Compile Include="CMSApiUri.cs" />
+    <Compile Include="CMSServerConnection.cs" />
+    <Compile Include="Consts.cs" />
+    <Compile Include="DeleteQueries\DeleteLinkAccounts.cs" />
+    <Compile Include="Elite Queries\CommunityGoalsQuery.cs" />
+    <Compile Include="Elite Queries\CommunityNewsQuery.cs" />
+    <Compile Include="Elite Queries\FeaturedProductsQuery.cs" />
+    <Compile Include="Elite Queries\GalnetNewsQuery.cs" />
+    <Compile Include="EliteApiUri.cs" />
+    <Compile Include="EliteServerConnection.cs" />
+    <Compile Include="FORCAuthorisationManager.cs" />
+    <Compile Include="FORCDownloadManager.cs" />
+    <Compile Include="FORCServerConnection.cs" />
+    <Compile Include="FORCServerState.cs" />
+    <Compile Include="FORCTelemetry.cs" />
+    <Compile Include="HexConverter.cs" />
+    <Compile Include="JSONWebPutAndPost.cs" />
+    <Compile Include="JSONWebQuery.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="PutsAndPosts\ConfirmFrontierAccountPut.cs" />
+    <Compile Include="PutsAndPosts\CreateAccountPost.cs" />
+    <Compile Include="PutsAndPosts\LinkAccountPost.cs" />
+    <Compile Include="PutsAndPosts\PasswordCheckPost.cs" />
+    <Compile Include="PutsAndPosts\RedeemCodePost.cs" />
+    <Compile Include="Queries\AttemptAcquireTokenQuery.cs" />
+    <Compile Include="Queries\AttemptLoginQuery.cs" />
+    <Compile Include="Queries\CheckTokenQuery.cs" />
+    <Compile Include="Queries\ClientVersionQuery.cs" />
+    <Compile Include="Queries\FeaturedProductsQuery.cs" />
+    <Compile Include="Queries\InstallerQuery.cs" />
+    <Compile Include="Queries\ProjectListQuery.cs" />
+    <Compile Include="Queries\RequestGameDescriptionQuery.cs" />
+    <Compile Include="Queries\RequestSessionTokenQuery.cs" />
+    <Compile Include="Queries\RequestSteamSessionTokenQuery.cs" />
+    <Compile Include="Queries\ServerStatusQuery.cs" />
+    <Compile Include="Queries\TimeStampQuery.cs" />
+    <Compile Include="TokenStorage.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ClientSupport\ClientSupport.csproj">
+      <Project>{af1c106b-86b4-4ad6-8176-3e8d246e50d0}</Project>
+      <Name>ClientSupport</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LocalResources\LocalResources.csproj">
+      <Project>{1f87a20a-4d94-4f1e-8187-541dbe749678}</Project>
+      <Name>LocalResources</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

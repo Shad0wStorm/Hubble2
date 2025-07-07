@@ -1,0 +1,96 @@
+﻿<!--
+//! Copyright(c) 2022 Frontier Development Plc
+//
+//! Product Main Button user Control
+//
+//! Author:     Alan MacAree
+//! Created:    20 Dec 2022
+-->
+    
+<UserControl x:Class="Launcher.ProductMainBtnsUserCtrl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Launcher"
+             xmlns:sys="clr-namespace:System;assembly=mscorlib"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+
+    <UserControl.Resources>
+        
+        <!-- Vertical Border Size -->
+        <GridLength x:Key="VerticalBorder">10</GridLength>
+        <GridLength x:Key="SeparatorVerticalGap">15</GridLength>
+
+        <!--Create some names to represent the cols, these are used within the C# code -->
+        <sys:Int32 x:Key="ButtonColumn">1</sys:Int32>
+
+        <!-- Font Size-->
+        <sys:Double x:Key="ManageButtonFontSize">20</sys:Double>
+        <sys:Double x:Key="SubButtonFontSize">20</sys:Double>
+    </UserControl.Resources>
+    
+    <!-- The Install and Button Grid -->
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="{StaticResource VerticalBorder}"></RowDefinition>
+            <RowDefinition Height="1.6*"></RowDefinition>
+            <RowDefinition Height="{StaticResource VerticalBorder}"></RowDefinition>
+            <RowDefinition Height="2*"></RowDefinition>
+            <RowDefinition Height="{StaticResource VerticalBorder}"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="{StaticResource SeparatorVerticalGap}"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="3*"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <Viewbox Grid.Row="1" 
+                 Grid.Column="0" 
+                  Grid.ColumnSpan="3">
+            <!-- Download Information -->
+            <local:DownloadInfoUserCtrl x:Name="PART_DownloadInfoUserCtrl" 
+                                            Grid.Row="1" 
+                                            Grid.Column="0" 
+                                            Grid.ColumnSpan="3">
+            </local:DownloadInfoUserCtrl>
+        </Viewbox>
+        
+        <!-- The big button, normally used for Pay/Install Etc -->
+        <Button x:Name="PART_BigBtn" 
+                Grid.Row="3" 
+                IsDefault="False" 
+                Grid.Column="{StaticResource ButtonColumn}" 
+                Click="PART_BigBtn_Click">
+        </Button>
+        
+        <!-- The Manage button -->
+        <Button x:Name="PART_ManageBtn" 
+                Grid.Row="5" 
+                FontSize="{StaticResource ManageButtonFontSize}"
+                IsDefault="False" 
+                Grid.Column="{StaticResource ButtonColumn}" 
+                Click="PART_ManageBtn_Click">
+        </Button>
+
+        <Separator Grid.Row="6" 
+                   Grid.Column="{StaticResource ButtonColumn}" 
+                   VerticalAlignment="Center" >
+        </Separator>
+        
+        <!-- Normally used for Versions -->
+        <Button x:Name="PART_SmallBtn" 
+                Grid.Row="7" 
+                FontSize="{StaticResource SubButtonFontSize}"
+                IsEnabled="True"  
+                Grid.Column="{StaticResource ButtonColumn}" 
+                Click="PART_SmallBtn_Click">
+        </Button>
+    </Grid>
+
+</UserControl>

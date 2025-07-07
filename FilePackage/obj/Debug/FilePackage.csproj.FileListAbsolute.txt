@@ -1,0 +1,12 @@
+G:\ED Launchers\Src\FilePackage\bin\Debug\FilePackage.dll
+G:\ED Launchers\Src\FilePackage\bin\Debug\FilePackage.pdb
+G:\ED Launchers\Src\FilePackage\obj\Debug\FilePackage.csproj.AssemblyReference.cache
+G:\ED Launchers\Src\FilePackage\obj\Debug\FilePackage.csproj.CoreCompileInputs.cache
+G:\ED Launchers\Src\FilePackage\obj\Debug\FilePackage.dll
+G:\ED Launchers\Src\FilePackage\obj\Debug\FilePackage.pdb
+G:\GitLab Repo\EDLauncher\Src\FilePackage\bin\Debug\FilePackage.dll
+G:\GitLab Repo\EDLauncher\Src\FilePackage\bin\Debug\FilePackage.pdb
+G:\GitLab Repo\EDLauncher\Src\FilePackage\obj\Debug\FilePackage.csproj.AssemblyReference.cache
+G:\GitLab Repo\EDLauncher\Src\FilePackage\obj\Debug\FilePackage.csproj.CoreCompileInputs.cache
+G:\GitLab Repo\EDLauncher\Src\FilePackage\obj\Debug\FilePackage.dll
+G:\GitLab Repo\EDLauncher\Src\FilePackage\obj\Debug\FilePackage.pdb

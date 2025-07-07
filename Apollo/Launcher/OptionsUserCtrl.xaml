@@ -1,0 +1,166 @@
+﻿<!--
+//! Copyright(c) 2022 Frontier Development Plc
+//
+//! OptionsUserCtrl, displays the setting options to the user
+//
+//! Author:     Alan MacAree
+//! Created:    15 Nov 2022
+-->
+    
+<UserControl x:Class="Launcher.OptionsUserCtrl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:resx="clr-namespace:LocalResources.Properties;assembly=LocalResources"
+             xmlns:sys="clr-namespace:System;assembly=mscorlib"
+             mc:Ignorable="d" 
+             Unloaded="OnUnloaded"
+             d:DesignHeight="450" d:DesignWidth="800">
+
+    <UserControl.Resources>
+        <!-- Positions -->
+        <sys:Int32 x:Key="TitleRow">1</sys:Int32>
+        <sys:Int32 x:Key="SubTitleRow">3</sys:Int32>
+        <sys:Int32 x:Key="ControlRow">5</sys:Int32>
+        
+        <sys:Int32 x:Key="DisplayColumn">1</sys:Int32>
+
+        <!-- Sub Grid Position -->
+        <sys:Int32 x:Key="CheckBoxRow">2</sys:Int32>
+        <sys:Int32 x:Key="HardwareBtnRow">6</sys:Int32>
+        <sys:Int32 x:Key="SeparatorRow">3</sys:Int32>
+
+        <!-- Grid Widths-->
+        <GridLength x:Key="GapWidthRatio">*</GridLength>
+        <GridLength x:Key="CheckBoxGapWidthRatio">0</GridLength>
+        <GridLength x:Key="TextWidthRatio">10*</GridLength>
+
+        <!-- Grid Heights-->
+        <GridLength x:Key="DisplayHeightRatio">5*</GridLength>
+        <GridLength x:Key="GapHeight">2*</GridLength>
+        <GridLength x:Key="CheckBoxGapHeight">25</GridLength>
+
+        <!-- Font Size-->
+        <sys:Double x:Key="ButtonFontSize">18</sys:Double>
+        <sys:Double x:Key="CheckBoxFontSize">16</sys:Double>
+    </UserControl.Resources>
+
+    <Grid ShowGridLines="False">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="{StaticResource GapHeight}"></RowDefinition>
+            <RowDefinition Height="{StaticResource DisplayHeightRatio}"></RowDefinition>
+            <RowDefinition Height="{StaticResource GapHeight}"></RowDefinition>
+            <RowDefinition Height="10*"></RowDefinition>
+            <RowDefinition Height="{StaticResource GapHeight}"></RowDefinition>
+            <RowDefinition Height="50*"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="{StaticResource GapWidthRatio}"></ColumnDefinition>
+            <ColumnDefinition Width="{StaticResource TextWidthRatio}"></ColumnDefinition>
+            <ColumnDefinition Width="{StaticResource GapWidthRatio}"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        
+        <!-- The Title -->
+        <Label Content="{x:Static resx:Resources.BTNT_SettingsOption}" 
+                Grid.Row="{StaticResource TitleRow}"
+                Grid.ColumnSpan="3"
+                Style="{StaticResource TitleLabel}"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center">
+        </Label>
+
+
+        <!-- Sub title -->
+        <TextBlock Grid.Row="{StaticResource SubTitleRow}"
+                   Grid.Column="{StaticResource DisplayColumn}"
+                   Text="{x:Static resx:Resources.TXT_OptionsNote}"
+                   Style="{StaticResource NormalWrappedTextBlock}"
+                   TextAlignment="Center"
+                   VerticalAlignment="Center">
+        </TextBlock>
+
+        <Grid Grid.Row="{StaticResource ControlRow}"  
+                Grid.Column="{StaticResource DisplayColumn}" ShowGridLines="false">
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0"></RowDefinition>
+                <RowDefinition Height="{StaticResource GapHeight}"></RowDefinition>
+                <RowDefinition Height="20*"></RowDefinition>
+                <RowDefinition Height="{StaticResource GapHeight}"></RowDefinition>
+                <RowDefinition Height="20"></RowDefinition>
+                <RowDefinition Height="{StaticResource GapHeight}"></RowDefinition>
+                <RowDefinition Height="{StaticResource DisplayHeightRatio}"></RowDefinition>
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="{StaticResource CheckBoxGapWidthRatio}"></ColumnDefinition>
+                <ColumnDefinition Width="{StaticResource TextWidthRatio}"></ColumnDefinition>
+                <ColumnDefinition Width="{StaticResource CheckBoxGapWidthRatio}"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <Viewbox Grid.Row="{StaticResource CheckBoxRow}"
+                    Grid.Column="{StaticResource DisplayColumn}"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center">
+                
+                <!-- CheckBox Grid -->
+                <Grid ShowGridLines="false" >
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="{StaticResource CheckBoxGapHeight}"></RowDefinition>
+                        <RowDefinition Height="*"></RowDefinition>
+                        <RowDefinition Height="{StaticResource CheckBoxGapHeight}"></RowDefinition>
+                        <RowDefinition Height="*"></RowDefinition>
+                        <RowDefinition Height="{StaticResource CheckBoxGapHeight}"></RowDefinition>
+                        <RowDefinition Height="*"></RowDefinition>
+                        <RowDefinition Height="{StaticResource CheckBoxGapHeight}"></RowDefinition>
+                        <RowDefinition Height="*"></RowDefinition>
+                        <RowDefinition Height="{StaticResource CheckBoxGapHeight}"></RowDefinition>
+                    </Grid.RowDefinitions>
+
+                    <!-- Multi Thread Download Option-->
+                    <CheckBox x:Name="PART_MultiThreadDownloadCB" 
+                            Content="{x:Static resx:Resources.MenuAlternativeDownload}" 
+                            FontSize="{StaticResource CheckBoxFontSize}"
+                            Grid.Row="1">
+                    </CheckBox>
+
+                    <!-- Cache Option-->
+                    <CheckBox x:Name="PART_CacheCheckCB" 
+                            Content="{x:Static resx:Resources.TXT_CacheCheck}" 
+                            FontSize="{StaticResource CheckBoxFontSize}"
+                            Grid.Row="3">
+                    </CheckBox>
+
+                    <!-- Virtual Cache Option-->
+                    <CheckBox x:Name="PART_VirtualCacheCB" 
+                            Content="{x:Static resx:Resources.TXT_VirtualCache}" 
+                            FontSize="{StaticResource CheckBoxFontSize}"
+                            Grid.Row="5">
+                    </CheckBox>
+
+                    <!-- Check For XInput Option-->
+                    <CheckBox x:Name="PART_CheckForXInputCB" 
+                            Content="{x:Static resx:Resources.MenuCheckForXInput}" 
+                            FontSize="{StaticResource CheckBoxFontSize}"
+                            Grid.Row="7">
+                    </CheckBox>
+                </Grid>
+            </Viewbox>
+            <Separator Grid.Row="{StaticResource SeparatorRow}"  
+                   Grid.Column="{StaticResource DisplayColumn}">
+            </Separator>
+            
+            <!-- Hardware Survey-->
+            <Button Content="{x:Static resx:Resources.BTNT_HardwareSurvey}"
+                Grid.Row="{StaticResource HardwareBtnRow}"  
+                Grid.Column="{StaticResource DisplayColumn}"
+                FontSize="{StaticResource ButtonFontSize}"
+                Click="OnHardwareSurveyClick">
+            </Button>
+
+        </Grid>
+
+    </Grid>
+</UserControl>

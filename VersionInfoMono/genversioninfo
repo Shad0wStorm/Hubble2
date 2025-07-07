@@ -1,0 +1,33 @@
+#!/bin/sh
+
+#Get to the root of the SVN repository.
+cd ../../..
+#Get whether there are local modifications.
+#We always specify the path of SVN as the one in /usr/bin is too old.
+/opt/subversion/bin/svn st | grep "^[^?]" && MODS=1 || MODS=0
+
+#Get whether there are mixed revisions.
+MIXED=0
+REGEX="[0-9]+"
+#Get the latest revision number.
+REV_STRING=`/opt/subversion/bin/svn info | grep "Revision"`
+[[ $REV_STRING =~ $REGEX ]]
+REV_NUM="${BASH_REMATCH[0]}"
+#Check if all files are on the latest revision number.
+FILE_LIST=`/opt/subversion/bin/svn st -v | grep "^[^?]"`
+UP_TO_DATE_FILE_LIST=`/opt/subversion/bin/svn st -v | grep "^[^?]" | grep "$REV_NUM"`
+if [ "$FILE_LIST" != "$UP_TO_DATE_FILE_LIST" ]
+then
+	MIXED=1
+fi
+
+echo "Revision Number = $REV_NUM"
+echo "Mixed = $MIXED"
+echo "Modified = $MODS"
+
+VERSION_STRING="0.4.${REV_NUM}.${MIXED}${MODS}"
+echo "$VERSION_STRING"
+
+#Update the version info CS file.
+cd Launcher/Src/Launcher
+sed "s/replaceme/$VERSION_STRING/g" VersionInfo_MacTemplate.cs >VersionInfo.cs

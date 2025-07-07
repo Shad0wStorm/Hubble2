@@ -1,0 +1,140 @@
+Command Line Interfaces
+=======================
+
+There are a number of different executables that perform subtasks on behalf
+of the Launcher. Some of these are command line only, others have additional
+user interface components. All are configured primarily via command line
+arguments.
+
+The main reason for this approach was to support cross platform development
+where some features may be significantly different. For example collecting the
+hardware survey is very different on Windows and OSX. Splitting out the task
+to a separate executable allows it to be modified more easily and reduces the
+platform specific code in the launcher itself. This is particularly important
+where features are only available on some platforms or machines.
+
+Launcher
+--------
+
+Details of the command line arguments supported by the launcher are included
+on the Elite Dangerous Wiki:
+
+http://elitedangerous.wiki.corp.frontier.co.uk/bin/view/Main/EDLaunch
+
+They must be set up when making a release of the game so the information is
+more generally available. This document focuses on the options used when other
+executables are started by the launcher.
+
+WatchDog
+--------
+
+WatchDog is a wrapper application originally intended to detect game crashes
+and save/upload a crash report when a crash is detected. WatchDog handles
+starting the game and collecting the report and passes control to the
+ReportUploader to actually upload the report. On Windows this is a C++
+application with separate builds for running 32 and 64 bit game executables.
+On OSX a bash script is used to make use of existing crash report collection
+facilities.
+
+The process is further complicated by the need for WatchDog to start both the
+game and, if necessary, the ReportUploader. The command line must also contain
+the arguments required by those applications. The game specific options
+(/Executable and /ExecutableArgs) are sent to the game. All options passed on
+the input command line are also copied to the command line when running the
+CrashReporter.
+
+/Executable <path>
+Sets the path to the executable file to be started to run the game.
+
+/ExecutableArgs <arguments>
+Sets the arguments which should be passed to the game executable on start up.
+The contents of <arguments> are dependent on the game executable and may
+overlap with the arguments passed to WatchDog. Both need the authorisation
+token used to allow access to the server for example.
+
+Note: If WatchDog is missing or disabled then the launcher will directly run
+<path> <arguments>
+
+/ExecutableHash <hash>
+The expected sha1 hash of the executable file taken from the manifest used to
+download the game. This is used to identify and block use of modified
+executables.
+
+/MachineToken <token>
+This is the machine specific authentication token obtained during the initial
+log in and account verification process. In general it will be the same between
+runs on the same machine unless revalidation occurs.
+
+/Version <version>
+This is the game version being run and is set from the versioninfo.txt in the
+project folder.
+
+/AuthToken <sessiontoken>
+The authentication for the current session. This will change each time the user
+logs in to the launcher, either manually or automatically if the "remember
+password" option is enabled on the log in dialog.
+
+/MachineId <identifier>
+This is the identifier allocated to the machine required to validate the
+<token> and <sessiontoken>.
+
+/Time <correctedtime>
+This is the approximate time the application is started as indicated by the
+server. Server time is only synchronised on launcher start up. Subsequent
+values are calculated based on local elapsed time. This allows the server to
+reject older requests with the aim of reducing packet duplication or replay
+attacks.
+
+CrashReporter
+-------------
+
+The CrashReporter uploads crash dumps as saved by WatchDog, or another
+application to the Frontier servers.
+
+As the CrashReporter communicates with the Frontier servers it needs the
+/MachineToken, /Version, /AuthToken, /MachineId and /Time options. The meaning
+is the same as the equivalent WatchDog arguments which will be passed directly
+through if it is WatchDog starting the CrashReporter.
+
+The following additional options are supported:
+
+/ApplicationPath <name>
+This is used to report the name of the failing application in the CrashReporter
+user interface. If <name> is a path then the file name component will be used,
+otherwise <name> is used unmodified.
+
+/DumpReport <path>
+This should be the full path to the crash dump to be uploaded to the server.
+The CrashReporter will package it up with other files such as the hardware
+specification and any feedback provided by the user.
+
+/TimeCorrection <duration>
+Since WatchDog does not use the time internally as it never connects to the
+server instead of parsing, modifying, regenerating the time it simply presents
+a duration for how long it was running before starting the CrashReporter.
+Other applications are free to calculate the corrected Time value and send that
+or send a base time and a correction.
+
+/ServerRoot <url>
+Specify the base path for uploads. The FORC api string will be appended to the
+base to generate the target URL. This allows testing of the CrashReporter with
+a non standard server, e.g. a server set up for testing new features.
+
+/BuildType <type>
+Specify the build type of the dump (Win32 or Win64).
+
+/AutoSend
+Do not provide the option to cancel the upload, but upload directly to the
+server as if the user had clicked the send button.
+
+/SkipCompress
+If this option is provided only the uncompressed crash dump will be uploaded to
+the server. Without this option the crash dump will be packaged in a zip file
+with the specs.xml (if available), user entered information and some generated
+summary details.
+
+/DebugBreak
+Trigger a debugger break in the CrashReporter executable when the option is
+parsed. Useful in debug builds during testing but should not be used for
+release.
+

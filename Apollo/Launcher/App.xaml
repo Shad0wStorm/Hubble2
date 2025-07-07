@@ -1,0 +1,45 @@
+﻿<!--
+//! Copyright(c) 2022 Frontier Development Plc
+//
+//! App
+//
+//! Author:     Alan MacAree
+//! Created:    22 Sept 2022
+-->
+    
+<Application x:Class="Launcher.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:sys="clr-namespace:System;assembly=mscorlib"
+             Startup="ApplicationStart"
+             Exit="ApplicationExit"
+             StartupUri="LauncherWindow.xaml">
+
+    <Application.Resources>
+
+        <ResourceDictionary>
+
+           
+            <!-- This includes our styles into the project -->
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Styles/WindowStyles.xaml"></ResourceDictionary>
+                <ResourceDictionary Source="Styles/LabelStyles.xaml"></ResourceDictionary>
+                <ResourceDictionary Source="Styles/ButtonStyles.xaml"></ResourceDictionary>
+                <ResourceDictionary Source="Styles/CheckBoxStyles.xaml"></ResourceDictionary>
+                <ResourceDictionary Source="Styles/RadioButtonStyles.xaml"></ResourceDictionary>
+                <ResourceDictionary Source="Styles/ViewboxStyles.xaml"></ResourceDictionary>
+                <ResourceDictionary Source="Styles/ScrollBarStyles.xaml"></ResourceDictionary>
+                <ResourceDictionary Source="Styles/HyperlinkStyle.xaml"></ResourceDictionary>
+                <ResourceDictionary Source="Styles/TextBoxStyles.xaml"></ResourceDictionary>
+                <ResourceDictionary Source="Styles/TextBlockStyles.xaml"></ResourceDictionary>
+                <ResourceDictionary Source="Styles/MainPageLayout.xaml"></ResourceDictionary>
+                <ResourceDictionary Source="Styles/ContextMenuStyles.xaml"></ResourceDictionary>
+                <ResourceDictionary Source="Styles/ImageStyles.xaml"></ResourceDictionary>
+            </ResourceDictionary.MergedDictionaries>
+
+           
+        </ResourceDictionary>
+        
+    </Application.Resources>
+
+</Application>

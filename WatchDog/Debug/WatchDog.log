@@ -1,0 +1,7 @@
+﻿  main.cpp
+  rc4encrypt.cpp
+  Sha1.cpp
+  SimpleHttp.cpp
+G:\GitLab Repo\EDLauncher\Src\WatchDog\Sha1.cpp(121,2): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  Generating Code...
+  WatchDog.vcxproj -> G:\GitLab Repo\EDLauncher\Src\Launcher\Debug\WatchDog.exe

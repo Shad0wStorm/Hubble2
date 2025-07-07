@@ -1,0 +1,18 @@
+﻿<!--
+//! Copyright(c) 2022 Frontier Development Plc
+//
+//! Default Image Style
+//
+//! Author:     Alan MacAree
+//! Created:    20 12 2022
+-->
+
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:sys="clr-namespace:System;assembly=mscorlib">
+
+    <!-- Default image style, set all images to High Quality-->
+    <Style TargetType="{x:Type Image}" >
+        <Setter Property="RenderOptions.BitmapScalingMode" Value="HighQuality"></Setter>
+    </Style>
+    
+</ResourceDictionary>

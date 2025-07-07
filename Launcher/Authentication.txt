@@ -1,0 +1,78 @@
+Notes on the Authentication Process
+
+Introduction
+
+This is being added to review the existing authentication process as a precursor
+to implementing the new Steam authentication paths.
+
+Existing process:
+
+Main Window initialisation (CobraBayWindow::OnInitialised)
+	Calls View.ResetManager()
+		Sets up default server connection and language.
+		Sets up FrontierMachineIdentifier.
+		Calls Manager.AutoLogin()
+			If Email or Password in user details are null return immediately.
+			Calls Authenticate
+				Calls ServerConnection.GetAuthorisation
+					Forwards to FORCAuthorisationManager.GetAuthorisation
+						If an existing token exists
+							Request a session token
+								On rejection clear security blob and existing token
+									Ensures subsequent manual login starts from clean.
+								If AutoLogin abandon attempt.
+			If not authenticated call ResetLogin(true,true).
+				Retains existing user parameters.
+				Calls ServerConnection.ResetLogin.
+					Forwards to FORCAuthorisationManager.ResetLogin.
+						Clears security blob.
+		Calls UpdateProjectList and AutoRun. Behaviour will be affected by the
+			current authorisation state but will not attempt to change it.
+	Calls Update()
+		May call View.UpdateAuthorisation()
+			Logs Authorisation state.
+		Sets Register button visible if not authorised.
+		Call SetCommanderName()
+		Calls PerformStartUpChecks()
+
+Main Window Shown (ContentRendered event calls CobraBayWindow::OnShown)
+	Calls IsRegistrationRequired()
+		If Steam:
+			If no email address show modal register window.
+				Register -> Start external browser for registration.
+				Login -> Close window and open standard login window.
+
+Standard Login Window
+	Status and help information skipped for clarity.
+	while not authorised:
+		If twofactorrequired:
+			Request validation code from email
+		else:
+			Request Username and Password values (defaulting to stored values if available)
+		If close:
+			Abort login, return to main window.
+		If submit:
+			Authenticate(non-automatic)
+			If authorised:
+				completed, return to main window
+
+Extensions:
+	Extend UserDetails to contain a SteamID & Registration link.
+	Fill out if Steam can be initialised.
+	Needs to store whether Steam is active (sessionticket?) due to different product list end point.
+	
+	AutoLogin will check user name/password if present, SteamID if not.
+		If SteamID not recognised store registration link.
+		If SteamID recognised and has products mark as authenticated with FORC token.
+		Other responses at this stage take the usual unauthenticated paths.
+	
+	IsRegistrationRequired()
+		If Steam and SteamID:
+			** Can we check in advance if the Steam user can register (Get on /user/steam/link?) **
+			If not do not display registration window, fall back to existing login.
+			New Registration Window:
+				Login as existing user.
+				Register as new user->Second page with browser to handle registration?
+				
+	If authenticated via Frontier account offer link on initial login only and
+	via menus?

@@ -1,0 +1,322 @@
+﻿<Window x:Class="CobraBay.CobraBayWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:CobraBay"
+        xmlns:resx="clr-namespace:LocalResources.Properties;assembly=LocalResources"
+		xmlns:cbv="clr-namespace:CBViewModel;assembly=CBViewModel"
+        Title="Elite Dangerous Launcher" Height="809" Width="998" Background="White"
+        WindowStyle="None"
+        ResizeMode="CanMinimize" Closed="OnClosed"
+        MouseDown="DragWindow" MouseUp="WindowMoved"
+        Initialized="OnInitialised"
+		ContentRendered="OnShown"
+        KeyDown="KeyPressed" Icon="/EDLaunch;component/EliteImages/Logo48.png">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Styles/Elite/Shiny.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+            <BooleanToVisibilityConverter x:Key="BooleanVisibility" />
+            <Style TargetType="ListBoxItem">
+                <Style.Resources>
+                    <SolidColorBrush x:Key="{x:Static SystemColors.HighlightBrushKey}"
+						Color="{Binding Source={x:Static cbv:CBTheme.Theme}, Path=SelectedItemColour}"/>
+                    <SolidColorBrush x:Key="{x:Static SystemColors.ControlBrushKey}"
+						Color="{Binding Source={x:Static cbv:CBTheme.Theme}, Path=SelectedItemColour}"/>
+                </Style.Resources>
+				<Setter
+					Property="HorizontalContentAlignment"
+					Value="Left" />
+				<Setter
+					Property="VerticalContentAlignment"
+					Value="Center" />
+				<Style.Triggers>
+                    <Trigger Property="IsSelected" Value="True">
+                        <Setter Property="Foreground" Value="White"/>
+                    </Trigger>
+                </Style.Triggers>
+            </Style>
+
+        </ResourceDictionary>
+    </Window.Resources>
+    <Canvas Name="PageCanvas" Background="Black">
+        <TextBlock x:Name="GameVersionIdentifier" Text="{Binding View.SelectedProjectName}"
+                   Canvas.Top="5" Canvas.Left="10" Width="300" Height="20"
+                           Foreground="White" Background="Transparent" Opacity="0.5"
+                           TextAlignment="Left"
+                           FontFamily="/EDLaunch;component/Fonts/#Euro Caps" />
+        <Button Name="CloseButtonIcon" Style="{StaticResource CloseButtonStyle}" Canvas.Top="5" Canvas.Left="968" Click="OnClose"/>
+        <Button Name="MinimiseButtonIcon" Style="{StaticResource MinimizeButtonStyle}" Canvas.Top="5" Canvas.Left="938" Click="OnMinimize"/>
+        <DockPanel Canvas.Top="5" Canvas.Left="328" Width="600" Height="20"
+                   LastChildFill="False">
+            <Button x:Name="LogoutButton" Style="{StaticResource LaunchLogoutStyle}"
+                    DockPanel.Dock="Right"
+                    Foreground="Red"
+                    Click="ShowLogoutMenu"
+                    FontFamily="/EDLaunch;component/Fonts/#Euro Caps"
+                    HorizontalAlignment="Center" VerticalAlignment="Center"
+                    Content="{x:Static resx:Resources.BTNT_Options}">
+                <Button.ContextMenu>
+                    <ContextMenu x:Name="LogoutMenu" Opened="OnOpenLogoutMenu">
+                        <!-- <MenuItem x:Name="LogInUserItem" Header="Log In" Click="OnLogin"/> -->
+                        <MenuItem x:Name="LogOutUserItem" Header="Log Out" Click="LogoutUser" ToolTip="{x:Static resx:Resources.MenuLogOutUserTip}"/>
+                        <MenuItem x:Name="LogOutMachineItem" Header="Log Out Machine" Click="LogoutMachine" ToolTip="{x:Static resx:Resources.MenuLogOutMachineTip}"/>
+                        <Separator/>
+                        <MenuItem x:Name="UpdateMenuItem" Header="{x:Static resx:Resources.MenuCheckForUpdates}" Click="CheckForUpdates" ToolTip="{x:Static resx:Resources.MenuCheckForUpdatesTip}"/>
+						<MenuItem
+							x:Name="AlternateDownloadItem"
+							IsCheckable="True"
+							Header="{x:Static resx:Resources.MenuAlternativeDownload}"
+							Click="AlternateDownload"
+							ToolTip="{x:Static resx:Resources.MenuAlternativeDownloadTip}" />
+						<MenuItem x:Name="CacheCheckMenuItem" Header ="{x:Static resx:Resources.MenuCheckForCache}" Click="CheckForCache" ToolTip="{x:Static resx:Resources.MenuCheckForCacheTip}"/>
+                        <MenuItem x:Name="VCacheCheckMenuItem" Header ="{x:Static resx:Resources.MenuCheckForVCache}"
+                                  Click="CheckForVCache"
+                                   ToolTip="{x:Static resx:Resources.MenuCheckForVCacheTip}"/>
+                        <MenuItem x:Name="DetailedUpdateLogItem" Header ="{x:Static resx:Resources.MenuDetailedUpdateLog}"
+                                  Click="CreateDetailedUpdateLog" ToolTip="{x:Static resx:Resources.MenuDetailedUpdateLogTip}" />
+                        <Separator/>
+                        <MenuItem x:Name="ShowHardwareSurveryItem" Header="{x:Static resx:Resources.MenuShowHardwareSurvey}"
+                                  Click="ShowHardwareSurvey" ToolTip="{x:Static resx:Resources.MenuShowHardwareSurveyTip}"/>
+                        <MenuItem x:Name="UploadHardwareSurveyItem" Header="{x:Static resx:Resources.MenuUploadHardwareSurvey}"
+                                  Click="UploadHardwareSurvey" ToolTip="{x:Static resx:Resources.MenuUploadHardwareSurveyTip}"/>
+                        <Separator/>
+						<MenuItem
+							x:Name="DXCheckItem"
+							Header="{x:Static resx:Resources.MenuCheckForXInput}"
+							Click="DXCheckItemToggle"
+							ToolTip="{x:Static resx:Resources.MenuCheckForXInputTip}" />
+						<MenuItem x:Name="ValidateProductItem" Header="{x:Static resx:Resources.MenuValidateGameFiles}"
+                                  Click="ValidateProduct" ToolTip="{x:Static resx:Resources.MenuValidateGameFilesTip}"/>
+                        <Separator/>
+                        <MenuItem x:Name="MoveProductItem" Header="{x:Static resx:Resources.MenuMoveGame}"
+                                  Click="MoveProduct" ToolTip="{x:Static resx:Resources.MenuMoveGameTip}"/>
+                        <MenuItem x:Name="RestoreProductItem" Header="{x:Static resx:Resources.MenuRestoreGame}"
+                                  Click="RestoreProduct" ToolTip="{x:Static resx:Resources.MenuRestoreGameTip}"/>
+                        <MenuItem x:Name="UninstallProductItem" Header="{x:Static resx:Resources.MenuUninstallGame}"
+                                  Click="UninstallProduct" ToolTip="{x:Static resx:Resources.MenuUninstallGameTip}"/>
+                        <Separator/>
+                        <MenuItem x:Name="SelectLanguageItem" Header="{x:Static resx:Resources.MenuSelectLanguage}"
+                                  Click="SelectLanguage" ToolTip="{x:Static resx:Resources.MenuSelectLanguageTip}"/>
+                        <Separator/>
+                        <MenuItem x:Name="DeveloperMenu" Header="Developer" Visibility="Collapsed">
+                            <MenuItem x:Name="UsePrivateTestServer" Header="Use Private Test Server" IsCheckable="true" IsChecked="true" Click="UpdateUsePrivateTestServer"/>
+                            <MenuItem x:Name="EnableGzipCompression" Header="Enable Gzip Compression" IsCheckable="true" IsChecked="true" Click="UpdateEnableGzipCompression"/>
+                            <MenuItem x:Name="DevIgnoreUpdates" Header="Ignore Updates" IsCheckable="true" IsChecked="false" Checked="UpdateDevIgnoreUpdates" Unchecked="UpdateDevIgnoreUpdates"/>
+                            <MenuItem x:Name="DevSelectInstaller" Header="Select Installer" Click="SelectInstaller"/>
+                            <MenuItem x:Name="DevSelectFileStore" Header="Select File Store" Click="SelectFileStore"/>
+                            <MenuItem x:Name="DevSelectManifest" Header="Install From Manifest" Visibility="Collapsed"/>
+                            <MenuItem x:Name="CrashDumpMenu" Header="Crash Dump">
+                                <MenuItem x:Name="UploadCrashFile" Header="Upload Crash Dump" Click="UploadCrashFileHandler" IsEnabled="{Binding View.CrashUploadEnabled}"/>
+                                <MenuItem x:Name="DebugUploadCrashFile" Header="Upload Crash Dump (Debug)" Click="DebugUploadCrashFileHandler" IsEnabled="{Binding View.CrashUploadEnabled}"/>
+                                <MenuItem x:Name="SelectCrashFile" Header="Select Crash Dump" Click="SelectCrashFileHandler"/>
+                            </MenuItem>
+                            <Separator/>
+                            <MenuItem x:Name="LoadUIMenu" Header="Load HTML UI" Click="SelectHTMLUI"/>
+                            <MenuItem x:Name="EnableUIMenu" Header="Enable HTML UI" Click="EnableHTMLUI"/>
+                            <Separator/>
+                            <MenuItem x:Name="LauncherOutOfDateItem" Header="Launcher Out Of Date" Click="LauncherOutOfDate"/>
+                        </MenuItem>
+                    </ContextMenu>
+                </Button.ContextMenu>
+            </Button>
+        </DockPanel>
+
+        <Canvas Name="BodyCanvas" Background="Black" Canvas.Left="0" Canvas.Top="30">
+            <!-- Window/Frame (Non Interactive) Items -->
+			<Image
+				Name="BackgroundImage"
+				Canvas.Left="1"
+				Canvas.Top="0"
+				Width="996"
+				Height="785"
+				Source="/EDLaunch;component/EliteImages/background-full-FRONTIER.jpg"/>
+
+            <!-- User Interaction Items -->
+			<Canvas
+				Name="LauncherUI"
+				Canvas.Left="1"
+				Canvas.Top="689">
+				
+				<StackPanel Name="LauncherUIStackPanel" Orientation="Horizontal" Canvas.Left="17" Canvas.Top="4" Width="868" Height="55" Background="Transparent">
+					<Button x:Name="LoginButton" Style="{StaticResource LaunchLoginStyle}"
+						Width="140" Height="55" Margin="0,0,11,0"
+						Click="OnLogin" />
+                    <Button x:Name="SteamLoginButton" Style="{StaticResource LaunchSteamLoginStyle}"
+						Width="140" Height="55" Margin="0,0,11,0"
+						Click="OnSteamLogin" />
+                    <Button x:Name="RegisterButton" Style="{StaticResource LaunchRegisterStyle}"
+						Width="140" Height="55" Margin="0,0,11,0"
+						Click="OnRegister" />
+                    <Button x:Name="LinkButton" Style="{StaticResource LaunchLinkStyle}"
+						Width="140" Height="55" Margin="0,0,11,0"
+						Click="OnRegister" />
+                    <Button
+						x:Name="RedeemButton"
+						Style="{StaticResource LaunchRedeemStyle}"
+						Width="140"
+						Height="55"
+						Margin="0,0,11,0"
+						Click="OnRegister" />
+					<Button x:Name="PurchaseButton" Style="{StaticResource LaunchPurchaseStyle}"
+						Width="140" Height="55" Margin="0,0,11,0"
+						Click="OnPurchase" />
+					<Button x:Name="PlayButton"  Style="{StaticResource LaunchPlayStyle}"
+						Width="140" Height="55" Margin="0,0,11,0"
+						Click="OnPlay" Content="> Play"/>
+					<Button x:Name="PlayOfflineButton"  Style="{StaticResource LaunchPlayOfflineStyle}"
+						Width="140" Height="55" Margin="0,0,11,0"
+						Click="OnPlay" Content="> Play"/>
+					<Button x:Name="UpgradeButton" Style="{StaticResource LaunchUpgradeStyle}"
+						Width="140" Height="55" Margin="0,0,11,0"
+						Click="OnUpgrade" Content="Upgrade"/>
+					<Button x:Name="InstallButton" Style="{StaticResource LaunchInstallStyle}"
+						Width="140" Height="55" Margin="0,0,11,0"
+						Click="OnInstall" Content="Install"/>
+					<Button x:Name="WorkingButton" Style="{StaticResource LaunchWorkingStyle}"
+						Width="140" Height="55" Margin="0,0,11,0"/>
+					<ListBox x:Name="ProductList"
+						 Width="362" Height="55" Margin="0,0,11,0"
+						 Background="Transparent" BorderBrush="#333333"
+						 BorderThickness="1"
+						 FontFamily="/EDLaunch;component/Fonts/#Euro Caps" FontSize="14"
+						 Foreground="White"
+						 SelectionChanged="OnSelectedProjectChanged"
+						 PreviewKeyDown="OnSelectedProjectKey">
+					</ListBox>
+					<Canvas
+                        Name="Foo"
+						Background="Transparent"
+						Width="528"
+						Height="44">
+						<Grid
+							x:Name="ProgressBarGrid"
+							Canvas.Top="5"
+							Canvas.Left="0"
+							Width="498"
+							Height="39">
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition
+									Width="Auto" />
+								<ColumnDefinition
+									Width="*" />
+								<ColumnDefinition
+									Width="Auto" />
+								<ColumnDefinition
+									Width="60" />
+							</Grid.ColumnDefinitions>
+							<Grid.RowDefinitions>
+								<RowDefinition
+									Height="20" />
+								<RowDefinition
+									Height="19" />
+							</Grid.RowDefinitions>
+							<ProgressBar
+								Grid.Row="1"
+								Grid.Column="0"
+								Grid.ColumnSpan="4"
+								Maximum="{Binding View.Monitor.Total}"
+								Value="{Binding View.Monitor.Secondary}"
+								Visibility="{Binding Path=View.Monitor.ShowSecondaryProgress, Converter={StaticResource BooleanVisibility}}"
+								Style="{StaticResource ProgressBarOverlayStyle}" />
+							<ProgressBar
+								Grid.Row="1"
+								Grid.Column="0"
+								Grid.ColumnSpan="4"
+								Maximum="{Binding View.Monitor.Total}"
+								Value="{Binding View.Monitor.Current}"
+								Style="{StaticResource ProgressBarStyle}" />
+							<TextBlock
+								Name="ProgressActionText"
+								FontSize="10"
+								Foreground="White"
+								Text="{Binding View.Monitor.Action}" />
+							<TextBlock
+								Name="ProgressActionRate"
+								Grid.Column="2"
+								FontSize="8"
+								Foreground="White"
+								Text="{Binding Path=View.Monitor.ProgressRateMB,StringFormat={}{0:0.00} MB/s}"
+								ToolTip="{x:Static resx:Resources.ProgressRateTip}"
+								VerticalAlignment="Center"
+								Visibility="{Binding Path=View.Monitor.ShowRate, Converter={StaticResource BooleanVisibility}}">
+							</TextBlock>
+							<TextBlock
+								Name="ProgressActionETE"
+								Grid.Column="3"
+								FontSize="8"
+								Foreground="White"
+								Text="{Binding Path=View.Monitor.ProgressETE}"
+								ToolTip="{x:Static resx:Resources.ProgressETETip}"
+								HorizontalAlignment="Right"
+								VerticalAlignment="Center"
+								Visibility="{Binding Path=View.Monitor.ShowRate, Converter={StaticResource BooleanVisibility}}">
+							</TextBlock>
+						</Grid>
+						<Button
+							x:Name="CancelProgressButton"
+							Style="{StaticResource LaunchCancelProgressStyle}"
+							Canvas.Top="25"
+							Canvas.Left="509"
+							Width="19"
+							Height="19"
+							Click="OnCancelProgress" />
+					</Canvas>
+				</StackPanel>
+				<Grid x:Name="GameVersionGrid" Canvas.Top="64" Canvas.Left="17"
+					  Width="400" Height="16" >
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="Auto"/>
+						<ColumnDefinition Width="Auto"/>
+						<ColumnDefinition
+							Width="Auto" />
+						<ColumnDefinition
+							Width="Auto" />
+						<ColumnDefinition Width="Auto" />
+					</Grid.ColumnDefinitions>
+					<TextBlock x:Name="SelectedProjectNameTitle" Text="{Binding View.GameVersionInfo}"
+							   Foreground="White" Background="Transparent" Opacity="0.25"
+							   TextAlignment="Left"
+							   Padding="0,1,4,0"
+							   FontFamily="/EDLaunch;component/Fonts/#Euro Caps"
+							   Visibility="{Binding Path=View.GameVersionInfoVisible, Converter={StaticResource BooleanVisibility}}" />
+					<!-- <Button Name="GameReleaseNotesButton" Click="OnShowReleaseNotes" Grid.Column="1"
+							Content="{x:Static resx:Resources.BTNT_ReleaseNotes}"
+							Visibility="{Binding Path=View.GameReleaseNotesButtonVisible, Converter={StaticResource BooleanVisibility}}">
+						<Button.Template>
+							<ControlTemplate TargetType="Button">
+								<TextBlock x:Name="GameVersionReleaseNotes"
+								   Text="{TemplateBinding Content}"
+									Foreground="{Binding Source={x:Static cbv:CBTheme.Theme}, Path=DefaultButtonColour}" Background="Transparent" Opacity="0.5"
+								   TextAlignment="Left"
+								   Padding="4,0"
+								   FontFamily="/EDLaunch;component/Fonts/Roboto/#roboto" />
+							</ControlTemplate>
+						</Button.Template>
+					</Button> -->
+					<!--<TextBlock x:Name="VersionIdentifier" Grid.Column="3" Text="{Binding View.CobraBayVersionInfo}"
+					   Foreground="White" Background="Transparent" Opacity="0.25"
+					   TextAlignment="Right"
+					   Padding="4,1,0,0"
+					   FontFamily="/EDLaunch;component/Fonts/#Euro Caps"
+					/> -->
+					<Button
+						Margin="4,0"
+						Grid.Column="4"
+						Name="DownloadButtonIcon"
+						ToolTip="{x:Static resx:Resources.OptionalLauncherVersionTitle}"
+						Style="{StaticResource LaunchDownloadStyle}"
+						Visibility="Collapsed"
+						Click="OnDownloadLauncher" />
+				</Grid>
+				<TextBlock x:Name="ProductDirectoryRootIdentifier" Text="{Binding View.ProductDirectoryRoot}"
+						   Foreground="Yellow" Background="Transparent" Opacity="0.25"
+						   TextAlignment="Center"
+						   Canvas.Top="48" Canvas.Left="342"
+						   Width="382" Height="16"
+						   Visibility="Hidden"
+						/>
+			</Canvas>
+		</Canvas>
+    </Canvas>
+</Window>

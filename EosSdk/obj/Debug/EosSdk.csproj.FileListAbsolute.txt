@@ -1,0 +1,12 @@
+G:\ED Launchers\Src\EosSdk\bin\Debug\EosSdk.dll
+G:\ED Launchers\Src\EosSdk\bin\Debug\EosSdk.pdb
+G:\ED Launchers\Src\EosSdk\obj\Debug\EosSdk.csproj.AssemblyReference.cache
+G:\ED Launchers\Src\EosSdk\obj\Debug\EosSdk.csproj.CoreCompileInputs.cache
+G:\ED Launchers\Src\EosSdk\obj\Debug\EosSdk.dll
+G:\ED Launchers\Src\EosSdk\obj\Debug\EosSdk.pdb
+G:\GitLab Repo\EDLauncher\Src\EosSdk\bin\Debug\EosSdk.pdb
+G:\GitLab Repo\EDLauncher\Src\EosSdk\obj\Debug\EosSdk.csproj.AssemblyReference.cache
+G:\GitLab Repo\EDLauncher\Src\EosSdk\obj\Debug\EosSdk.csproj.CoreCompileInputs.cache
+G:\GitLab Repo\EDLauncher\Src\EosSdk\obj\Debug\EosSdk.csproj.Up2Date
+G:\GitLab Repo\EDLauncher\Src\EosSdk\obj\Debug\EosSdk.dll
+G:\GitLab Repo\EDLauncher\Src\EosSdk\obj\Debug\EosSdk.pdb

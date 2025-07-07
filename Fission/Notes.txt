@@ -1,0 +1,34 @@
+﻿Fission is an alternate approach to the FORC client that moves more work onto
+the client and less into the HTML5 side of the boundary.
+
+Approach 1)
+
+Forgo HTML5 entirely and use C#/WPF for the UI. Makes it harder to share
+assets with the server side but makes binding between UI and code easier.
+
+Approach 2)
+
+Continue to use HTML5 for the UI and interaction. Pages could still be served
+if required (rather than installed locally) allowing easier updates. Potential
+issues with formatting depending on the installed browser on the client PC.
+Unlike Fusion we do not control the application from the HTML5 side and rely
+on the client to manage overall behaviour. This simplifies interaction, only
+the client needs to know what is going on. Still requires some learning of the
+interchange but allows greater sharing between server/client and has the
+potential of making it easier to move logic to HTML5 when we have a better
+understanding of what can actually be achieved.
+
+
+Go for approach 1 in the immediate future in order to lock down required
+behaviour and interaction with the server for authorisation, download and
+installation purposes.
+
+Mainpage shows current state + install/upgrade/play button.
+
+If not authorised pop up the login dialog to establish the connection/session
+information at which point the main page is available.
+
+When the overall flow is known we can investigate replacing the controls and
+windows with HTML pages and connecting them that way. Need to bear this in mind
+when setting up the structure to make it as simple as possible to transition
+if/when the time comes.

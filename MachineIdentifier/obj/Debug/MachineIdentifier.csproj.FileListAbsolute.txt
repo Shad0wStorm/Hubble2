@@ -1,0 +1,14 @@
+G:\ED Launchers\Src\MachineIdentifier\bin\Debug\MachineIdentifier.exe.config
+G:\ED Launchers\Src\MachineIdentifier\bin\Debug\MachineIdentifier.exe
+G:\ED Launchers\Src\MachineIdentifier\bin\Debug\MachineIdentifier.pdb
+G:\ED Launchers\Src\MachineIdentifier\obj\Debug\MachineIdentifier.csproj.AssemblyReference.cache
+G:\ED Launchers\Src\MachineIdentifier\obj\Debug\MachineIdentifier.csproj.CoreCompileInputs.cache
+G:\ED Launchers\Src\MachineIdentifier\obj\Debug\MachineIdentifier.exe
+G:\ED Launchers\Src\MachineIdentifier\obj\Debug\MachineIdentifier.pdb
+G:\GitLab Repo\EDLauncher\Src\MachineIdentifier\bin\Debug\MachineIdentifier.exe.config
+G:\GitLab Repo\EDLauncher\Src\MachineIdentifier\bin\Debug\MachineIdentifier.exe
+G:\GitLab Repo\EDLauncher\Src\MachineIdentifier\bin\Debug\MachineIdentifier.pdb
+G:\GitLab Repo\EDLauncher\Src\MachineIdentifier\obj\Debug\MachineIdentifier.csproj.AssemblyReference.cache
+G:\GitLab Repo\EDLauncher\Src\MachineIdentifier\obj\Debug\MachineIdentifier.csproj.CoreCompileInputs.cache
+G:\GitLab Repo\EDLauncher\Src\MachineIdentifier\obj\Debug\MachineIdentifier.exe
+G:\GitLab Repo\EDLauncher\Src\MachineIdentifier\obj\Debug\MachineIdentifier.pdb

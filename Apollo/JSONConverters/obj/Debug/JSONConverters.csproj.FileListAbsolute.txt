@@ -1,0 +1,10 @@
+G:\ED Launchers\Src\Apollo\JSONConverters\obj\Debug\JSONConverters.csproj.AssemblyReference.cache
+G:\ED Launchers\Src\Apollo\JSONConverters\obj\Debug\JSONConverters.csproj.CoreCompileInputs.cache
+G:\GitLab Repo\EDLauncher\Src\Apollo\bin\Debug\JSONConverters.dll.config
+G:\GitLab Repo\EDLauncher\Src\Apollo\bin\Debug\JSONConverters.dll
+G:\GitLab Repo\EDLauncher\Src\Apollo\bin\Debug\JSONConverters.pdb
+G:\GitLab Repo\EDLauncher\Src\Apollo\JSONConverters\obj\Debug\JSONConverters.csproj.AssemblyReference.cache
+G:\GitLab Repo\EDLauncher\Src\Apollo\JSONConverters\obj\Debug\JSONConverters.csproj.CoreCompileInputs.cache
+G:\GitLab Repo\EDLauncher\Src\Apollo\JSONConverters\obj\Debug\JSONConv.FDD42AAC.Up2Date
+G:\GitLab Repo\EDLauncher\Src\Apollo\JSONConverters\obj\Debug\JSONConverters.dll
+G:\GitLab Repo\EDLauncher\Src\Apollo\JSONConverters\obj\Debug\JSONConverters.pdb

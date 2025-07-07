@@ -1,0 +1,12 @@
+G:\ED Launchers\Src\SteamIF\bin\Debug\SteamIF.dll
+G:\ED Launchers\Src\SteamIF\bin\Debug\SteamIF.pdb
+G:\ED Launchers\Src\SteamIF\obj\Debug\SteamIF.csproj.AssemblyReference.cache
+G:\ED Launchers\Src\SteamIF\obj\Debug\SteamIF.csproj.CoreCompileInputs.cache
+G:\ED Launchers\Src\SteamIF\obj\Debug\SteamIF.dll
+G:\ED Launchers\Src\SteamIF\obj\Debug\SteamIF.pdb
+G:\GitLab Repo\EDLauncher\Src\SteamIF\bin\Debug\SteamIF.dll
+G:\GitLab Repo\EDLauncher\Src\SteamIF\bin\Debug\SteamIF.pdb
+G:\GitLab Repo\EDLauncher\Src\SteamIF\obj\Debug\SteamIF.csproj.AssemblyReference.cache
+G:\GitLab Repo\EDLauncher\Src\SteamIF\obj\Debug\SteamIF.csproj.CoreCompileInputs.cache
+G:\GitLab Repo\EDLauncher\Src\SteamIF\obj\Debug\SteamIF.dll
+G:\GitLab Repo\EDLauncher\Src\SteamIF\obj\Debug\SteamIF.pdb

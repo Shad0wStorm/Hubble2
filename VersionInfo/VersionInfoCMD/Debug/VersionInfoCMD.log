@@ -1,0 +1,3 @@
+﻿  SubWCRev : E155007: 'G:\GitLab Repo\EDLauncher\Src' is not a working copy
+C:\Program Files\Microsoft Visual Studio\2022\Professional\MSBuild\Microsoft\VC\v170\Microsoft.MakeFile.Targets(45,5): error MSB3073: The command "cd G:\GitLab Repo\EDLauncher\Src\VersionInfo\VersionInfoCMD\\..
+C:\Program Files\Microsoft Visual Studio\2022\Professional\MSBuild\Microsoft\VC\v170\Microsoft.MakeFile.Targets(45,5): error MSB3073: GenerateVersionInfo.bat" exited with code 10.

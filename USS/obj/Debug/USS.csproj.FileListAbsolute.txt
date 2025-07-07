@@ -1,0 +1,14 @@
+G:\GitLab Repo\EDLauncher\Src\USS\bin\Debug\USS.exe.config
+G:\GitLab Repo\EDLauncher\Src\USS\bin\Debug\USS.exe
+G:\GitLab Repo\EDLauncher\Src\USS\bin\Debug\USS.pdb
+G:\GitLab Repo\EDLauncher\Src\USS\obj\Debug\USS.csproj.AssemblyReference.cache
+G:\GitLab Repo\EDLauncher\Src\USS\obj\Debug\USS.csproj.CoreCompileInputs.cache
+G:\GitLab Repo\EDLauncher\Src\USS\obj\Debug\USS.exe
+G:\GitLab Repo\EDLauncher\Src\USS\obj\Debug\USS.pdb
+G:\GitLab Repo\QAEDLauncher\Hubble2\USS\bin\Debug\USS.exe.config
+G:\GitLab Repo\QAEDLauncher\Hubble2\USS\bin\Debug\USS.exe
+G:\GitLab Repo\QAEDLauncher\Hubble2\USS\bin\Debug\USS.pdb
+G:\GitLab Repo\QAEDLauncher\Hubble2\USS\obj\Debug\USS.csproj.AssemblyReference.cache
+G:\GitLab Repo\QAEDLauncher\Hubble2\USS\obj\Debug\USS.csproj.CoreCompileInputs.cache
+G:\GitLab Repo\QAEDLauncher\Hubble2\USS\obj\Debug\USS.exe
+G:\GitLab Repo\QAEDLauncher\Hubble2\USS\obj\Debug\USS.pdb

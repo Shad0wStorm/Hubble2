@@ -1,0 +1,276 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "G:\\GitLab Repo\\EDLauncher\\Src\\Apollo\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{AF1C106B-86B4-4AD6-8176-3E8D246E50D0}|..\\ClientSupport\\ClientSupport.csproj|g:\\gitlab repo\\edlauncher\\src\\clientsupport\\projectupdater\\updatebyinstaller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1F87A20A-4D94-4F1E-8187-541DBE749678}|..\\LocalResources\\LocalResources.csproj|g:\\gitlab repo\\edlauncher\\src\\localresources\\properties\\resources.ru.resx||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1F87A20A-4D94-4F1E-8187-541DBE749678}|..\\LocalResources\\LocalResources.csproj|g:\\gitlab repo\\edlauncher\\src\\localresources\\properties\\resources.resx||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1F87A20A-4D94-4F1E-8187-541DBE749678}|..\\LocalResources\\LocalResources.csproj|g:\\gitlab repo\\edlauncher\\src\\localresources\\properties\\resources.pt-br.resx||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1F87A20A-4D94-4F1E-8187-541DBE749678}|..\\LocalResources\\LocalResources.csproj|g:\\gitlab repo\\edlauncher\\src\\localresources\\properties\\resources.fr.resx||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1F87A20A-4D94-4F1E-8187-541DBE749678}|..\\LocalResources\\LocalResources.csproj|g:\\gitlab repo\\edlauncher\\src\\localresources\\properties\\resources.es.resx||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1F87A20A-4D94-4F1E-8187-541DBE749678}|..\\LocalResources\\LocalResources.csproj|g:\\gitlab repo\\edlauncher\\src\\localresources\\properties\\resources.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1F87A20A-4D94-4F1E-8187-541DBE749678}|..\\LocalResources\\LocalResources.csproj|g:\\gitlab repo\\edlauncher\\src\\localresources\\properties\\resources.de.resx||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CA7306E9-FB90-4D49-A59F-422468167ABB}|Launcher\\Launcher.csproj|G:\\GitLab Repo\\EDLauncher\\Src\\Apollo\\launcher\\productuserctrl.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{CA7306E9-FB90-4D49-A59F-422468167ABB}|Launcher\\Launcher.csproj|solutionrelative:launcher\\productuserctrl.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CA7306E9-FB90-4D49-A59F-422468167ABB}|Launcher\\Launcher.csproj|G:\\GitLab Repo\\EDLauncher\\Src\\Apollo\\launcher\\frontpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{CA7306E9-FB90-4D49-A59F-422468167ABB}|Launcher\\Launcher.csproj|solutionrelative:launcher\\frontpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CA7306E9-FB90-4D49-A59F-422468167ABB}|Launcher\\Launcher.csproj|G:\\GitLab Repo\\EDLauncher\\Src\\Apollo\\launcher\\frontpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CA7306E9-FB90-4D49-A59F-422468167ABB}|Launcher\\Launcher.csproj|solutionrelative:launcher\\frontpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CA7306E9-FB90-4D49-A59F-422468167ABB}|Launcher\\Launcher.csproj|G:\\GitLab Repo\\EDLauncher\\Src\\Apollo\\launcher\\versionspage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CA7306E9-FB90-4D49-A59F-422468167ABB}|Launcher\\Launcher.csproj|solutionrelative:launcher\\versionspage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CA7306E9-FB90-4D49-A59F-422468167ABB}|Launcher\\Launcher.csproj|G:\\GitLab Repo\\EDLauncher\\Src\\Apollo\\launcher\\projectselectiondevuserctrl.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CA7306E9-FB90-4D49-A59F-422468167ABB}|Launcher\\Launcher.csproj|solutionrelative:launcher\\projectselectiondevuserctrl.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CA7306E9-FB90-4D49-A59F-422468167ABB}|Launcher\\Launcher.csproj|G:\\GitLab Repo\\EDLauncher\\Src\\Apollo\\launcher\\productmainbtnsuserctrl.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{CA7306E9-FB90-4D49-A59F-422468167ABB}|Launcher\\Launcher.csproj|solutionrelative:launcher\\productmainbtnsuserctrl.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CA7306E9-FB90-4D49-A59F-422468167ABB}|Launcher\\Launcher.csproj|G:\\GitLab Repo\\EDLauncher\\Src\\Apollo\\launcher\\projectselectionuserctrl.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CA7306E9-FB90-4D49-A59F-422468167ABB}|Launcher\\Launcher.csproj|solutionrelative:launcher\\projectselectionuserctrl.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 3,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:1:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{40ea2e6b-2121-4bb8-a43e-c83c04b51041}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "UpdateByInstaller.cs",
+              "DocumentMoniker": "G:\\GitLab Repo\\EDLauncher\\Src\\ClientSupport\\ProjectUpdater\\UpdateByInstaller.cs",
+              "RelativeDocumentMoniker": "..\\ClientSupport\\ProjectUpdater\\UpdateByInstaller.cs",
+              "ToolTip": "G:\\GitLab Repo\\EDLauncher\\Src\\ClientSupport\\ProjectUpdater\\UpdateByInstaller.cs",
+              "RelativeToolTip": "..\\ClientSupport\\ProjectUpdater\\UpdateByInstaller.cs",
+              "ViewState": "AgIAAKQAAAAAAAAAAAAiwNwAAABOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-20T10:04:22.383Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Resources.ru.resx",
+              "DocumentMoniker": "G:\\GitLab Repo\\EDLauncher\\Src\\LocalResources\\Properties\\Resources.ru.resx",
+              "RelativeDocumentMoniker": "..\\LocalResources\\Properties\\Resources.ru.resx",
+              "ToolTip": "G:\\GitLab Repo\\EDLauncher\\Src\\LocalResources\\Properties\\Resources.ru.resx",
+              "RelativeToolTip": "..\\LocalResources\\Properties\\Resources.ru.resx",
+              "ViewState": "AgIAAO0BAAAAAAAAAIAwwAcCAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001005|",
+              "WhenOpened": "2025-03-20T10:04:21.57Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Resources.resx",
+              "DocumentMoniker": "G:\\GitLab Repo\\EDLauncher\\Src\\LocalResources\\Properties\\Resources.resx",
+              "RelativeDocumentMoniker": "..\\LocalResources\\Properties\\Resources.resx",
+              "ToolTip": "G:\\GitLab Repo\\EDLauncher\\Src\\LocalResources\\Properties\\Resources.resx",
+              "RelativeToolTip": "..\\LocalResources\\Properties\\Resources.resx",
+              "ViewState": "AgIAADYCAAAAAAAAAIAwwFACAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001005|",
+              "WhenOpened": "2025-03-20T10:04:20.84Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Resources.pt-BR.resx",
+              "DocumentMoniker": "G:\\GitLab Repo\\EDLauncher\\Src\\LocalResources\\Properties\\Resources.pt-BR.resx",
+              "RelativeDocumentMoniker": "..\\LocalResources\\Properties\\Resources.pt-BR.resx",
+              "ToolTip": "G:\\GitLab Repo\\EDLauncher\\Src\\LocalResources\\Properties\\Resources.pt-BR.resx",
+              "RelativeToolTip": "..\\LocalResources\\Properties\\Resources.pt-BR.resx",
+              "ViewState": "AgIAAHcCAAAAAAAAAIAwwJECAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001005|",
+              "WhenOpened": "2025-03-20T10:04:20.088Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Resources.fr.resx",
+              "DocumentMoniker": "G:\\GitLab Repo\\EDLauncher\\Src\\LocalResources\\Properties\\Resources.fr.resx",
+              "RelativeDocumentMoniker": "..\\LocalResources\\Properties\\Resources.fr.resx",
+              "ToolTip": "G:\\GitLab Repo\\EDLauncher\\Src\\LocalResources\\Properties\\Resources.fr.resx",
+              "RelativeToolTip": "..\\LocalResources\\Properties\\Resources.fr.resx",
+              "ViewState": "AgIAAO0BAAAAAAAAAIAwwAcCAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001005|",
+              "WhenOpened": "2025-03-20T10:04:19.274Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Resources.es.resx",
+              "DocumentMoniker": "G:\\GitLab Repo\\EDLauncher\\Src\\LocalResources\\Properties\\Resources.es.resx",
+              "RelativeDocumentMoniker": "..\\LocalResources\\Properties\\Resources.es.resx",
+              "ToolTip": "G:\\GitLab Repo\\EDLauncher\\Src\\LocalResources\\Properties\\Resources.es.resx",
+              "RelativeToolTip": "..\\LocalResources\\Properties\\Resources.es.resx",
+              "ViewState": "AgIAACsCAAAAAAAAAIAwwEUCAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001005|",
+              "WhenOpened": "2025-03-20T10:04:17.541Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Resources.Designer.cs",
+              "DocumentMoniker": "G:\\GitLab Repo\\EDLauncher\\Src\\LocalResources\\Properties\\Resources.Designer.cs",
+              "RelativeDocumentMoniker": "..\\LocalResources\\Properties\\Resources.Designer.cs",
+              "ToolTip": "G:\\GitLab Repo\\EDLauncher\\Src\\LocalResources\\Properties\\Resources.Designer.cs",
+              "RelativeToolTip": "..\\LocalResources\\Properties\\Resources.Designer.cs",
+              "ViewState": "AgIAAOoJAAAAAAAAAIAwwAEKAABIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-20T10:04:13.055Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Resources.de.resx",
+              "DocumentMoniker": "G:\\GitLab Repo\\EDLauncher\\Src\\LocalResources\\Properties\\Resources.de.resx",
+              "RelativeDocumentMoniker": "..\\LocalResources\\Properties\\Resources.de.resx",
+              "ToolTip": "G:\\GitLab Repo\\EDLauncher\\Src\\LocalResources\\Properties\\Resources.de.resx",
+              "RelativeToolTip": "..\\LocalResources\\Properties\\Resources.de.resx",
+              "ViewState": "AgIAAO0BAAAAAAAAAIAwwAcCAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001005|",
+              "WhenOpened": "2025-03-20T10:04:09.748Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "ProductUserCtrl.xaml",
+              "DocumentMoniker": "G:\\GitLab Repo\\EDLauncher\\Src\\Apollo\\Launcher\\ProductUserCtrl.xaml",
+              "RelativeDocumentMoniker": "Launcher\\ProductUserCtrl.xaml",
+              "ToolTip": "G:\\GitLab Repo\\EDLauncher\\Src\\Apollo\\Launcher\\ProductUserCtrl.xaml",
+              "RelativeToolTip": "Launcher\\ProductUserCtrl.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-03-20T09:59:26.406Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "VersionsPage.xaml.cs",
+              "DocumentMoniker": "G:\\GitLab Repo\\EDLauncher\\Src\\Apollo\\Launcher\\VersionsPage.xaml.cs",
+              "RelativeDocumentMoniker": "Launcher\\VersionsPage.xaml.cs",
+              "ToolTip": "G:\\GitLab Repo\\EDLauncher\\Src\\Apollo\\Launcher\\VersionsPage.xaml.cs",
+              "RelativeToolTip": "Launcher\\VersionsPage.xaml.cs",
+              "ViewState": "AgIAAPkAAAAAAAAAAAAmwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-20T09:52:41.447Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "ProductMainBtnsUserCtrl.xaml",
+              "DocumentMoniker": "G:\\GitLab Repo\\EDLauncher\\Src\\Apollo\\Launcher\\ProductMainBtnsUserCtrl.xaml",
+              "RelativeDocumentMoniker": "Launcher\\ProductMainBtnsUserCtrl.xaml",
+              "ToolTip": "G:\\GitLab Repo\\EDLauncher\\Src\\Apollo\\Launcher\\ProductMainBtnsUserCtrl.xaml",
+              "RelativeToolTip": "Launcher\\ProductMainBtnsUserCtrl.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-03-17T16:52:27.36Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "ProjectSelectionUserCtrl.xaml.cs",
+              "DocumentMoniker": "G:\\GitLab Repo\\EDLauncher\\Src\\Apollo\\Launcher\\ProjectSelectionUserCtrl.xaml.cs",
+              "RelativeDocumentMoniker": "Launcher\\ProjectSelectionUserCtrl.xaml.cs",
+              "ToolTip": "G:\\GitLab Repo\\EDLauncher\\Src\\Apollo\\Launcher\\ProjectSelectionUserCtrl.xaml.cs",
+              "RelativeToolTip": "Launcher\\ProjectSelectionUserCtrl.xaml.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-17T16:48:40.111Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "ProjectSelectionDevUserCtrl.xaml.cs",
+              "DocumentMoniker": "G:\\GitLab Repo\\EDLauncher\\Src\\Apollo\\Launcher\\ProjectSelectionDevUserCtrl.xaml.cs",
+              "RelativeDocumentMoniker": "Launcher\\ProjectSelectionDevUserCtrl.xaml.cs",
+              "ToolTip": "G:\\GitLab Repo\\EDLauncher\\Src\\Apollo\\Launcher\\ProjectSelectionDevUserCtrl.xaml.cs",
+              "RelativeToolTip": "Launcher\\ProjectSelectionDevUserCtrl.xaml.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-17T16:52:48.453Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "FrontPage.xaml.cs",
+              "DocumentMoniker": "G:\\GitLab Repo\\EDLauncher\\Src\\Apollo\\Launcher\\FrontPage.xaml.cs",
+              "RelativeDocumentMoniker": "Launcher\\FrontPage.xaml.cs",
+              "ToolTip": "G:\\GitLab Repo\\EDLauncher\\Src\\Apollo\\Launcher\\FrontPage.xaml.cs",
+              "RelativeToolTip": "Launcher\\FrontPage.xaml.cs",
+              "ViewState": "AgIAABoAAAAAAAAAAAAQwL0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-26T16:29:34.79Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "FrontPage.xaml",
+              "DocumentMoniker": "G:\\GitLab Repo\\EDLauncher\\Src\\Apollo\\Launcher\\FrontPage.xaml",
+              "RelativeDocumentMoniker": "Launcher\\FrontPage.xaml",
+              "ToolTip": "G:\\GitLab Repo\\EDLauncher\\Src\\Apollo\\Launcher\\FrontPage.xaml",
+              "RelativeToolTip": "Launcher\\FrontPage.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-02-26T16:29:28.768Z"
+            }
+          ]
+        },
+        {
+          "DockedWidth": 1858,
+          "SelectedChildIndex": -1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

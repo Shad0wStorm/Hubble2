@@ -1,0 +1,248 @@
+﻿<!--
+//! Copyright(c) 2022 Frontier Development Plc
+//
+//! Product UserControl, this handles the left hand sode of the main 
+//! page.
+//
+//! Author:     Alan MacAree
+//! Created:    15 Aug 2022
+-->
+    
+<UserControl x:Class="Launcher.ProductUserCtrl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:sys="clr-namespace:System;assembly=mscorlib"
+             xmlns:resx="clr-namespace:LocalResources.Properties;assembly=LocalResources"
+             xmlns:local="clr-namespace:Launcher"
+             Initialized="OnInitialized"
+             mc:Ignorable="d">
+
+    <UserControl.Resources>
+        <!-- Vertical & Horizontal Border Size -->
+        <GridLength x:Key="VerticalBorder">15</GridLength>
+        <GridLength x:Key="HoriztonallBorder">10</GridLength>
+        <GridLength x:Key="NameProductImageGap">30</GridLength>
+        <GridLength x:Key="ManageBtnsReducedGap">40</GridLength>
+
+        <!--Create some names to represent the rows, these are used within the C# code -->
+        <sys:Int32 x:Key="TopRow">0</sys:Int32>
+        <sys:Int32 x:Key="1stGapRow">1</sys:Int32>
+        <sys:Int32 x:Key="NameRow">2</sys:Int32>
+        <sys:Int32 x:Key="2ndGapRow">3</sys:Int32>
+        <sys:Int32 x:Key="ButtonsRow">4</sys:Int32>
+        <sys:Int32 x:Key="AddTextRow">5</sys:Int32>
+        <sys:Int32 x:Key="BottomGapRow">6</sys:Int32>
+
+        <!--Create some names to represent the cols, these are used within the C# code -->
+        <sys:Int32 x:Key="ButtonColumn">1</sys:Int32>
+
+        <!-- Our Border colour -->
+        <SolidColorBrush  x:Key="BorderColour">#B4956D</SolidColorBrush>
+
+        <!-- Font Size-->
+        <sys:Double x:Key="ProductNameFontSize">16</sys:Double>
+
+    </UserControl.Resources>
+
+    <Grid>
+        <!-- Our Top Level Grid -->
+        <Grid x:Name="PART_TopLevelGrd">
+        
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1.5*"></RowDefinition>
+                <RowDefinition Height="{StaticResource NameProductImageGap}"></RowDefinition>
+                <RowDefinition Height="6*"></RowDefinition>
+                <RowDefinition Height="{StaticResource VerticalBorder}"></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="6*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="{StaticResource VerticalBorder}"></RowDefinition>
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="3*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <Grid Grid.Row="{StaticResource TopRow}" 
+                  ShowGridLines="false"
+                  Grid.Column="1"
+                  Grid.ColumnSpan="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="0.15*"></RowDefinition>
+                    <RowDefinition Height="7.641"></RowDefinition>
+                    <RowDefinition Height="30.207"/>
+                    <RowDefinition Height="7.793"/>
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="3*"></ColumnDefinition>
+                    <ColumnDefinition Width="0.5*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+
+                <!-- WHo we are connected as, + the menu -->
+                <Border x:Name="PART_ConnectedAsBorder"
+                        Grid.Column="1" 
+                        Grid.Row="1" 
+                        BorderThickness="0" 
+                        BorderBrush="{StaticResource BorderColour}"
+                        Margin="0,0,5,0" Grid.RowSpan="3">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto"></RowDefinition>
+                            <RowDefinition Height="auto"></RowDefinition>
+                        </Grid.RowDefinitions>
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="0.1*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+
+                        <!-- Connected As -->
+                        <Label Content="{x:Static resx:Resources.MenuUserConnectedAs}" 
+                               Grid.Row="0"
+                               HorizontalAlignment="Right"
+                               Foreground="White"
+                               Padding="0"
+                               Cursor="Hand"
+                               MouseDown="PART_ConnectedAsMouseDown">
+                        </Label>
+
+                        <!-- User registered name -->
+                        <Label x:Name="PART_RegisteredName"
+                               Content="Registered Name" 
+                               Grid.Row="1"
+                               HorizontalAlignment="Right"
+                               Foreground="White"
+                               Padding="0"
+                               Cursor="Hand"
+                               MouseDown="PART_RegisteredNameMouseDown">
+                        </Label>
+
+                        <Image x:Name="PART_MenuArrowDown"
+                               Grid.Row="1"
+                               Grid.Column="1"
+                               Margin="3"
+                               HorizontalAlignment="Center"
+                               VerticalAlignment="Bottom"
+                               Source="Images\DownArrowWht.png" 
+                               Stretch="Fill"
+                               Cursor="Hand"
+                               MouseDown="OnMenuMouseDown">
+
+                            <!-- Menu -->
+                            <Image.ContextMenu>
+                                <ContextMenu>
+                                    <!-- Settings menu -->
+                                    <MenuItem x:Name="PART_MenuItemSettings"
+                                              Cursor="Hand"
+                                              Header="{x:Static resx:Resources.MenuUserSettings}"
+                                              Click="PART_OnClickMenuItemSettings">
+                                              <MenuItem.Icon>
+                                                <Image Source="Images/SettingsBlk.png" 
+                                                       HorizontalAlignment="Center"
+                                                       Stretch="Fill"></Image>
+                                              </MenuItem.Icon>
+                                    </MenuItem>
+                                    <!-- Debug / Dev Option, this is not normally available to the user -->
+                                    <MenuItem x:Name="PART_RemoveLinkMenuItem"
+                                              Cursor="Hand"
+                                              Visibility="Collapsed"
+                                              Header="REMOVE LINK AND EXIT"
+                                              Click="OnRemoveStoreLinkClick">
+                                    </MenuItem>
+
+                                    <!-- Sign out menu option -->
+                                    <MenuItem x:Name="PART_LogOutMenuItem"
+                                              Header="{x:Static resx:Resources.MenuUserLogOut}"
+                                              Cursor="Hand"
+                                              Click="PART_OnClickMenuItemLogOut">
+                                        <MenuItem.Icon>
+                                            <Image Source="Images/LogoutBlk.png" 
+                                                   HorizontalAlignment="Center"
+                                                   Stretch="Fill">
+                                            </Image>
+                                        </MenuItem.Icon>
+                                    </MenuItem>
+                                </ContextMenu>
+                            </Image.ContextMenu>
+                        </Image>
+                    </Grid>
+                </Border>
+                
+            </Grid>
+
+            <!-- Product Logo -->
+            <Image x:Name="PART_ProjectImage"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center"
+                   Grid.Row="2" 
+                   Grid.Column="1">
+            </Image>
+
+            <!-- Age Rating Image -->
+            <Image x:Name="PART_AgeRatingImage"
+                   Margin="0 0 0 0"
+                   Grid.Row="4"
+                   Grid.Column="1"
+                   Grid.ColumnSpan="1"
+                   HorizontalAlignment="Right"
+                   VerticalAlignment="Center" Width="45">
+            </Image>
+
+            <!-- ESRB Overlay, only used when a ESRB rating is displayed-->
+            <Image x:Name="PART_AgeRatingImageESRBOverlay"
+                   Margin="0 0 0 0"
+                   Grid.Row="4"
+                   Grid.Column="1"
+                   Grid.ColumnSpan="1"
+                   Visibility="Hidden"
+                   HorizontalAlignment="Right"
+                   VerticalAlignment="Center" Width="45">
+            </Image>
+
+            <StackPanel x:Name="PART_ReleaseNotes"  Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="1" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0 0 55 0" Visibility="Hidden">
+                <TextBlock
+                    x:Name="PART_ReleaseNotes_Title"  
+                    FontSize="15"  
+                    HorizontalAlignment="Center" 
+                    Foreground="Olive" 
+                    MouseDown="OnReleaseNotesClick"
+                    Cursor="Hand"
+                    TextWrapping="Wrap"
+                    TextAlignment="Center"
+                    >
+                </TextBlock>
+            </StackPanel>
+
+            <!-- Product Main Button User Control -->
+            <local:ProductMainBtnsUserCtrl x:Name="PART_ProductMainBtnsUserCtrl" 
+                                           Grid.Row="5" 
+                                           Grid.Column="0" 
+                                           Grid.ColumnSpan="3">
+            </local:ProductMainBtnsUserCtrl>
+
+
+            <Grid Grid.Row="5"  
+                  Grid.Column="0" 
+                  Grid.ColumnSpan="3">
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="{StaticResource ManageBtnsReducedGap}"></RowDefinition>
+                </Grid.RowDefinitions>
+                
+                <!-- Product Manage Button User Control -->
+                <local:ProductManageBtnsUserCtrl x:Name="PART_ProductManageBtnsUserCtrl" 
+                                               Grid.Row="0"
+                                               Visibility="Collapsed">
+                </local:ProductManageBtnsUserCtrl>
+             </Grid>
+
+        </Grid>
+    </Grid>
+</UserControl>

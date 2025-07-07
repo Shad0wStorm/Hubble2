@@ -1,0 +1,153 @@
+﻿<!--
+//! Copyright(c) 2022 Frontier Development Plc
+//
+//! ArticleFullTextPage, this displays the full text of an Article
+//
+//! Note that it is important that the following styles are defined: 
+//
+//!     Label::NormalTextLabel
+//!     Label::TitleLabel
+//!     TextBox::NormalTextBox
+//
+//! Because these styles are used within this Page.
+//
+//! Author:     Alan MacAree
+//! Created:    19 Oct 2022
+-->
+    
+<Page x:Class="FDUserControls.ArticleFullTextPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:resx="clr-namespace:LocalResources.Properties;assembly=LocalResources"
+      xmlns:sys="clr-namespace:System;assembly=mscorlib"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800">
+    
+    <Page.Resources>
+        <!-- Margines -->
+        <Thickness x:Key="WindowMargin">20</Thickness>
+        
+        <!-- Space -->
+        <GridLength x:Key="WorkingSpaceShare">6*</GridLength>
+        
+        <!-- Positions -->
+        <sys:Int32 x:Key="WorkingAreaCol">1</sys:Int32>
+        <sys:Int32 x:Key="WorkingAreaRow">1</sys:Int32>
+        <sys:Int32 x:Key="ArticleContentRow">0</sys:Int32>
+
+        <sys:Int32 x:Key="DateSystemRow">0</sys:Int32>
+        <sys:Int32 x:Key="ArticleTitleRow">1</sys:Int32>
+        <sys:Int32 x:Key="SeparatorRow">2</sys:Int32>
+        <sys:Int32 x:Key="ArticleTextRow">3</sys:Int32>
+        
+        <sys:Int32 x:Key="BackButtonGridRow">1</sys:Int32>
+        <sys:Int32 x:Key="BackButtonRow">1</sys:Int32>
+        <sys:Int32 x:Key="BackButtonCol">1</sys:Int32>
+
+        <!-- Font sizes -->
+        <sys:Double x:Key="ButtonFontSize">20</sys:Double>
+        <sys:Double x:Key="TextFontSize">16</sys:Double>
+    </Page.Resources>
+
+    <!-- Main grid to split the screen into a center working area -->
+    <Grid Margin="{StaticResource WindowMargin}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="{StaticResource WorkingSpaceShare}"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="{StaticResource WorkingSpaceShare}"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <!-- We split our main working area into two main parts -->
+        <!-- One part fo the text display, this other is where -->
+        <!-- the back button goes -->
+        <Grid Grid.Row="{StaticResource WorkingAreaRow}" 
+              Grid.Column="{StaticResource WorkingAreaCol}" >
+            
+            <Grid.RowDefinitions>
+                <RowDefinition Height="5*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+            </Grid.RowDefinitions>
+
+            <!-- Split our text area up -->
+            <Grid Grid.Row="{StaticResource ArticleContentRow}" >
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"></RowDefinition>
+                    <RowDefinition Height="auto"></RowDefinition>
+                    <RowDefinition Height="auto"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                </Grid.RowDefinitions>
+
+                <!-- Date & System -->
+                <Label x:Name="PART_DateSystemLabel" 
+                       Grid.Row="{StaticResource DateSystemRow}" 
+                       Style="{StaticResource NormalTextLabel}" >
+                </Label>
+
+                <!-- Our Article title -->
+                <Label x:Name="PART_TitleTextLabel" 
+                       Grid.Row="{StaticResource ArticleTitleRow}" 
+                       Style="{StaticResource TitleLabel}">
+                </Label>
+
+                <!-- Separator -->
+                <Separator Grid.Row="{StaticResource SeparatorRow}" 
+                           VerticalContentAlignment="Center">
+                </Separator>
+
+                <!-- Our Article text -->
+                <!-- We use a textBox rather than a TextBlock because TextBlock -->
+                <!-- refuses to display vertical scrolling. -->
+                <TextBox x:Name="PART_FullTextBlock" 
+                            Style="{StaticResource NormalTextBox}" 
+                            IsReadOnly="True"
+                            AcceptsReturn="True"
+                            xml:space="preserve"
+                            Grid.Row="{StaticResource ArticleTextRow}"
+                            Background="Transparent"
+                            SelectionBrush="{x:Null}"
+                            BorderThickness="0"
+                            Cursor="Arrow"
+                            TextWrapping="Wrap" 
+                            ScrollViewer.CanContentScroll="True"
+                            ScrollViewer.VerticalScrollBarVisibility="Auto" >
+                </TextBox>
+
+            </Grid>
+            
+            <!-- Grid that holds the back button -->
+            <Grid Grid.Row="{StaticResource BackButtonGridRow}">
+                
+                <!-- We want the button in the middle with space on both sides. -->
+                <!-- We want a gap between the bottom of the previous control -->
+                <!-- and our button. We use ratios so things don't look silly -->
+                <!-- when very large and very small-->
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1.5*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="1.5*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="5*"></RowDefinition>
+                </Grid.RowDefinitions>
+
+                <Button Content="{x:Static resx:Resources.BTNT_Back}" 
+                        Grid.Row="{StaticResource BackButtonRow}"
+                        Grid.Column="{StaticResource BackButtonCol}" 
+                        FontSize="{StaticResource ButtonFontSize}"
+                        Click="OnBackClick">
+                </Button>
+             </Grid>
+        </Grid>
+    </Grid>
+</Page>

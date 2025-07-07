@@ -1,0 +1,92 @@
+﻿<!--
+//! Copyright(c) 2022 Frontier Development Plc
+//
+//! MainPageLayout, a shared Page layout shared 
+//! between different (but alike) Pages.
+//
+//! Author:     Alan MacAree
+//! Created:    17 Nov 2022
+-->
+
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:Launcher.Styles">
+  
+  <Style TargetType="{x:Type local:MainPageLayout}">
+    <Setter Property="Template">
+      <Setter.Value>
+        <ControlTemplate TargetType="{x:Type local:MainPageLayout}">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="0.8*"></RowDefinition>
+                    <RowDefinition Height="auto"></RowDefinition>
+                    <RowDefinition Height="0.1*"></RowDefinition>
+                    <RowDefinition Height="4*"></RowDefinition>
+                </Grid.RowDefinitions>
+                
+                <!-- Title and Sub Title -->
+                    <Grid Grid.Column="2" Grid.Row="1" Grid.ColumnSpan="6">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"></RowDefinition>
+                            <RowDefinition Height="auto"></RowDefinition>
+                            <RowDefinition Height="*"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <ContentPresenter Content="{TemplateBinding PageTitle}"
+                                          Grid.Row="1">
+                        </ContentPresenter>
+                        <ContentPresenter Content="{TemplateBinding PageSubTitle}"
+                                          Grid.Row="2">
+                        </ContentPresenter>
+                    </Grid>
+
+                <!-- Left Area -->
+                    <Grid Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="3">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="0.1*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="0.1*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+
+                        <ContentPresenter Content="{TemplateBinding LeftArea}"
+                                          Grid.Column="1">
+                        </ContentPresenter>
+                    </Grid>
+                
+                 <!-- Right Area -->
+                    <Grid Grid.Column="7" Grid.Row="3" Grid.ColumnSpan="3">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="0.1*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="0.1*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                    
+                        <ContentPresenter Content="{TemplateBinding RightArea}"
+                                          Grid.Column="1">
+                        </ContentPresenter>
+                    </Grid>
+                
+                    <!-- Main Page Content -->
+                    <ContentPresenter Content="{TemplateBinding Content}"
+                                    Grid.Column="2" Grid.Row="3" Grid.ColumnSpan="6">
+                    </ContentPresenter>
+                </Grid>
+            </ControlTemplate>
+        </Setter.Value>
+      </Setter>
+  </Style>
+         
+
+</ResourceDictionary>

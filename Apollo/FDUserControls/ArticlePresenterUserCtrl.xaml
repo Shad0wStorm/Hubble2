@@ -1,0 +1,59 @@
+﻿<!--
+//! Copyright(c) 2022 Frontier Development Plc
+//
+//! ArticlePresenterUserCtrl, wraps up articles into aUserControl
+//
+//! Author:     Alan MacAree
+//! Created:    11 Oct 2022
+-->
+    
+    <UserControl x:Class="FDUserControls.ArticlePresenterUserCtrl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:FDUserControls"
+             xmlns:sys="clr-namespace:System;assembly=mscorlib"
+             mc:Ignorable="d" 
+                 Loaded="UserControl_Loaded"
+             d:DesignHeight="450" d:DesignWidth="800">
+
+    <UserControl.Resources>
+        <!-- Standard Gaps -->
+        <GridLength x:Key="VerticalBorder">10</GridLength>
+        <!-- Positions-->
+        <sys:Int32 x:Key="TitleRow">0</sys:Int32>
+        <sys:Int32 x:Key="SeparatorRow">1</sys:Int32>
+        <sys:Int32 x:Key="ArticlesRow">2</sys:Int32>
+    </UserControl.Resources>
+
+    <Grid>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="{StaticResource VerticalBorder}"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Label x:Name="PART_TitleLabel" 
+               Style="{StaticResource TitleLabel}"
+               Grid.Row="{StaticResource TitleRow}" 
+               HorizontalContentAlignment="Center" 
+               VerticalContentAlignment="Center">
+        </Label>
+
+        <!-- This defaults to Visibility="Collapsed", it is changed dynamically 
+        within the code, only if we have data to display. This stops random
+        lines being drawn on the UI when no data exists for this user control -->
+        <Separator x:Name="PART_Separator"
+                   Grid.Row="{StaticResource SeparatorRow}" 
+                   Foreground="White" 
+                   VerticalContentAlignment="Center"
+                   Visibility="Collapsed">
+        </Separator>
+
+        <Frame x:Name="PART_ArticleFrame" Grid.Row="{StaticResource ArticlesRow}"></Frame>
+        
+    </Grid>
+</UserControl>

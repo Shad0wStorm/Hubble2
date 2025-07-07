@@ -1,0 +1,42 @@
+﻿<!--
+//! Copyright(c) 2022 Frontier Development Plc
+//
+//! CheckBox Styles
+//
+//! Author:     Alan MacAree
+//! Created:    02 Sep 2022
+-->
+
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:sys="clr-namespace:System;assembly=mscorlib">
+    
+    <!-- Text Colour -->
+    <SolidColorBrush  x:Key="TextColour">#B4956D</SolidColorBrush>
+    <SolidColorBrush  x:Key="DisabledTextColour">#9E9E9E</SolidColorBrush>
+    <SolidColorBrush  x:Key="SelectedTextColour">#FFFFFF</SolidColorBrush>
+    <SolidColorBrush  x:Key="HoverTextColour">#FFFFFF</SolidColorBrush>
+
+    <!-- Normal Text Font -->
+    <FontFamily x:Key="NormalTextFont">pack://application:,,,/Fonts/#Sintony Regular</FontFamily>
+    <!-- Normal Text Font Size-->
+    <sys:Double x:Key="NormalTextFontSize">16</sys:Double>
+
+    <Style TargetType="{x:Type Control}" x:Key="NormalTextStyle">
+        <Setter Property="FontSize" Value="{StaticResource NormalTextFontSize}"></Setter>
+        <Setter Property="FontFamily" Value="{StaticResource NormalTextFont}"></Setter>
+    </Style>
+    
+    <!-- Defines the CheckBox Style -->
+    <Style TargetType="{x:Type CheckBox}" BasedOn="{StaticResource NormalTextStyle}" >
+        <Setter Property="Foreground" Value="{StaticResource TextColour}"></Setter>
+        <Setter Property="Background" Value="{StaticResource TextColour}"></Setter>
+        <Style.Triggers>
+            <!-- Disabled -->
+            <Trigger Property="IsEnabled" Value="False" >
+                <Setter Property="Foreground" Value="{StaticResource DisabledTextColour}"></Setter>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+</ResourceDictionary>

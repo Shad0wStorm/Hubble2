@@ -1,0 +1,136 @@
+﻿<!--
+//! Copyright(c) 2022 Frontier Development Plc
+//
+//! ProjectSelectionUserCtrl, allows a number of projects to
+//! to be displayed, along with the product image, name
+//! and state (Ready, Install etc)
+//
+//! Author:     Alan MacAree
+//! Created:    11 Dec 2022
+-->
+    
+<UserControl x:Class="Launcher.ProjectSelectionUserCtrl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:fduc="clr-namespace:FDUserControls;assembly=FDUserControls"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    
+    <UserControl.Resources>
+        <fduc:ConverterBoolToVisibility x:Key="BoolToVisibilityConverter" IsReversed="False"></fduc:ConverterBoolToVisibility>
+        <fduc:ConverterBoolToVisibility x:Key="ReversedBoolToVisibilityConverter" IsReversed="True"></fduc:ConverterBoolToVisibility>
+    </UserControl.Resources>
+    
+    <Grid Margin="5">
+        <ScrollViewer x:Name="PART_ScrollViewer">
+
+            <!-- Displays a list if Items (Products) -->
+            <ItemsControl
+                x:Name="PART_ProductList"  
+                ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                ItemsSource="{Binding ProjectList, UpdateSourceTrigger=PropertyChanged, RelativeSource={RelativeSource FindAncestor, AncestorType=UserControl}}"> 
+
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel>
+                        </WrapPanel>
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Border
+                            Margin="5"
+                            BorderThickness="1"
+                            BorderBrush="Gray"
+                            Width="200" 
+                            Height="300"
+                            Cursor="Hand">
+                            <Grid MouseDown="OnPart_GridMouseDown">
+                                <ToolTipService.ToolTip>
+                                    <ToolTip x:Name="PART_ProductDescription"
+                                     Content="{Binding Description}"
+                                     HorizontalOffset="20"
+                                     VerticalOffset="30">           
+                                        <ToolTip.Style>
+                                            <Style TargetType="ToolTip">
+                                                <Style.Triggers>
+                                                    <DataTrigger Binding="{Binding Description}" Value="">
+                                                        <Setter Property="Visibility" Value="Collapsed"/>
+                                                    </DataTrigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </ToolTip.Style>
+                                    </ToolTip>
+                                </ToolTipService.ToolTip>
+                                <!-- The product Image -->
+                                <Image x:Name="PART_ProductImage"
+                                       Source="{Binding ImageUri}" 
+                                       Stretch="Fill" >
+                                </Image>
+
+                                <Grid>
+
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="3*"></RowDefinition>
+                                        <RowDefinition Height="*"></RowDefinition>
+                                    </Grid.RowDefinitions>
+
+                                    <!-- This gives us a dark overlay ontop of the boximage so
+                                    that the user can see the product name and status -->
+                                    <Grid Grid.Row="1" Grid.RowSpan="2" Background="Black" Opacity="0.4" >
+                                    </Grid>
+                                    
+                                    <!-- Grid to place project name and status -->
+                                    <Grid Grid.Row="1" Grid.RowSpan="2">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="*"></RowDefinition>
+                                            <RowDefinition Height="*"></RowDefinition>
+                                        </Grid.RowDefinitions>
+
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*"></ColumnDefinition>
+                                            <ColumnDefinition Width="2*"></ColumnDefinition>
+                                            <ColumnDefinition Width="*"></ColumnDefinition>
+                                        </Grid.ColumnDefinitions>
+
+                                        <!-- Project Pretty Name -->
+                                        <Viewbox Grid.Row="0"
+                                                 Grid.Column="0"
+                                                 Grid.ColumnSpan="3">
+                                            <Label Content="{Binding PrettyName}"
+                                                   Style="{StaticResource TitleLabel}"
+                                                   HorizontalAlignment="Center"
+                                                   Margin="5,0,5,0">
+                                            </Label>
+                                        </Viewbox>
+
+                                        <!-- Project status -->
+                                        <Viewbox Grid.Row="1"
+                                                 Grid.Column="1">
+                                            <Label Content="{Binding StatusText}"
+                                                   Style="{StaticResource TitleLabel}"
+                                                   HorizontalAlignment="Center">
+                                            </Label>
+                                        </Viewbox>
+                                    </Grid>
+                                </Grid>
+
+                                <!-- Selected boarded, we place this last because it overlays the dark text background -->
+                                <Image Source="Images\BoxSelectedBorder.png" 
+                                       Visibility="{Binding Path=IsSelected, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource BoolToVisibilityConverter}}"
+                                       Stretch="Fill" >
+                                </Image>
+                                
+                            </Grid>
+                        </Border>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </ScrollViewer>
+
+    </Grid>
+</UserControl>
+

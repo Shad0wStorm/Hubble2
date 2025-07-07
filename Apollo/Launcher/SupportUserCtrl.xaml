@@ -1,0 +1,45 @@
+﻿<!--
+//! Copyright(c) 2022 Frontier Development Plc
+//
+//! SupportUserCtrl
+//
+//! Author:     Alan MacAree
+//! Created:    11 Nov 2022
+-->
+
+<UserControl x:Class="Launcher.SupportUserCtrl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:sys="clr-namespace:System;assembly=mscorlib"
+             xmlns:local="clr-namespace:Launcher"
+             xmlns:resx="clr-namespace:LocalResources.Properties;assembly=LocalResources"
+             mc:Ignorable="d" >
+
+    <UserControl.Resources>
+        <!-- Positions -->
+        <sys:Int32 x:Key="SplitDisplayRow">1</sys:Int32>
+
+        <!-- Grid Heights-->
+        <GridLength x:Key="SplitDisplayGapRatio">*</GridLength>
+        <GridLength x:Key="SplitDisplayRatio">*</GridLength>
+    </UserControl.Resources>
+
+    <!-- We split the screen virtually and display in the center part -->
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="{StaticResource SplitDisplayGapRatio}"></RowDefinition>
+            <RowDefinition Height="{StaticResource SplitDisplayRatio}"></RowDefinition>
+            <RowDefinition Height="{StaticResource SplitDisplayGapRatio}"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <local:LinkPackageUserCtrl x:Name="PART_LinkPackageUserCtrl"
+                                  Grid.Row="{StaticResource SplitDisplayRow}"
+                                  Title="{x:Static resx:Resources.TITLE_FrontiereSupport}"
+                                  Instructions="{x:Static resx:Resources.TXT_GetInTouch}"
+                                  ButtonText="{x:Static resx:Resources.BTNT_ContactSupport}">
+        </local:LinkPackageUserCtrl>
+    </Grid>
+
+</UserControl>

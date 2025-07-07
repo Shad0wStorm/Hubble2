@@ -1,0 +1,77 @@
+﻿<!--
+//! Copyright(c) 2022 Frontier Development Plc
+//
+//! Main Launcher Window, all sub pages are displayed within this window
+//
+//! Author:     Alan MacAree
+//! Created:    12 Aug 2022
+-->
+
+<Window x:Class="Launcher.LauncherWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:sys="clr-namespace:System;assembly=mscorlib"
+        xmlns:local="clr-namespace:Launcher"
+        Title="Launcher" 
+        Height="720" 
+        Width="1280"
+        Icon="Images/EDLaunch.ico"
+        Initialized="OnInitialised"
+        Closing="OnClosing"
+        ContentRendered="OnShown"
+        WindowStartupLocation="CenterScreen"
+        Style="{StaticResource NoWindowTitleStyle}" ResizeMode="NoResize">
+  
+    <Window.Resources>
+        <!-- Size ratios -->
+        <GridLength x:Key="TopLeftGapRatio">0.2*</GridLength>
+        <GridLength x:Key="FLogoHeightRatio">0.6*</GridLength>
+        <GridLength x:Key="FLogoWidthRatio">0.7*</GridLength>
+
+        <!-- Positions-->
+        <sys:Int32 x:Key="ImageRow">1</sys:Int32>
+        <sys:Int32 x:Key="ImageCol">1</sys:Int32>
+        <sys:Int32 x:Key="MainFrameRow">0</sys:Int32>
+        <sys:Int32 x:Key="MainFrameCol">0</sys:Int32>
+    </Window.Resources>
+
+    <Grid>
+        
+        <!-- Split the screen up into 9 squares-->
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <!-- Our Main Frame, all pages are displayed within this -->
+            <Frame Grid.Row="{StaticResource MainFrameRow}" 
+                   Grid.RowSpan="3" 
+                   Grid.Column="{StaticResource MainFrameCol}"  
+                   Grid.ColumnSpan="3"
+                   x:Name="MainFrame"
+                   IsTabStop="False"
+                   NavigationUIVisibility="Hidden">
+            </Frame>
+        </Grid>
+
+        <!-- Server Status -->
+        <local:InfoUserCtrl x:Name="PART_ServerStatusCtrl"
+                                   Foreground="Gray" 
+                                   Padding="0" 
+                                   Margin="5"
+                                   VerticalAlignment="Bottom"
+                                   HorizontalAlignment="Left">
+        </local:InfoUserCtrl>
+        
+    </Grid>
+
+
+</Window>

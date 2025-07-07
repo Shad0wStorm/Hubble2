@@ -1,0 +1,280 @@
+﻿<!--
+//! Copyright(c) 2022 Frontier Development Plc
+//
+//! Product HeroImageUserCtrl
+//
+//! Author:     Alan MacAree
+//! Created:    15 Aug 2022
+-->
+    
+<UserControl x:Class="FDUserControls.HeroImageUserCtrl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:resx="clr-namespace:LocalResources.Properties;assembly=LocalResources"
+             xmlns:sys="clr-namespace:System;assembly=mscorlib"
+             xmlns:local="clr-namespace:FDUserControls"
+             mc:Ignorable="d" 
+             SizeChanged="OnSizeChanged" 
+             d:DesignHeight="450" d:DesignWidth="800">
+
+    <UserControl.Resources>
+        
+        <!-- Font Size-->
+        <sys:Double x:Key="ScrollDownFontSize">16</sys:Double>
+
+        <!-- Lengths -->
+        <GridLength x:Key="HorizonatalWarningGap">10</GridLength>
+        <GridLength x:Key="VerticalWarningGap">5</GridLength>
+        <GridLength x:Key="WarningImageRigHeight">35</GridLength>
+
+        <!-- Opacity -->
+        <sys:Double x:Key="WarningAreaOpacityValue">0.5</sys:Double>
+
+        <!-- Colours -->
+        <SolidColorBrush  x:Key="WarningAreaBackgroundColour">Black</SolidColorBrush>
+
+        <!-- Custom Styles -->
+        <sys:Double x:Key="OpacityValue">0.6</sys:Double>
+
+    </UserControl.Resources>
+    
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition x:Name="TrapezoidRow" Height="{Binding Path=SlopeHeight, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type local:HeroImageUserCtrl}}}"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Path Grid.Row ="0" Grid.RowSpan="3" Stroke="White" StrokeThickness="0">
+            <Path.Data>
+                <PathGeometry>
+                    <PathGeometry.Figures>
+                        <PathFigureCollection>
+                            <PathFigure IsClosed="True" IsFilled="True" StartPoint="0,0">
+                                <PathFigure.Segments>
+                                    <PathSegmentCollection>
+                                        <LineSegment Point="0,0"></LineSegment>
+                                        <LineSegment x:Name="PART_BottomLeftSegment"></LineSegment>
+                                        <LineSegment x:Name="PART_LeftBtmSlopeSegment"></LineSegment>
+                                        <LineSegment x:Name="PART_LeftTopSlopeSegment"></LineSegment>
+                                        <LineSegment x:Name="PART_RightTopSlopeSegment"></LineSegment>
+                                        <LineSegment x:Name="PART_RightBtmSlopeSegment"></LineSegment>
+                                        <LineSegment x:Name="PART_BottomRightSegment"></LineSegment>
+                                        <LineSegment x:Name="PART_TopRightSegment"></LineSegment>
+                                    </PathSegmentCollection>
+                                </PathFigure.Segments>
+                            </PathFigure>
+                        </PathFigureCollection>
+                    </PathGeometry.Figures>
+                </PathGeometry>
+            </Path.Data>
+            <Path.Fill>
+                <ImageBrush x:Name="PART_HeroImage" Stretch="UniformToFill" AlignmentY="Center">
+                </ImageBrush>
+            </Path.Fill>
+        </Path>
+
+        <!-- Server warning area at the top of the hero image-->
+        <Grid x:Name="PART_ServerWarningGrid" 
+              Grid.Row ="0" 
+              HorizontalAlignment="Left"
+              VerticalAlignment="Top"
+              Visibility="Hidden">
+            
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="{StaticResource HorizonatalWarningGap}"></ColumnDefinition>
+                <ColumnDefinition Width="auto"></ColumnDefinition>
+                <ColumnDefinition Width="{StaticResource HorizonatalWarningGap}"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="{StaticResource HorizonatalWarningGap}"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="{StaticResource VerticalWarningGap}"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="{StaticResource VerticalWarningGap}"></RowDefinition>
+            </Grid.RowDefinitions>
+
+            <!-- A darker background to display the warning on-->
+            <Grid Background="{StaticResource WarningAreaBackgroundColour}"
+                    Grid.Column="0"
+                    Grid.Row="0"
+                    Grid.ColumnSpan="5"
+                    Grid.RowSpan="3"
+                    Opacity="{StaticResource WarningAreaOpacityValue}">
+            </Grid>
+
+            <Grid Grid.Column="1"
+                  Grid.Row="1"
+                  VerticalAlignment="Center">
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="{StaticResource VerticalWarningGap}"></RowDefinition>
+                    <RowDefinition Height="{StaticResource WarningImageRigHeight}"></RowDefinition>
+                    <RowDefinition Height="{StaticResource VerticalWarningGap}"></RowDefinition>
+                </Grid.RowDefinitions>
+                <!-- The Warning Image -->
+                <Image  x:Name="PART_WarningImage"
+                    Grid.Row="1"
+                    Source="Images/WarningImage.png" 
+                    Stretch="UniformToFill">
+                </Image>
+            </Grid>
+
+            <Grid x:Name="PART_WarningTextGrid"
+                  Grid.Column="3"
+                  Grid.Row="1"
+                  VerticalAlignment="Center">
+                
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="{StaticResource VerticalWarningGap}"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                </Grid.RowDefinitions>
+                
+                <!-- Warning Status -->
+                <TextBlock x:Name="PART_ServerWarningStatusText"
+                           Grid.Row="0"
+                           TextAlignment="Left"
+                           VerticalAlignment="Center"
+                           Style="{StaticResource TitleTextBlock}">
+                </TextBlock>
+                <!-- Warning Status Message-->
+                <TextBlock x:Name="PART_ServerWarningStatusMessage"
+                           Grid.Row="2"
+                           TextAlignment="Left"
+                           VerticalAlignment="Center"
+                           Style="{StaticResource WhiteWrappedTextBlock}">
+                </TextBlock>
+            </Grid>
+        </Grid>
+
+        <StackPanel Grid.Row="0" Grid.Column="1" Visibility="Collapsed" x:Name="PART_FeaturedProductPrice_Tag">
+            <!-- Grid to give a dark background for the price -->
+            <StackPanel Orientation="Horizontal" Background="Black" Opacity="{StaticResource OpacityValue}" HorizontalAlignment="Right"   Margin="0 15 15 15">
+                <Label x:Name="PART_FeaturedProductPrice"  
+                            Style="{StaticResource TitleLabel}"
+                            FontSize="30"
+                            HorizontalAlignment="Right">
+                </Label>
+
+                <!-- Grid used to place the ARX Image -->
+                <Grid >
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"></RowDefinition>
+                        <RowDefinition Height="{Binding Height, ElementName=PART_FeaturedProductPrice}"></RowDefinition>
+                        <RowDefinition Height="*"></RowDefinition>
+                    </Grid.RowDefinitions>
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="{Binding Width, ElementName=PART_FeaturedProductPrice}"></ColumnDefinition>
+                        <ColumnDefinition Width="10"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+
+                    <!-- The ARX image -->
+                    <Image Source="Images/Arx.png" Grid.Row="1" Grid.Column="0"></Image>
+                </Grid>
+            </StackPanel>
+        </StackPanel>
+
+        <StackPanel  Grid.Row="1" Grid.Column="1" VerticalAlignment="Bottom" Margin="0 0 0 10">
+            <TextBlock 
+                x:Name="PART_FeaturedProductCategory"
+                Foreground="Black"
+                FontWeight="Bold"
+                FontSize="18"
+                HorizontalAlignment="Left"
+                Margin="49 50 0 -50"
+                Cursor="Hand" 
+                Padding="10 7 10 7"
+                Visibility="Collapsed">
+                <TextBlock.Background>
+                    <SolidColorBrush Color="White" />
+                </TextBlock.Background>
+            </TextBlock>
+            <TextBlock
+                x:Name="PART_FeaturedProductTitle"
+                Foreground="White"
+                FontWeight="Bold"
+                FontSize="30"
+                HorizontalAlignment="Left"
+                Margin="70 50 0 0"
+                Cursor="Hand" 
+                Padding="10 7 10 7"
+                Visibility="Collapsed"
+                >
+                <TextBlock.Background>
+                    <SolidColorBrush Color="Black" Opacity="0.6" />
+                </TextBlock.Background>
+            </TextBlock>
+            <TextBlock 
+                x:Name="PART_FeaturedProductLink" 
+                FontSize="22"
+                FontWeight="Bold"
+                Foreground="White"  
+                HorizontalAlignment="Left"
+                Cursor="Hand"  
+                Padding="10 7 10 7"
+                Margin="60 0 0 0"
+                Visibility="Collapsed"
+                >
+                <TextBlock.Background>
+                    <SolidColorBrush Color="#d92820" />
+                </TextBlock.Background>
+            </TextBlock>
+        </StackPanel>
+
+        <StackPanel Grid.Row="2" Orientation="Vertical">
+            <Label x:Name="PART_ScrollDownLB" 
+                   Content="{x:Static resx:Resources.MSG_ScrollDownForMore}"  
+                   FontSize="{StaticResource ScrollDownFontSize}"
+                   Style="{StaticResource WhiteHeavyLabel}"  
+                   HorizontalAlignment="Center">
+            </Label>
+
+            <Separator Visibility="Hidden" ></Separator>
+            <Image Source="Images/DownArrow.png" 
+                   HorizontalAlignment="Center" 
+                   Width="20">
+            </Image>
+            <Separator Visibility="Hidden" ></Separator>
+            <Separator Visibility="Hidden" ></Separator>
+        </StackPanel>
+
+        <!-- Grid for the Age related ratings -->
+        <Grid Grid.Row ="1" x:Name="PART_DefaultViewAgeRating" Visibility="Collapsed">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <!-- Age Rating Image -->
+            <Image x:Name="PART_AgeRatingImage"
+                   Margin="10"
+                   Grid.Row="3"
+                   Grid.Column="3"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center">
+            </Image>
+
+            <!-- ESRB Overlay, only used when a ESRB rating is displayed-->
+            <Image x:Name="PART_AgeRatingImageESRBOverlay"
+                   Margin="10"
+                   Grid.Row="3"
+                   Grid.Column="3"
+                   Visibility="Hidden"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center">
+            </Image>
+        </Grid>
+    </Grid>
+</UserControl>

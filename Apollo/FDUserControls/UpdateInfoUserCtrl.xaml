@@ -1,0 +1,101 @@
+﻿<!--
+//! Copyright(c) 2022 Frontier Development Plc
+//
+//! UpdateInfoUserCtrl, displays product update information
+//
+//! Author:     Alan MacAree
+//! Created:    22 Aug 2022
+-->
+   
+<UserControl x:Class="FDUserControls.UpdateInfoUserCtrl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:sys="clr-namespace:System;assembly=mscorlib"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+
+    <UserControl.Resources>
+
+        <!-- Vertical Border Sizes -->
+        <GridLength x:Key="VerticalBorder">15</GridLength>
+        <GridLength x:Key="InternalVerticalBorder">5</GridLength>
+
+        <!-- Height of the main display area -->
+        <GridLength x:Key="MainDisplayAreaHeight">95</GridLength>
+        
+        <!-- Background Colour -->
+        <SolidColorBrush x:Key="CtrlBackground">Transparent</SolidColorBrush>
+        <SolidColorBrush x:Key="ProductNameForeground">LightGray</SolidColorBrush>
+
+        <!-- Font sizes -->
+        <sys:Double x:Key="ProductNameFontSize">20</sys:Double>
+        <sys:Double x:Key="VersionFontSize">16</sys:Double>
+        <sys:Double x:Key="HyperlinkFontSize">16</sys:Double>
+        
+    </UserControl.Resources>
+
+    <Grid Background="Transparent">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="{StaticResource VerticalBorder}"></RowDefinition>
+            <RowDefinition Height="{StaticResource MainDisplayAreaHeight}"></RowDefinition>
+            <RowDefinition Height="{StaticResource VerticalBorder}"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="20*"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <Grid Grid.Column="1"
+              Grid.Row="1"
+              VerticalAlignment="Center">
+            
+            <Grid.RowDefinitions>
+                <RowDefinition Height="{StaticResource InternalVerticalBorder}"></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="{StaticResource InternalVerticalBorder}"></RowDefinition>
+            </Grid.RowDefinitions>
+
+            <!--  Product Name -->
+            <Label x:Name="PART_ProductName" 
+                   Grid.Row="1" 
+                   FontSize="{StaticResource ProductNameFontSize}"
+                   Foreground="{StaticResource ProductNameForeground}" 
+                   HorizontalAlignment="Center" 
+                   VerticalAlignment="Center">
+            </Label>
+            
+            <!-- Product Update Title -->
+            <Label x:Name="PART_UpdateInfo" 
+                   Grid.Row="2" 
+                   FontSize="{StaticResource VersionFontSize}"
+                   Style="{StaticResource TitleLabel}" 
+                   HorizontalAlignment="Center" 
+                   VerticalAlignment="Center" >
+            </Label>
+
+            <!-- Link to product update information -->
+            <TextBlock Grid.Row="3"
+                       FontSize="{StaticResource HyperlinkFontSize}"
+                       TextAlignment="Center" 
+                       VerticalAlignment="Center">
+                
+                <Hyperlink RequestNavigate="OnHyperLinkNavigate"
+                           NavigateUri="https://api.zaonce.net/this/url/never/exists/"
+                           TextDecorations="">
+                    <Run x:Name="PART_HyperLink"></Run>
+                </Hyperlink>
+                
+            </TextBlock>
+
+        </Grid>
+
+
+    </Grid>
+</UserControl>

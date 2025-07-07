@@ -1,0 +1,115 @@
+﻿<!--
+//! Copyright(c) 2022 Frontier Development Plc
+//
+//! HomeLinkedToAnotherStorePage 
+//
+//! Author:     Alan MacAree
+//! Created:    27 Nov 2022
+-->
+    
+<Page x:Class="Launcher.HomeLinkedToAnotherStorePage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:pl="clr-namespace:Launcher.Styles"
+      xmlns:resx="clr-namespace:LocalResources.Properties;assembly=LocalResources"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="HOMELinkedToAnotherSteam">
+
+    <Page.Resources>
+        <!-- Standard Gaps -->
+        <GridLength x:Key="VerticalBorder">5</GridLength>
+    </Page.Resources>
+
+    <!-- Use the MainPageLayout to setup the page-->
+    <pl:MainPageLayout>
+        <!-- Display the page title -->
+        <pl:MainPageLayout.PageTitle>
+            <Viewbox>
+                <StackPanel>
+                    <TextBlock x:Name="PART_AccLinkedToDiffAcc1"
+                            HorizontalAlignment="Center"
+                            Style="{StaticResource TitleTextBlock}">
+                    </TextBlock>
+                    <TextBlock x:Name="PART_AccLinkedToDiffAcc2" 
+                            HorizontalAlignment="Center"
+                            Style="{StaticResource TitleTextBlock}">
+                    </TextBlock>
+                </StackPanel>
+            </Viewbox>
+        </pl:MainPageLayout.PageTitle>
+
+        <!-- Display the page sub title-->
+        <pl:MainPageLayout.PageSubTitle>
+            <Label Content="{x:Static resx:Resources.TXT_OnlyLinkedToOneSAcc}" 
+                   Style="{StaticResource NormalTextLabel}" 
+                   HorizontalAlignment="Center" 
+                   VerticalAlignment="Center"></Label>
+        </pl:MainPageLayout.PageSubTitle>
+
+        <!-- Use the MainPageLayout to setup the page-->
+        <pl:MainPageLayout.Content>
+            <Grid >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="0.5*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="0"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="2*"></RowDefinition>
+                </Grid.RowDefinitions>
+
+                <!-- Images -->
+                <Image Source="Images/FrontierLogo.png" 
+                    Grid.Row="1" 
+                    Grid.Column="1"
+                    HorizontalAlignment="Left">
+                </Image>
+
+                <!-- The store image, set dynamically within the code -->
+                <Image x:Name="PART_StoreImage"
+                       Grid.Row="1" 
+                       Grid.Column="3"
+                       HorizontalAlignment="Left">
+                </Image>
+                
+                <!-- Grid for user controls -->
+                <Grid Grid.Row="5"
+                      Grid.Column="1"
+                      Grid.ColumnSpan="3" >
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="{StaticResource VerticalBorder}"></RowDefinition>
+                        <RowDefinition Height="*"></RowDefinition>
+                        <RowDefinition Height="0"></RowDefinition>
+                        <RowDefinition Height="*"></RowDefinition>
+                        <RowDefinition Height="3*"></RowDefinition>
+                    </Grid.RowDefinitions>
+
+                    <!-- Link Accounts Button-->
+                    <Button Content="{x:Static resx:Resources.BTNT_LinkToThisAccount}"
+                        Grid.Row="1"
+                        Click="OnPART_LinkToThisAccountClick">
+                    </Button>
+
+                    <!-- Out don't link accounts option -->
+                    <Viewbox Grid.Row="3">
+                        <TextBlock Width="Auto">
+                            <Hyperlink NavigateUri="https://api.zaonce.net/this/url/never/exists/"
+                                       RequestNavigate="OnPART_DontLinkAccRequestNavigate">
+                                <Run Text="{x:Static resx:Resources.TXT_DontLinkAccounts}"></Run>
+                            </Hyperlink>
+                        </TextBlock>
+                    </Viewbox>
+                </Grid>
+            </Grid>
+        </pl:MainPageLayout.Content>
+    </pl:MainPageLayout>
+</Page>
+

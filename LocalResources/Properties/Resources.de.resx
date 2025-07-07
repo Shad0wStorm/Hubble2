@@ -1,0 +1,1746 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="GameLanguage" xml:space="preserve">
+    <value>German\\DE</value>
+  </data>
+  <data name="ApplicationAlreadyRunning" xml:space="preserve">
+    <value>Es kann zeitgleich nur eine Version des Launchers von Elite Dangerous laufen.</value>
+  </data>
+  <data name="CancelDownloadDetails" xml:space="preserve">
+    <value>Bei Abbruch und Wiederaufnahme des Downloads wird der Download nach Möglichkeit fortgeführt.
+
+Sollte zwischen Abbruch und Wiederaufnahme des Downloads ein Update veröffentlicht worden sein, werden einige bereits heruntergeladene Dateien möglicherweise erneut heruntergeladen.
+
+Das Spiel kann erst dann gestartet werden, wenn der Download abgeschlossen ist.
+
+Wirklich abbrechen?</value>
+  </data>
+  <data name="CancelDownloadTitle" xml:space="preserve">
+    <value>Download abbrechen</value>
+  </data>
+  <data name="DefaultApplicationVersionString" xml:space="preserve">
+    <value>unbekannt</value>
+  </data>
+  <data name="DHS_Copy" xml:space="preserve">
+    <value>In die Zwischenablage kopieren</value>
+  </data>
+  <data name="DHS_Done" xml:space="preserve">
+    <value>Fertig</value>
+  </data>
+  <data name="DHS_Title" xml:space="preserve">
+    <value>Hardware-Bericht</value>
+  </data>
+  <data name="ExpiredLauncherVersionDetails" xml:space="preserve">
+    <value>Es steht eine neue Version des Launchers zur Verfügung ({0}). Zum Fortsetzen des Spiels muss diese neue Version installiert werden. Mehr Informationen über Updates findest du im Abschnitt "News".</value>
+  </data>
+  <data name="ExpiredLauncherVersionTitle" xml:space="preserve">
+    <value>Update für Launcher erforderlich</value>
+  </data>
+  <data name="MenuLogOutPendingSuffix" xml:space="preserve">
+    <value> (Ausstehend)</value>
+  </data>
+  <data name="MenuLogOutUser" xml:space="preserve">
+    <value>Ausloggen</value>
+  </data>
+  <data name="TimeSyncFailedDetails" xml:space="preserve">
+    <value>Keine Synchronisierung mit Server möglich. Die Anwendung wird jetzt beendet.
+
+Es handelt sich wahrscheinlich um ein temporäres Problem mit dem Netzwerk oder dem Server. Bitte überprüfe deine Internetverbindung.
+
+Wenn der Launcher für längere Zeit nicht verwendet wurde, solltest du auch prüfen, ob es eine neue Version gibt, die deine ablöst.</value>
+  </data>
+  <data name="TimeSyncFailedTitle" xml:space="preserve">
+    <value>Server nicht verfügbar</value>
+  </data>
+  <data name="BTNT_Cancel" xml:space="preserve">
+    <value>Abbrechen</value>
+  </data>
+  <data name="BTNT_DoNotSend" xml:space="preserve">
+    <value>Nicht senden</value>
+  </data>
+  <data name="BTNT_Send" xml:space="preserve">
+    <value>Senden</value>
+  </data>
+  <data name="CompletedConfidential" xml:space="preserve">
+    <value>Wir behandeln diesen Bericht vertraulich.</value>
+  </data>
+  <data name="CompletedPrefix" xml:space="preserve">
+    <value>Es wurde ein</value>
+  </data>
+  <data name="CompletedSuffix" xml:space="preserve">
+    <value>für dein System erstellt. Damit kannst du uns bei der Diagnose von Problemen helfen, die nur bestimmte Systeme betreffen</value>
+  </data>
+  <data name="CompletedTitle" xml:space="preserve">
+    <value>Hardware-Bericht</value>
+  </data>
+  <data name="RetrieveHardwareStats" xml:space="preserve">
+    <value>Rufe Hardware-Statistik ab.</value>
+  </data>
+  <data name="Status_Aquiring" xml:space="preserve">
+    <value>Stelle Bericht zusammen ...</value>
+  </data>
+  <data name="Status_Connecting" xml:space="preserve">
+    <value>Verbinden ...</value>
+  </data>
+  <data name="Status_UploadComplete" xml:space="preserve">
+    <value>Upload beendet</value>
+  </data>
+  <data name="Status_UploadProgress" xml:space="preserve">
+    <value>Upload ... {0}%</value>
+  </data>
+  <data name="PleaseWait" xml:space="preserve">
+    <value>Bitte warten.</value>
+  </data>
+  <data name="FSSAATQ_InvalidServerResponse" xml:space="preserve">
+    <value>Ungültige Rückmeldung vom Server. Verifizierungscode konnte nicht bestätigt werden.</value>
+  </data>
+  <data name="FSSALQ_InvalidServerResponse" xml:space="preserve">
+    <value>Ungültige Rückmeldung vom Server. Validierungscode kann nicht geprüft werden.</value>
+  </data>
+  <data name="FSSALQ_VerificationMessage" xml:space="preserve">
+    <value>Der Bestätigungscode wurde an die mit deinem Frontier-Konto verknüpfte E-Mail Adresse gesendet. Bitte schaue nach, ob du eine E-Mail bekommen hast, ohne dieses Feld zu schließen und gib den Code in das Feld oben ein. Es kann ein paar Minuten dauern, bis der Code übermittelt wird. Bitte überprüfe deinen Spam-/Junk-Ordner.</value>
+  </data>
+  <data name="FSSALQ_VerificationMessageDebug" xml:space="preserve">
+    <value>Der Server ist im Debug-Modus. Der benötigte Code lautet: {0}</value>
+  </data>
+  <data name="FSSCVQ_Unsupported" xml:space="preserve">
+    <value>Versionscheck nicht unterstützt von</value>
+  </data>
+  <data name="MenuLogOutMachine" xml:space="preserve">
+    <value>Ausloggen (System)</value>
+  </data>
+  <data name="FSSDM_BeginDownloadResponseX" xml:space="preserve">
+    <value>Ausnahme bei Download-Rückmeldung:
+
+{0}</value>
+  </data>
+  <data name="FSSDM_BeginDownloadX" xml:space="preserve">
+    <value>Ausnahme bei Download-Start:
+
+{0}</value>
+  </data>
+  <data name="FSSIQ_InvaildFileSize" xml:space="preserve">
+    <value>Ungültige Dateigröße ({0})</value>
+  </data>
+  <data name="FSSIQ_InvalidCheckSum" xml:space="preserve">
+    <value>Installer-Verifizierungscode konnte nicht ermittelt werden.</value>
+  </data>
+  <data name="FSSIQ_InvalidDownload" xml:space="preserve">
+    <value>Download-Pfad konnte nicht ermittelt werden.</value>
+  </data>
+  <data name="FSSIQ_InvalidLocalFile" xml:space="preserve">
+    <value>Lokaler Installer-Pfad konnte nicht ermittelt werden.</value>
+  </data>
+  <data name="FSSIQ_NoCheckSum" xml:space="preserve">
+    <value>Server konnte Installer-Verifizierungscode nicht bereitstellen.</value>
+  </data>
+  <data name="FSSIQ_NoDownload" xml:space="preserve">
+    <value>Server konnte Download-Information nicht bereitstellen.</value>
+  </data>
+  <data name="FSSIQ_NoLocalFile" xml:space="preserve">
+    <value>Server konnte lokalen Datei-Pfad nicht bereitstellen.</value>
+  </data>
+  <data name="FSSIQ_NoVersion" xml:space="preserve">
+    <value>Server konnte Version-Informationen nicht bereitstellen.</value>
+  </data>
+  <data name="FSSIQ_Rejected" xml:space="preserve">
+    <value>Server hat Installer nicht bereitgestellt. {0}</value>
+  </data>
+  <data name="FSSIQ_RequestX" xml:space="preserve">
+    <value>Ausnahme bei Anfrage nach Installer:
+
+{0}</value>
+  </data>
+  <data name="FSSIQ_ServerResponseX" xml:space="preserve">
+    <value>Ausnahme bei Verarbeitung der Server-Rückmeldung:
+
+{0}</value>
+  </data>
+  <data name="FSSJWQ_SRParseFail" xml:space="preserve">
+    <value>Server-Rückmeldung konnte nicht geparst werden:
+
+{0}</value>
+  </data>
+  <data name="FSSJWQ_SRQueryX" xml:space="preserve">
+    <value>Ausnahme beim Versuch der Anfrage:
+
+{0}</value>
+  </data>
+  <data name="FSSRSTQ_Forbidden" xml:space="preserve">
+    <value>Nicht gestattet.</value>
+  </data>
+  <data name="FSSRSTQ_InvalidServerResponse" xml:space="preserve">
+    <value>Ungültige Rückmeldung vom Server. Session-Token konnte nicht angefordert werden.</value>
+  </data>
+  <data name="FSSRSTQ_ServerResponseX" xml:space="preserve">
+    <value>Unerwartete Rückmeldung von Server:
+
+{0}</value>
+  </data>
+  <data name="Apology" xml:space="preserve">
+    <value>Entschuldige bitte die Unannehmlichkeiten.</value>
+  </data>
+  <data name="Confidentiality" xml:space="preserve">
+    <value>Wir werden uns so schnell wie möglich um den Bericht kümmern und ihn vertraulich behandeln.</value>
+  </data>
+  <data name="CrashDumpPrefix" xml:space="preserve">
+    <value>Es wurde ein</value>
+  </data>
+  <data name="CrashDumpSuffix" xml:space="preserve">
+    <value>mit einer Problembeschreibung erstellt, den du uns zusenden kannst.</value>
+  </data>
+  <data name="CrashDumpTitle" xml:space="preserve">
+    <value>Crash-Bericht</value>
+  </data>
+  <data name="HardwarePrefix" xml:space="preserve">
+    <value>Wenn du uns bereits eine</value>
+  </data>
+  <data name="HardwareSuffix" xml:space="preserve">
+    <value>zusammen mit dem Crash-Bericht zugesendet hast, werden beide zusammen bearbeitet, um das Problem einzugrenzen.</value>
+  </data>
+  <data name="HardwareTitle" xml:space="preserve">
+    <value>Hardware-Übersicht</value>
+  </data>
+  <data name="PostApplication" xml:space="preserve">
+    <value>': Es ist ein Problem aufgetreten, das ein Fortsetzen unmöglich macht.</value>
+  </data>
+  <data name="PreApplication" xml:space="preserve">
+    <value>'</value>
+  </data>
+  <data name="Request" xml:space="preserve">
+    <value>Bitte beschreibe das Problem, damit wir uns darum kümmern können.</value>
+  </data>
+  <data name="StatusCompressing" xml:space="preserve">
+    <value>Komprimieren ...</value>
+  </data>
+  <data name="ErrorTitle" xml:space="preserve">
+    <value>Fehler</value>
+  </data>
+  <data name="CrashReporterTitle" xml:space="preserve">
+    <value>Crash-Bericht</value>
+  </data>
+  <data name="LW_CancelWarning" xml:space="preserve">
+    <value>Dir wurde eine E-Mail mit einem Verifizierungscode zugeschickt.
+
+Wenn du das Einloggen jetzt abbrichst, wird der Code ungültig und du musst warten, bis du nach dem nächsten Login-Versuch erneut einen Code zugeschickt bekommst.
+
+Klicke auf "OK", wenn du auf den zugeschickten Code warten und ihn dann eingeben möchtest.
+
+Klicke auf "Abbrechen", wenn du abbrechen und nächstes Mal einen neuen Code erhalten möchtest.</value>
+  </data>
+  <data name="LW_CancelWarningTitle" xml:space="preserve">
+    <value>Warten auf Authentifizierung</value>
+  </data>
+  <data name="LW_ForgotPassword" xml:space="preserve">
+    <value>Passwort vergessen?</value>
+  </data>
+  <data name="IMGT_UserNameTitle" xml:space="preserve">
+    <value>Benutzername (E-Mail)</value>
+  </data>
+  <data name="IMGT_PasswordTitle" xml:space="preserve">
+    <value>Passwort</value>
+  </data>
+  <data name="IMGT_VerificationTitle" xml:space="preserve">
+    <value>Verifizierungscode</value>
+  </data>
+  <data name="IMGT_RememberMe" xml:space="preserve">
+    <value>Merken</value>
+  </data>
+  <data name="IMGT_RememberPassword" xml:space="preserve">
+    <value>Passwort merken</value>
+  </data>
+  <data name="BTNT_Options" xml:space="preserve">
+    <value>Optionen</value>
+  </data>
+  <data name="MenuCheckForUpdates" xml:space="preserve">
+    <value>Suche nach Spiel-Updates</value>
+  </data>
+  <data name="MenuShowHardwareSurvey" xml:space="preserve">
+    <value>Hardware-Übersicht anzeigen ...</value>
+  </data>
+  <data name="MenuUploadHardwareSurvey" xml:space="preserve">
+    <value>Hardware-Übersicht hochladen ...</value>
+  </data>
+  <data name="MenuValidateGameFiles" xml:space="preserve">
+    <value>Spieldateien verifizieren</value>
+  </data>
+  <data name="MenuUninstallGame" xml:space="preserve">
+    <value>Spiel deinstallieren</value>
+  </data>
+  <data name="MenuSelectLanguage" xml:space="preserve">
+    <value>Sprache auswählen ...</value>
+  </data>
+  <data name="BTNT_ReleaseNotes" xml:space="preserve">
+    <value>Versionshinweise anzeigen</value>
+  </data>
+  <data name="NotInstalled" xml:space="preserve">
+    <value>Nicht installiert</value>
+  </data>
+  <data name="RF_Page" xml:space="preserve">
+    <value>http://hosting.zaonce.net/launcher/elite-dangerous-horizons/en.html</value>
+  </data>
+  <data name="SLW_Title" xml:space="preserve">
+    <value>Sprache auswählen</value>
+  </data>
+  <data name="SLW_Instructions" xml:space="preserve">
+    <value>Mit Hilfe des Dropdown-Menüs kannst du die voreingestellte Systemsprache durch eine der unterstützten Sprachen ersetzen. Dies bezieht sich auf den Launcher und die Texte im Spiel. Zum Ausführen der Änderungen muss der Launcher neu gestartet werden.</value>
+  </data>
+  <data name="SLW_Accept" xml:space="preserve">
+    <value>Annehmen</value>
+  </data>
+  <data name="SLW_Cancel" xml:space="preserve">
+    <value>Abbrechen</value>
+  </data>
+  <data name="SLW_System" xml:space="preserve">
+    <value>Standardeinstellung verwenden</value>
+  </data>
+  <data name="BTNT_Purchase" xml:space="preserve">
+    <value>Kaufen</value>
+  </data>
+  <data name="BTNT_Login" xml:space="preserve">
+    <value>einloggen</value>
+  </data>
+  <data name="BTNT_Working" xml:space="preserve">
+    <value>Beschäftigt</value>
+  </data>
+  <data name="BTNT_Install" xml:space="preserve">
+    <value>Installieren</value>
+  </data>
+  <data name="BTNT_Upgrade" xml:space="preserve">
+    <value>Upgrade</value>
+  </data>
+  <data name="BTNT_Play" xml:space="preserve">
+    <value>Spielen</value>
+  </data>
+  <data name="BTNT_Submit" xml:space="preserve">
+    <value>Abschicken</value>
+  </data>
+  <data name="FORCManager_HardwareSurveyCollectionFail" xml:space="preserve">
+    <value>Anzeige der Hardware-Beschreibung gescheitert:
+
+{0}</value>
+  </data>
+  <data name="FORCManager_HardwareSurveyMissing" xml:space="preserve">
+    <value>Erwartete Hardware-Beschreibungsdatei nicht gefunden unter:
+
+{0}</value>
+  </data>
+  <data name="FORCManager_HardwareSurveyReadFail" xml:space="preserve">
+    <value>Hardware-Beschreibungsdatei nicht ausgelesen unter:
+
+{0}
+
+Ausnahme:
+
+{1}</value>
+  </data>
+  <data name="FORCManager_NoServerStatus" xml:space="preserve">
+    <value>Kein Server für Kommunikation.</value>
+  </data>
+  <data name="FORCManager_UnableToDetermineMachineID" xml:space="preserve">
+    <value>Rechneridentifikation konnte nicht ermittelt werden.</value>
+  </data>
+  <data name="Project_UninstallCancelled" xml:space="preserve">
+    <value>Abgebrochen</value>
+  </data>
+  <data name="Project_UninstallException" xml:space="preserve">
+    <value>Ausnahme beim Ausführen des Uninstallers:
+
+{0}</value>
+  </data>
+  <data name="Project_UninstallFailureExitCode" xml:space="preserve">
+    <value>Entfernung mit Exit-Code gescheitert {0}</value>
+  </data>
+  <data name="Project_UninstallTidyException" xml:space="preserve">
+    <value>Nicht gelöschte, vom Installer platzierte Dateien: {0}</value>
+  </data>
+  <data name="ProjectRunner_FailedStartup" xml:space="preserve">
+    <value>Start von {0} fehlgeschlagen:
+
+{1}</value>
+  </data>
+  <data name="ProjectRunner_MissingStartup" xml:space="preserve">
+    <value>Ausführbare Startdatei nicht gefunden</value>
+  </data>
+  <data name="ProjectRunner_NoStartup" xml:space="preserve">
+    <value>Anwendung hat keine ausführbare Startdatei</value>
+  </data>
+  <data name="PU_CreateInstallerDirExc" xml:space="preserve">
+    <value>Ausnahme bei Erstellung des Installationsverzeichnisses:
+
+{0}</value>
+  </data>
+  <data name="PU_ActionCancelled" xml:space="preserve">
+    <value>Abgebrochen</value>
+  </data>
+  <data name="PU_CreateInstallerDir" xml:space="preserve">
+    <value>Installationsverzeichnis erstellen</value>
+  </data>
+  <data name="PU_CreateInstallerDirFail" xml:space="preserve">
+    <value>Verzeichnis für Installer konnte nicht erstellt werden</value>
+  </data>
+  <data name="PU_DetermineVersion" xml:space="preserve">
+    <value>Korrekte Version zur Installation wird ermittelt</value>
+  </data>
+  <data name="PU_DownloadFileExc" xml:space="preserve">
+    <value>Ausnahme beim Datei-Download, möglicher Netzwerkfehler:
+
+{0}</value>
+  </data>
+  <data name="PU_DownloadInstaller" xml:space="preserve">
+    <value>Installer herunterladen</value>
+  </data>
+  <data name="PU_DownloadInstallerExc" xml:space="preserve">
+    <value>Ausnahme bei Datei-Transfer:
+
+{0}</value>
+  </data>
+  <data name="PU_InstallationExc" xml:space="preserve">
+    <value>Ausnahme beim Ausführen des Installers:
+
+{0}</value>
+  </data>
+  <data name="PU_InstallationExecute" xml:space="preserve">
+    <value>Installer ausführen</value>
+  </data>
+  <data name="PU_InstallationFailed" xml:space="preserve">
+    <value>Installation mit Exit-Code gescheitert {0}</value>
+  </data>
+  <data name="PU_InstallerCheck" xml:space="preserve">
+    <value>Suche nach existierendem Installer</value>
+  </data>
+  <data name="PU_ManifestContentsSync" xml:space="preserve">
+    <value>Dateien synchronisieren</value>
+  </data>
+  <data name="PU_ManifestDownload" xml:space="preserve">
+    <value>Manifestdatei herunterladen</value>
+  </data>
+  <data name="PU_ManifestDownloadExc" xml:space="preserve">
+    <value>Ausnahme beim Herunterladen der Manifestdatei :
+
+{0}</value>
+  </data>
+  <data name="PU_ManifestFileCopyExc" xml:space="preserve">
+    <value>Ausnahme beim Kopieren der Datei "{0}":
+
+{1}</value>
+  </data>
+  <data name="PU_ManifestFileCopyValidFail" xml:space="preserve">
+    <value>Kopieren von "{0}" gescheitert (Validierungsfehler)</value>
+  </data>
+  <data name="PU_ManifestFileSyncExc" xml:space="preserve">
+    <value>Ausnahme beim Update der Datei "{0}":
+
+{1}</value>
+  </data>
+  <data name="PU_ManifestFileUpdateValidFail" xml:space="preserve">
+    <value>Update der Datei "{0}" gescheitert (Validierungsfehler)</value>
+  </data>
+  <data name="PU_ManifestParseFailed" xml:space="preserve">
+    <value>Parsen der Manifestdatei gescheitert.</value>
+  </data>
+  <data name="PU_ManifestValidateCheckSumFail" xml:space="preserve">
+    <value>Ungültige Manifestdatei-Prüfsumme.</value>
+  </data>
+  <data name="PU_ManifestValidateSizeFail" xml:space="preserve">
+    <value>Ungültige Größe der Manifestdatei: {0}; erwartet: {1}</value>
+  </data>
+  <data name="PU_UninstallingGame" xml:space="preserve">
+    <value>Spiel wird deinstalliert ...</value>
+  </data>
+  <data name="PU_UninstallPrevious" xml:space="preserve">
+    <value>Vorherige Version wird deinstalliert ...</value>
+  </data>
+  <data name="PU_ValidInstaller" xml:space="preserve">
+    <value>Installer wird validiert</value>
+  </data>
+  <data name="PU_ValidInstallerFail" xml:space="preserve">
+    <value>Installer konnte nicht validiert werden</value>
+  </data>
+  <data name="RU_ServerWriteExc" xml:space="preserve">
+    <value>Fehler bei Datenübermittlung zum Server: {0}</value>
+  </data>
+  <data name="RU_ServerWriteManageExc" xml:space="preserve">
+    <value>Fehler bei Upload-Verwaltung: {0}</value>
+  </data>
+  <data name="RU_ServerWriteResponseExc" xml:space="preserve">
+    <value>Fehler bei Verarbeitung von Ausnahmeantwort: {0}</value>
+  </data>
+  <data name="RU_ServerWriteResponseFail" xml:space="preserve">
+    <value>Unerwartete Antwort von Server: {0}</value>
+  </data>
+  <data name="RU_ServerWriteStreamExc" xml:space="preserve">
+    <value>Bereitstellen von Upload-Stream gescheitert: {0}</value>
+  </data>
+  <data name="RU_UploadConnectExc" xml:space="preserve">
+    <value>Upload-Verbindung gescheitert: {0}</value>
+  </data>
+  <data name="PU_UpdateException" xml:space="preserve">
+    <value>Nicht behandelte Ausnahme während Projekt-Update:
+
+{0}</value>
+  </data>
+  <data name="RegisterLink" xml:space="preserve">
+    <value>https://tools.elitedangerous.com/register</value>
+  </data>
+  <data name="ApplicationStartupFailure" xml:space="preserve">
+    <value>Ausnahme beim Start der Anwendung: {0}</value>
+  </data>
+  <data name="BTNT_Register" xml:space="preserve">
+    <value>Registrieren</value>
+  </data>
+  <data name="BTNT_Register_JW1" xml:space="preserve">
+    <value>Erstellen</value>
+  </data>
+  <data name="BTNT_Register_JW2" xml:space="preserve">
+    <value>Account erstellen</value>
+  </data>
+  <data name="BTNT_Register_JW3" xml:space="preserve">
+    <value>Neuen Account erstellen</value>
+  </data>
+  <data name="BTNT_Register_JW4" xml:space="preserve">
+    <value>Neuer Account</value>
+  </data>
+  <data name="BTNT_Register_JW5" xml:space="preserve">
+    <value>Neuer Benutzer</value>
+  </data>
+  <data name="BTNT_Register_JW6" xml:space="preserve">
+    <value>Anmelden</value>
+  </data>
+  <data name="EULA_Accept" xml:space="preserve">
+    <value>Annehmen</value>
+  </data>
+  <data name="EULA_Decline" xml:space="preserve">
+    <value>Ablehnen</value>
+  </data>
+  <data name="EULA_PleaseRead" xml:space="preserve">
+    <value>Bitte lies die folgende Lizenzvereinbarung. Vor dem Nutzen des Launchers musst du die Bedingungen dieser Vereinbarung akzeptieren.</value>
+  </data>
+  <data name="EULA_Title" xml:space="preserve">
+    <value>Lizenzvereinbarung</value>
+  </data>
+  <data name="MenuCheckForCache" xml:space="preserve">
+    <value>Cache-Check aktivieren</value>
+  </data>
+  <data name="MenuCheckForCacheTip" xml:space="preserve">
+    <value>Check nach lokalem Cache mit Spieldateien.
+Existiert dieser, werden Dateien aus dem Cache verwendet und nicht vom Server heruntergeladen.</value>
+  </data>
+  <data name="MenuCheckForUpdatesTip" xml:space="preserve">
+    <value>Rufe den Server ab, um zu erfahren, ob es seit dem letzten Check Updates gegeben hat.</value>
+  </data>
+  <data name="MenuCheckForVCache" xml:space="preserve">
+    <value>Virtuellen Cache aktivieren</value>
+  </data>
+  <data name="MenuCheckForVCacheTip" xml:space="preserve">
+    <value>Baue einen Cache-Speicher mit Produktdateien auf, um das erneute Herunterladen von bereits vorhandenen Dateien zu vermeiden.
+Das kann insbesondere dann hilfreich sein, wenn man von der Beta-Version zur Vollversion wechselt.
+Kann nur bei aktiviertem Cache-Check aktiviert werden.</value>
+  </data>
+  <data name="MenuDetailedUpdateLog" xml:space="preserve">
+    <value>Detailliertes Update-Log</value>
+  </data>
+  <data name="MenuDetailedUpdateLogTip" xml:space="preserve">
+    <value>Beim Updaten wird ein Log gespeichert, der Details zu Aktionen und deren Zeitlichkeit festhält.
+Das kann hilfreich sein, um Probleme hinsichtlich langsamen Herunterladens zu identifizieren.</value>
+  </data>
+  <data name="MenuLogOutMachineTip" xml:space="preserve">
+    <value>Logge den aktiven Nutzer aus und hebe die Registrierung des Rechners auf.
+Der Verifizierungsprozess muss vor dem erneuten Einloggen nochmals durchlaufen werden.</value>
+  </data>
+  <data name="MenuLogOutUserTip" xml:space="preserve">
+    <value>Aktiven Nutzer ausloggen</value>
+  </data>
+  <data name="MenuSelectLanguageTip" xml:space="preserve">
+    <value>Wähle eine andere Sprache für den Launcher und das Spiel.</value>
+  </data>
+  <data name="MenuShowHardwareSurveyTip" xml:space="preserve">
+    <value>Generiere eine Hardware-Übersicht und lass die Ergebnisse in einem Fenster anzeigen.</value>
+  </data>
+  <data name="MenuUninstallGameTip" xml:space="preserve">
+    <value>Entferne die lokalen Dateien für das aktuell ausgewählte Spiel.
+Benutzerdateien wie Spielstände sind davon nicht betroffen.</value>
+  </data>
+  <data name="MenuUploadHardwareSurveyTip" xml:space="preserve">
+    <value>Generiere eine Hardware-Übersicht und lade sie hoch.</value>
+  </data>
+  <data name="MenuValidateGameFilesTip" xml:space="preserve">
+    <value>Stelle sicher, dass alle Spieldateien aktuell sind und keine lokalen Modifizierungen aufweisen.</value>
+  </data>
+  <data name="OSX_OutOfDateOS" xml:space="preserve">
+    <value>Deine Version von OS X erfüllt die für das Spiel erforderlichen Mindestanforderungen nicht. Bitte aktualisiere auf mindestens OS X 10.10.</value>
+  </data>
+  <data name="PU_FinaliseUpdate" xml:space="preserve">
+    <value>Update wird finalisiert</value>
+  </data>
+  <data name="PU_PrepareForUpdate" xml:space="preserve">
+    <value>Update wird vorbereitet</value>
+  </data>
+  <data name="PU_TransferReadFailed" xml:space="preserve">
+    <value>Lesen des Antwort-Streams fehlgeschlagen. Netzwerkverbindung wurde geschlossen.</value>
+  </data>
+  <data name="PU_UpdateWriteException" xml:space="preserve">
+    <value>Erstellen des Projektverzeichnis (oder Schreiben in selbiges) fehlgeschlagen. Das deutet darauf hin, dass der Launcher an einem Speicherort installiert wurde, auf den er keinen Zugriff hat.
+
+Solltest du den Launcher zu Beginn als Administrator ausgeführt haben, musst du ihn in der Folge ebenfalls als Administrator ausführen.
+
+Bitte ziehe das Online-FAQ zu Rate, um zu erfahren, wie man den Launcher auch ohne Administratoren-Rechte installieren kann.
+
+Die Ausnahme-Details:
+
+{0}</value>
+  </data>
+  <data name="RF_BrowserInitialisationFailure" xml:space="preserve">
+    <value>Erstellen der Web-Browser-Steuerung fehlgeschlagen. Das deutet darauf hin, dass es ein Problem mit dem Web-Browser oder Systemdateien gibt, welches den Start verhindert. Durch das manuelle Ausführen des Internet Explorer können weitere Informationen gewonnen werden, um das Problem einzugrenzen.
+
+Das System meldet folgende Ausnahme:
+
+{0}</value>
+  </data>
+  <data name="SupportDescriptionName" xml:space="preserve">
+    <value>Beschreibung: </value>
+  </data>
+  <data name="SupportRequestDescription" xml:space="preserve">
+    <value>Bitte nutze das nachstehende Textfeld, um Informationen zu liefern, was genau du getan hast, als der Crash aufgetreten ist. Das kann bei der Problemidentifizierung enorm hilfreich sein.</value>
+  </data>
+  <data name="TicketLabel" xml:space="preserve">
+    <value>Falls du bezüglich dieses Crashs Hilfe benötigst, öffne bitte unter folgender Adresse ein Kundendienst-Ticket:</value>
+  </data>
+  <data name="LW_RegistrationRequired" xml:space="preserve">
+    <value>Bitte melde dich mit deinen Elite: Dangerous-Spielkontodaten an. Bitte registriere dich {HERE:hier}, falls du noch kein Konto hast.</value>
+  </data>
+  <data name="LW_RegistrationSteam" xml:space="preserve">
+    <value>Bitte melde dich mit deinen Elite: Dangerous-Spielkontodaten an. Bitte registriere dich {HERE:hier}, falls du noch kein Konto hast (es geht hier nicht um deine Steam-ID oder deinen Steam-Accountnamen).</value>
+  </data>
+  <data name="BTNT_PlayOffline" xml:space="preserve">
+    <value>Demo spielen</value>
+  </data>
+  <data name="RF_PageSteam" xml:space="preserve">
+    <value>http://hosting.zaonce.net/launcher-steam/elite-dangerous-horizons/en.html</value>
+  </data>
+  <data name="FSSJWQ_SRNoResponse" xml:space="preserve">
+    <value>Keine oder leere Antwort vom Server : {0}</value>
+  </data>
+  <data name="LW_RegistrationRequiredOSX" xml:space="preserve">
+    <value>Bitte melde dich mit deinen Elite Dangerous-Spielkontodaten an Bitte klicke unten auf "Neues Konto registrieren", falls du noch kein Konto hast.</value>
+  </data>
+  <data name="LW_Register" xml:space="preserve">
+    <value>Neues Konto registrieren</value>
+  </data>
+  <data name="LW_RegistrationSteamOSX" xml:space="preserve">
+    <value>Bitte melde dich mit deinen Elite Dangerous-Spielkontodaten an Bitte klicke unten auf "Neues Konto registrieren", falls du noch kein Konto hast. (Das ist nicht deine SteamID oder dein Steam-Kontoname.)</value>
+  </data>
+  <data name="MenuChooseInstallDir" xml:space="preserve">
+    <value>Installationsverzeichnis ändern</value>
+  </data>
+  <data name="MenuCheckForXInput" xml:space="preserve">
+    <value>Suchen nach XInput</value>
+  </data>
+  <data name="MenuCheckForXInputTip" xml:space="preserve">
+    <value>Suchen nach der alten Version der XINPUT1_3.DLL.
+Sollte sie nicht gefunden werden, wird ein Link zur Supportseite geöffnet.
+Deaktiviere diese Funktion, falls der Launcher die Datei fälschlicherweise als nicht vorhanden erkennt.</value>
+  </data>
+  <data name="OSX_Page" xml:space="preserve">
+    <value>http://hosting.zaonce.net/launcher-mac/elite/en.html</value>
+  </data>
+  <data name="OSX_PageSteam" xml:space="preserve">
+    <value>http://hosting.zaonce.net/launcher-steam-mac/elite/en.html</value>
+  </data>
+  <data name="RW_RedeemIntro" xml:space="preserve">
+    <value>Wenn du Elite Dangerous oder den Horizons Season Pass bei Steam gekauft hast, melde dich bitte ab und wähle "Mit Steam einloggen".</value>
+  </data>
+  <data name="RW_RedeemRequest" xml:space="preserve">
+    <value>Wenn du erst kürzlich ein Exemplar von Elite Dangerous oder ED: Horizons erworben hast, beachte bitte, dass wir keine Steam CD-Keys mehr verwenden. Du musst dein Steam-Konto mit deinem Frontier-Store-Konto verknüpfen, oder ein Frontier-Store-Konto erstellen, falls du noch keines hast.
+Wenn du dich vorher mit Benutzername und Passwort eingeloggt hast, wähle "Login zurücksetzen" und verwende "Mit Steam einloggen".</value>
+  </data>
+  <data name="RW_RedeemTitle" xml:space="preserve">
+    <value>KEIN ZUGRIFF AUFS SPIEL</value>
+  </data>
+  <data name="RW_RegisterCancel" xml:space="preserve">
+    <value>Hast du bereits ein Frontier-Konto? Schließe dieses Fenster und melde dich an</value>
+  </data>
+  <data name="RW_RegisterRequest" xml:space="preserve">
+    <value>Neue Nutzer: Bitte unten auf die Konto-erstellen-Schaltfläche klicken, um ein neues Konto anzulegen und dabei das eigene Steam-Profil zu nutzen.</value>
+  </data>
+  <data name="RW_RegisterTitle" xml:space="preserve">
+    <value>Willkommen im Frontier-Launcher</value>
+  </data>
+  <data name="BTNT_Copy" xml:space="preserve">
+    <value>Kopieren</value>
+  </data>
+  <data name="BTNT_Redeem" xml:space="preserve">
+    <value>Einlösen</value>
+  </data>
+  <data name="MenuAlternativeDownload" xml:space="preserve">
+    <value>Multithreading-Download</value>
+  </data>
+  <data name="MenuAlternativeDownloadTip" xml:space="preserve">
+    <value>Mehrere Threads für das Herunterladen der Spieldateien verwenden. Das kann in manchen Netzwerken Leistung und Zuverlässigkeit erhöhen.</value>
+  </data>
+  <data name="PU_UpdateCaseSensitivityException" xml:space="preserve">
+    <value>Dateisysteme mit Groß- und Kleinschreibung werden nicht unterstützt.</value>
+  </data>
+  <data name="LW_NoRegistration" xml:space="preserve">
+    <value>Bitte melde dich mit deinen Elite Dangerous-Spielkontodaten an.</value>
+  </data>
+  <data name="HU_Continue" xml:space="preserve">
+    <value>Launcher schließen</value>
+  </data>
+  <data name="HU_Title" xml:space="preserve">
+    <value>Update erforderlich</value>
+  </data>
+  <data name="HU_MessageST" xml:space="preserve">
+    <value>Es muss ein Update durchgeführt werden, bevor das Spiel gestartet werden kann. Folge dieser Anleitung, um manuell nach Updates zu suchen:
+
+  * Rechtsklicke auf „Elite Dangerous“ in Steam.
+  * Öffne unter „Einstellungen“ den Reiter „Updates“.
+  * Wähle im Dropdown-Menü unter automatische Updates „Hohe Priorität“.
+  * Schließe Steam und starte es neu.
+
+Es kann bei der Veröffentlichung des Updates zu leichten Zeitverzögerungen zwischen unseren Servern und den Servern von Steam kommen. Danke für deine Geduld.</value>
+  </data>
+  <data name="MenuMoveGame" xml:space="preserve">
+    <value>Installationsverzeichnis wählen</value>
+  </data>
+  <data name="MenuMoveGameTip" xml:space="preserve">
+    <value>Spieldateien in einem alternativen Verzeichnis speichern.</value>
+  </data>
+  <data name="MenuRestoreGame" xml:space="preserve">
+    <value>Standard-Installationsverzeichnis</value>
+  </data>
+  <data name="MenuRestoreGameTip" xml:space="preserve">
+    <value>Speichert die Spieldateien im Standardverzeichnis.</value>
+  </data>
+  <data name="ProgressETETip" xml:space="preserve">
+    <value>Geschätzte verbleibende Zeit bei aktueller Verarbeitungsgeschwindigkeit.</value>
+  </data>
+  <data name="ProgressRateTip" xml:space="preserve">
+    <value>Geschätzte Geschwindigkeit, mit der die Spieldaten verarbeitet werden. Dazu gehört die Validierung bestehender Dateien und das Herunterladen neuer Daten. Es ist keine direkte Angabe der Netzwerknutzung.</value>
+  </data>
+  <data name="PU_CreateFileExc" xml:space="preserve">
+    <value>Datei zum Schreiben der Spieldaten konnte nicht erstellt werden. Möglicherweise ist das Laufwerk voll oder es gibt einen Dateisystemfehler. Ausnahmedetails:
+
+{0}</value>
+  </data>
+  <data name="PU_PathTooLong" xml:space="preserve">
+    <value>Pfad ist zu lang für die Installation aller benötigten Dateien.
+
+Dies kann behoben werden, indem das Startprogramm in einem Ordner näher am Root-Verzeichnis des Laufwerks installiert wird.
+
+Siehe Online-Support für weitere Informationen.</value>
+  </data>
+  <data name="SelectInstallLocationInstructions" xml:space="preserve">
+    <value>Wähle den Ordner zum Speichern der Spieldateien. Beachte bitte, dass Ordner mit einer großen Anzahl unzusammenhängender Dateien die Cache-Generierung deutlich verlangsamen können.</value>
+  </data>
+  <data name="HU_Message" xml:space="preserve">
+    <value>Es muss ein Update durchgeführt werden, bevor das Spiel gestartet werden kann. Du kannst innerhalb von Oculus Home nach Updates suchen, indem du in deiner Bibliothek die Option „Updates“ auswählst.
+
+Es kann bei der Veröffentlichung des Updates zu leichten Zeitverzögerungen zwischen unseren Servern und den Servern von Oculus kommen. Danke für deine Geduld.</value>
+  </data>
+  <data name="OculusDirectRunWarningDetails" xml:space="preserve">
+    <value>Bitte starte Elite Dangerous via Oculus Home. Ein direkter Programmstart kann unerwartete Resultate nach sich ziehen und wird nicht unterstützt.</value>
+  </data>
+  <data name="OculusDirectRunWarningTitle" xml:space="preserve">
+    <value>Warnung</value>
+  </data>
+  <data name="InstallationInProgress" xml:space="preserve">
+    <value>Die Spieldateien werden zurzeit aktualisiert. Bitte warte, bis das Update abgeschlossen ist, bevor du das Fenster schließt.
+
+Bei Bedarf kannst du die Installation abbrechen, du musst diese allerdings neu starten und zum Abschluss bringen, bevor du das Spiel spielen kannst.</value>
+  </data>
+  <data name="InstallationInProgressTitle" xml:space="preserve">
+    <value>Update läuft</value>
+  </data>
+  <data name="RW_LinkIntro" xml:space="preserve">
+    <value>Um Elite Dangerous zu spielen, kannst du dich in ein bestehendes Frontier-Konto einloggen oder dieses Steam-Konto mit deinem Frontier-Konto verknüpfen.</value>
+  </data>
+  <data name="RW_LinkRequest" xml:space="preserve">
+    <value>Bitte klicke unten auf die Verknüpfen-Schaltfläche, um dieses Steam-Konto mit deinem bestehenden Konto zu verknüpfen. Klicke auf die Einloggen-Schaltfläche, um dich ohne Verknüpfen einzuloggen.</value>
+  </data>
+  <data name="BTNT_Existing" xml:space="preserve">
+    <value>Bestehendes nutzen</value>
+  </data>
+  <data name="BTNT_Link" xml:space="preserve">
+    <value>Konto verknüpfen</value>
+  </data>
+  <data name="LinkInProgress" xml:space="preserve">
+    <value>Bitte schließe die Kontoverknüpfung in deinem Browser ab, bevor du den Launcher schließt.
+</value>
+  </data>
+  <data name="LinkInProgressTitle" xml:space="preserve">
+    <value>Laufende Kontoverknüpfung</value>
+  </data>
+  <data name="PU_InsufficientSpace" xml:space="preserve">
+    <value>Unzureichender Speicherplatz auf Laufwerk, um Datei {0} herunterzuladen, {1}B erforderlich.</value>
+  </data>
+  <data name="RegistrationInProgress" xml:space="preserve">
+    <value>Bitte schließe die Registrierung in deinem Browser ab, bevor du den Launcher schließt.
+</value>
+  </data>
+  <data name="RegistrationInProgressTitle" xml:space="preserve">
+    <value>Laufende Registrierung</value>
+  </data>
+  <data name="BTNT_LoginSteam" xml:space="preserve">
+    <value>Mit Steam einloggen</value>
+  </data>
+  <data name="LanguageCode" xml:space="preserve">
+    <value>de</value>
+  </data>
+  <data name="DX_Link" xml:space="preserve">
+    <value>https://customersupport.frontier.co.uk/hc/en-us/articles/4405692450834-Help-with-common-issues-and-error-messages-seen-with-the-Launcher-</value>
+  </data>
+  <data name="RW_SupportLink" xml:space="preserve">
+    <value>https://customersupport.frontier.co.uk/hc/en-us/sections/4404007355666-Account-Support</value>
+  </data>
+  <data name="SupportLink" xml:space="preserve">
+    <value>https://customersupport.frontier.co.uk/hc/en-us/categories/4404016831378-Elite-Dangerous-</value>
+  </data>
+  <data name="TicketLink" xml:space="preserve">
+    <value>https://customersupport.frontier.co.uk/hc/en-us/categories/4404016831378-Elite-Dangerous-</value>
+  </data>
+  <data name="AlteredLauncherVersion" xml:space="preserve">
+    <value>{0} (build {1})</value>
+  </data>
+  <data name="BTNT_Apply" xml:space="preserve">
+    <value>anwenden</value>
+  </data>
+  <data name="BTNT_LauncherPlay" xml:space="preserve">
+    <value>spielen</value>
+  </data>
+  <data name="BTNT_LauncherInstall" xml:space="preserve">
+    <value>installieren</value>
+  </data>
+  <data name="BTNT_LauncherSettings" xml:space="preserve">
+    <value>Einstellungen</value>
+  </data>
+  <data name="BTNT_LauncherUpdate" xml:space="preserve">
+    <value>aktualisierung</value>
+  </data>
+  <data name="BTNT_LauncherVersions" xml:space="preserve">
+    <value>versionen</value>
+  </data>
+  <data name="BTNT_LoginUpper" xml:space="preserve">
+    <value>einloggen</value>
+  </data>
+  <data name="BTNT_LoginLink" xml:space="preserve">
+    <value>Einloggen und verknüpfen</value>
+  </data>
+  <data name="BTNT_SettingsFDLinks" xml:space="preserve">
+    <value>frontier-links</value>
+  </data>
+  <data name="BTNT_SettingsLanguage" xml:space="preserve">
+    <value>sprache</value>
+  </data>
+  <data name="BTNT_SettingsOption" xml:space="preserve">
+    <value>optionen</value>
+  </data>
+  <data name="BTNT_SetingsSupport" xml:space="preserve">
+    <value>support</value>
+  </data>
+  <data name="DialogTitle" xml:space="preserve">
+    <value>ELITE DANGEROUS LAUNCHER</value>
+  </data>
+  <data name="EL_ReleaseNotes" xml:space="preserve">
+    <value>https://forums.frontier.co.uk/forums/elite-dangerous-news/</value>
+  </data>
+  <data name="ExpiredLauncherLink" xml:space="preserve">
+    <value>http://hosting.zaonce.net/elite/Client-Installer.exe</value>
+  </data>
+  <data name="ExpiredLauncherLinkOSX" xml:space="preserve">
+    <value>http://hosting.zaonce.net/elite/Client-Installer.dmg</value>
+  </data>
+  <data name="LB_Email" xml:space="preserve">
+    <value>E-Mail</value>
+  </data>
+  <data name="LB_FrontierLogonTitle" xml:space="preserve">
+    <value>Frontier-konto log-in</value>
+  </data>
+  <data name="LB_FrontierLogonInstruct" xml:space="preserve">
+    <value>Bitte logge dich mit deinem Frontier-Konto ein, um auf Inhalte für Elite Dangerous zuzugreifen.</value>
+  </data>
+  <data name="LB_Language" xml:space="preserve">
+    <value>sprache</value>
+  </data>
+  <data name="LB_LanguageInstructionsLine1" xml:space="preserve">
+    <value>Wähle eine Sprache für den Launcher und das Spiel.</value>
+  </data>
+  <data name="LB_LanguageInstructionsLine2" xml:space="preserve">
+    <value>Der Launcher muss neu starten, damit die Änderungen übernommen werden.</value>
+  </data>
+  <data name="LB_Password" xml:space="preserve">
+    <value>Passwort</value>
+  </data>
+  <data name="LW_CheckEmail" xml:space="preserve">
+    <value>eine bestätigungs-e-mail wurde gesendet.</value>
+  </data>
+  <data name="LW_CheckEmail1" xml:space="preserve">
+    <value>Diese Box nicht schließen.</value>
+  </data>
+  <data name="LW_CheckEmail2" xml:space="preserve">
+    <value>Überprüfe deine Junk-/Spam-Ordner.</value>
+  </data>
+  <data name="LW_CheckEmail3" xml:space="preserve">
+    <value>Es kann ein paar Minuten dauern, bis die E-Mail eintrifft.</value>
+  </data>
+  <data name="LW_CheckEmailDesc" xml:space="preserve">
+    <value>Bitte überprüfe, ob die Bestätigungs-E-Mail mit dem fünfstelligen Verifizierungscode in deinem Posteingang angekommen ist und gib ihn im Feld unten ein.</value>
+  </data>
+  <data name="LW_Code" xml:space="preserve">
+    <value>Code</value>
+  </data>
+  <data name="LW_ForgotPasswordLink" xml:space="preserve">
+    <value>https://www.frontierstore.net/customer/account/forgotpassword/</value>
+  </data>
+  <data name="LW_NoFDAccountSignUp" xml:space="preserve">
+    <value>Kein Frontier-Konto? Hier registrieren</value>
+  </data>
+  <data name="LW_VerificationCode" xml:space="preserve">
+    <value>verifizierungscode:</value>
+  </data>
+  <data name="LW_VerificationCodeResend" xml:space="preserve">
+    <value>Keine E-Mail erhalten? Erneut senden</value>
+  </data>
+  <data name="LW_VerificationTitle" xml:space="preserve">
+    <value>eine bestätigungs-e-mail wurde gesendet:</value>
+  </data>
+  <data name="LW_VerificationInstLine1" xml:space="preserve">
+    <value>Sieh nach einer E-Mail von Frontier, die einen sechsstelligen Code enthält, nach.</value>
+  </data>
+  <data name="LW_VerificationInstLine2" xml:space="preserve">
+    <value>Wenn du die E-Mail nicht siehst, dann:</value>
+  </data>
+  <data name="LW_VerificationInstLine3" xml:space="preserve">
+    <value>1. Sicherstellen, dass {0} korrekt ist und keine Schreibfehler hat.</value>
+  </data>
+  <data name="LW_VerificationInstLine4" xml:space="preserve">
+    <value>2. Spam-Ordner überprüfen.</value>
+  </data>
+  <data name="LW_VerificationInstLine5" xml:space="preserve">
+    <value>3. Ein paar Minuten warten.</value>
+  </data>
+  <data name="OptionalLauncherVersionDetails" xml:space="preserve">
+    <value>Eine neuere Version des Frontier-Launchers ({0}) ist verfügbar. Möchten Sie den Launcher schließen und den neuen Installer herunterladen?</value>
+  </data>
+  <data name="OptionalLauncherVersionTitle" xml:space="preserve">
+    <value>Launcher-Update verfügbar</value>
+  </data>
+  <data name="PN_Epic" xml:space="preserve">
+    <value>Epic</value>
+  </data>
+  <data name="PN_Frontier" xml:space="preserve">
+    <value>Frontier</value>
+  </data>
+  <data name="PN_Steam" xml:space="preserve">
+    <value>Steam</value>
+  </data>
+  <data name="Project_ServerVersionSuffix" xml:space="preserve">
+    <value>({0})</value>
+  </data>
+  <data name="Project_URLDefaultNews" xml:space="preserve">
+    <value>http://www.frontier.co.uk/news</value>
+  </data>
+  <data name="Project_URLDefaultStore" xml:space="preserve">
+    <value>http://www.frontier.co.uk</value>
+  </data>
+  <data name="Project_URLDefaultSupport" xml:space="preserve">
+    <value>http://www.frontier.co.uk/contact/</value>
+  </data>
+  <data name="Project_VersionFormat" xml:space="preserve">
+    <value>V {0}</value>
+  </data>
+  <data name="PurchaseLink" xml:space="preserve">
+    <value>www.frontierstore.net/games/elite-dangerous-cat.html</value>
+  </data>
+  <data name="RW_CreateNewAccount" xml:space="preserve">
+    <value>NEUEN ACCOUNT ERSTELLEN</value>
+  </data>
+  <data name="RW_CreateNewAccountDesc" xml:space="preserve">
+    <value>Neue Nutzer: Erstelle ein neues Frontier-Konto und verknüpfe es mit deinem {0}-Konto.</value>
+  </data>
+  <data name="RW_ExistingUsers" xml:space="preserve">
+    <value>LOGIN FÜR EXISTIERENDE BENUTZER</value>
+  </data>
+  <data name="RW_ExistingUsersDesc" xml:space="preserve">
+    <value>Logge dich in deinem Frontier-Konto ein.</value>
+  </data>
+  <data name="RW_SupportLinkText" xml:space="preserve">
+    <value>Frontier-Support</value>
+  </data>
+  <data name="RW_SupportPost" xml:space="preserve">
+    <value>.</value>
+  </data>
+  <data name="RW_SupportPre" xml:space="preserve">
+    <value>Wenn du Hilfe zu den Themen Zugang zum Spiel, Verknüpfen von Konten (oder Aufheben einer Verknüpfung) benötigst, rufe bitte folgende FAQs auf:</value>
+  </data>
+  <data name="RW_RedeemLink" xml:space="preserve">
+    <value>https://www.frontierstore.net/customer/accountpage/</value>
+  </data>
+  <data name="RW_RegisterIntro" xml:space="preserve">
+    <value>Um Elite Dangerous spielen zu können, musst du das Spiel besitzen und ein verknüpftes Frontier-Konto anlegen.</value>
+  </data>
+  <data name="SelectCrashFileDefaultExtension" xml:space="preserve">
+    <value>.dmp</value>
+  </data>
+  <data name="SelectCrashFileFilter" xml:space="preserve">
+    <value>Crash-Dumps (*.dmp)|*.dmp|Alle Dateien (*.*)|*.*</value>
+  </data>
+  <data name="SelectFileStoreFileName" xml:space="preserve">
+    <value>FileStore.cfg</value>
+  </data>
+  <data name="SelectFileStoreFilter" xml:space="preserve">
+    <value>Konfigurationsdateien (FileStore.cfg)|FileStore.cfg</value>
+  </data>
+  <data name="SelectInstallerDefaultExtension" xml:space="preserve">
+    <value>.exe</value>
+  </data>
+  <data name="SelectInstallerFailedDetails" xml:space="preserve">
+    <value>Datei "{0}" nicht gefunden</value>
+  </data>
+  <data name="SelectInstallerFailedTitle" xml:space="preserve">
+    <value>Installation fehlgeschlagen</value>
+  </data>
+  <data name="SelectInstallerFilter" xml:space="preserve">
+    <value>Programmdateien (*.exe)|*.exe|Alle Dateien (*.*)|*.*</value>
+  </data>
+  <data name="RegisterLinkEpic" xml:space="preserve">
+    <value>https://user.frontierstore.net/epic/register/</value>
+  </data>
+  <data name="BTNT_BrowseStore" xml:space="preserve">
+    <value>store besuchen</value>
+  </data>
+  <data name="BTNT_CancelInstallation" xml:space="preserve">
+    <value>installation abbrechen</value>
+  </data>
+  <data name="BTNT_CheckForGameUpdates" xml:space="preserve">
+    <value>suche nach spiel-updates</value>
+  </data>
+  <data name="BTNT_ContactSupport" xml:space="preserve">
+    <value>support kontaktieren</value>
+  </data>
+  <data name="BTNT_GotoForums" xml:space="preserve">
+    <value>foren besuchen</value>
+  </data>
+  <data name="BNT_LinkAccounts" xml:space="preserve">
+    <value>kontos verknüpfen</value>
+  </data>
+  <data name="BTNT_LinkToThisAccount" xml:space="preserve">
+    <value>mit diesem konto verknüpfen</value>
+  </data>
+  <data name="BTNT_LoginWithSteam" xml:space="preserve">
+    <value>mit steam einloggen</value>
+  </data>
+  <data name="BTNT_OK" xml:space="preserve">
+    <value>ok</value>
+  </data>
+  <data name="BTNT_RedeemCode" xml:space="preserve">
+    <value>code einlösen</value>
+  </data>
+  <data name="BTNT_SignUp" xml:space="preserve">
+    <value>registrieren</value>
+  </data>
+  <data name="BTNT_SteamLogIn" xml:space="preserve">
+    <value>mit Steam einloggen</value>
+  </data>
+  <data name="BTNT_ViewARXPacks" xml:space="preserve">
+    <value>arx-packs ansehen</value>
+  </data>
+  <data name="BTNT_UninstallGame" xml:space="preserve">
+    <value>spiel deinstallieren</value>
+  </data>
+  <data name="BTNT_YesLogOut" xml:space="preserve">
+    <value>ja, ausloggen</value>
+  </data>
+  <data name="Copyright" xml:space="preserve">
+    <value>© 2022 Frontier Development plc.</value>
+  </data>
+  <data name="MissingEmailAddress" xml:space="preserve">
+    <value>Bitte gib deine E-Mail-Adresse ein</value>
+  </data>
+  <data name="MissingPassword" xml:space="preserve">
+    <value>Bitte gib dein Passwort ein</value>
+  </data>
+  <data name="MSG_ClickForPathNotes" xml:space="preserve">
+    <value>Hier klicken, um Versionshinweise zu lesen.</value>
+  </data>
+  <data name="MSG_IncorrectTryAgain" xml:space="preserve">
+    <value>{0} INKORREKT\nERNEUT VERSUCHEN</value>
+  </data>
+  <data name="MSG_InstalledFrom" xml:space="preserve">
+    <value>Installiert via</value>
+  </data>
+  <data name="MSG_PleaseWait" xml:space="preserve">
+    <value>Bitte warten.</value>
+  </data>
+  <data name="MSG_ScrollDownForMore" xml:space="preserve">
+    <value>FÜR MEHR NACH UNTEN SCROLLEN</value>
+  </data>
+  <data name="PleaseWaitDotDotDot" xml:space="preserve">
+    <value>Bitte warten.</value>
+  </data>
+  <data name="PleaseWaitDotDotDotUC" xml:space="preserve">
+    <value>BITTE WARTEN.</value>
+  </data>
+  <data name="TITLE_BuyARX" xml:space="preserve">
+    <value>arx kaufen</value>
+  </data>
+  <data name="TITLE_CommunityGoals" xml:space="preserve">
+    <value>community-ziele</value>
+  </data>
+  <data name="TITLE_CreateFrontierAccount" xml:space="preserve">
+    <value>frontier-konto erstellen</value>
+  </data>
+  <data name="TITLE_DontOwnAndNotLinked1" xml:space="preserve">
+    <value>dieses frontier-konto verfügt nicht über elite dangerous,</value>
+  </data>
+  <data name="TITLE_DontOwnAndNotLinked2" xml:space="preserve">
+    <value>und ist nicht mit drittanbieter-konten verknüpft.</value>
+  </data>
+  <data name="TITLE_DontOwnAndLinked1" xml:space="preserve">
+    <value>dieses frontier-konto verfügt nicht über elite dangerous,</value>
+  </data>
+  <data name="TITLE_DontOwnAndLinked2" xml:space="preserve">
+    <value>ist aber mit drittanbieter-konten verknüpft.</value>
+  </data>
+  <data name="TITLE_EliteForums" xml:space="preserve">
+    <value>elite-foren</value>
+  </data>
+  <data name="TITLE_FeaturedProducts" xml:space="preserve">
+    <value>vorgestellte produkte</value>
+  </data>
+  <data name="TITLE_FrontierStore" xml:space="preserve">
+    <value>frontier store</value>
+  </data>
+  <data name="TITLE_FrontiereSupport" xml:space="preserve">
+    <value>frontier-support</value>
+  </data>
+  <data name="TITLE_Galnet" xml:space="preserve">
+    <value>galaxie-status</value>
+  </data>
+  <data name="TITLE_PatchNotes" xml:space="preserve">
+    <value>{0} - versionshinweise</value>
+  </data>
+  <data name="TITLE_ProductCode" xml:space="preserve">
+    <value>produktcode:</value>
+  </data>
+  <data name="TITLE_ServerProblem" xml:space="preserve">
+    <value>im moment haben wir serverprobleme</value>
+  </data>
+  <data name="TITLE_SteamLinkedToFDAccount" xml:space="preserve">
+    <value>dieses steam-konto ist mit einem frontier-konto verknüpft:</value>
+  </data>
+  <data name="TITLE_Uninstall" xml:space="preserve">
+    <value>bist du sicher, dass du elite dangerous deinstallieren möchtest?</value>
+  </data>
+  <data name="TITLE_VerifyYourEmail" xml:space="preserve">
+    <value>bitte e-mail verifizieren:</value>
+  </data>
+  <data name="TXT_AcceptTerms_1" xml:space="preserve">
+    <value>Ich bin mit den</value>
+  </data>
+  <data name="TXT_AcceptTerms_2" xml:space="preserve">
+    <value>Nutzungsbedingungen</value>
+  </data>
+  <data name="TXT_AcceptTerms_3" xml:space="preserve">
+    <value>und</value>
+  </data>
+  <data name="TXT_AcceptTerms_4" xml:space="preserve">
+    <value>Datenschutz-Bestimmungen einverstanden</value>
+  </data>
+  <data name="TXT_BuyArxNote" xml:space="preserve">
+    <value>Sieh dir die besten Arx-Pack-Angebote an.</value>
+  </data>
+  <data name="TXT_BrowseFrontierStoreNote" xml:space="preserve">
+    <value>Schau dir Lackierungen, Folien, Schiffsbausätze an und erlebe Elite, wie du es willst!</value>
+  </data>
+  <data name="TXT_CacheCheck" xml:space="preserve">
+    <value>Cache-Überprüfung</value>
+  </data>
+  <data name="TXT_Check" xml:space="preserve">
+    <value>Bitte überprüfen und erneut versuchen</value>
+  </data>
+  <data name="TXT_CMDR" xml:space="preserve">
+    <value>KDT.</value>
+  </data>
+  <data name="TXT_DontLinkAccounts" xml:space="preserve">
+    <value>Konten nicht verknüpfen, nur einloggen.</value>
+  </data>
+  <data name="TXT_EliteDangerousUpperC" xml:space="preserve">
+    <value>elite dangerous</value>
+  </data>
+  <data name="TXT_Galnet" xml:space="preserve">
+    <value>GalNet</value>
+  </data>
+  <data name="TXT_NoAccessToElite" xml:space="preserve">
+    <value>Du kannst im Moment nicht auf Elite Dangerous zugreifen.</value>
+  </data>
+  <data name="TXT_NoAccessTillTime" xml:space="preserve">
+    <value>Wir arbeiten daran und hoffen, gegen {0} eine Lösung zu haben.</value>
+  </data>
+  <data name="TXT_ServersAreDown" xml:space="preserve">
+    <value>elite-server ausser betrieb</value>
+  </data>
+  <data name="TXT_HaveAnAccount" xml:space="preserve">
+    <value>Hast du bereits ein Frontier-Konto? Einloggen</value>
+  </data>
+  <data name="TXT_Example123" xml:space="preserve">
+    <value>Beispiel123</value>
+  </data>
+  <data name="TXT_ExampleName" xml:space="preserve">
+    <value>Beispielname</value>
+  </data>
+  <data name="TXT_ExampleEmail" xml:space="preserve">
+    <value>Beispiel@mail.com</value>
+  </data>
+  <data name="TXT_ExamplePassword" xml:space="preserve">
+    <value>Beispielpasswort</value>
+  </data>
+  <data name="TXT_FirstName" xml:space="preserve">
+    <value>Vorname</value>
+  </data>
+  <data name="TXT_FrontierAccNotExist" xml:space="preserve">
+    <value>frontier-konto\nexistiert nicht</value>
+  </data>
+  <data name="TXT_GetInTouch" xml:space="preserve">
+    <value>Um dich mit dem Frontier-Support in Verbindung zu setzen, klicke diesen Link.</value>
+  </data>
+  <data name="TXT_MissYou" xml:space="preserve">
+    <value>Die Galaxie wird dich vermissen, Kommandant.</value>
+  </data>
+  <data name="TXT_NoEmail" xml:space="preserve">
+    <value>Keine E-Mail erhalten? Erneut senden</value>
+  </data>
+  <data name="XT_NotInstalled" xml:space="preserve">
+    <value>nicht installiert</value>
+  </data>
+  <data name="TXT_InsertCodeHere" xml:space="preserve">
+    <value>Code hier eingeben.</value>
+  </data>
+  <data name="TXT_InstallingGame" xml:space="preserve">
+    <value>spiel wird installiert</value>
+  </data>
+  <data name="TXT_JoinEliteForumsNote" xml:space="preserve">
+    <value>Mitdiskutieren.</value>
+  </data>
+  <data name="TXT_MaintenanceInProgress" xml:space="preserve">
+    <value>Wartung läuft.</value>
+  </data>
+  <data name="TXT_MightWantToAccessAccount" xml:space="preserve">
+    <value>Du kannst auf Elite Dangerous über die obigen Konten zugreifen, wenn du einen zwölfstelligen Code hast, kannst du dies hier tun:</value>
+  </data>
+  <data name="TXT_MinsRemaining" xml:space="preserve">
+    <value>{0} Minuten verbleibend...</value>
+  </data>
+  <data name="TXT_NoCodeLogMeOut" xml:space="preserve">
+    <value>Ich habe keinen Code, ausloggen</value>
+  </data>
+  <data name="TXT_OnlyLinkedToOneSAcc" xml:space="preserve">
+    <value>Dein Frontier-Konto kann nur mit einem Store-Konto verknüpft sein.</value>
+  </data>
+  <data name="TXT_OptInForNewsAndPromotions" xml:space="preserve">
+    <value>Ich würde gerne Neuigkeiten und Angebote erhalten</value>
+  </data>
+  <data name="TXT_OptionsNote" xml:space="preserve">
+    <value>Suche nach Spiel-Updates, Spieldateien verifizieren und mehr.</value>
+  </data>
+  <data name="TXT_LastName" xml:space="preserve">
+    <value>Nachname</value>
+  </data>
+  <data name="TXT_LogInWithDiffAccount" xml:space="preserve">
+    <value>Mit anderem Frontier-Konto einloggen</value>
+  </data>
+  <data name="TXT_LogOutMachineToo" xml:space="preserve">
+    <value>Dieses Gerät auch ausloggen</value>
+  </data>
+  <data name="TXT_PleaseCreateFDAccount" xml:space="preserve">
+    <value>Bitte erstelle ein Frontier-Konto, um auf Inhalte von Elite Dangerous zuzugreifen.</value>
+  </data>
+  <data name="TXT_Redeem12DigitCode" xml:space="preserve">
+    <value>Wenn du einen zwölfstelligen Code hast, kannst du es hier tun:</value>
+  </data>
+  <data name="TXT_SecsRemaining" xml:space="preserve">
+    <value>{0} Sekunden verbleibend...</value>
+  </data>
+  <data name="TXT_Select" xml:space="preserve">
+    <value>auswählen</value>
+  </data>
+  <data name="TXT_ThankyouForWaiting" xml:space="preserve">
+    <value>Danke für deine Geduld.</value>
+  </data>
+  <data name="TXT_VerifyNotes" xml:space="preserve">
+    <value>Halte nach einer E-Mail von Frontier Ausschau und Klicke auf den Link, um dein Konto zu verifizieren.\rWenn du die E-Mail nicht siehst\r1, dann Stelle sicher, dass {0} stimmt und keine Schreibfehler enthält.\r2. Überprüfe Spam-  und Müllordner.\r3. Warte ein paar Minuten.</value>
+  </data>
+  <data name="TXT_VirtualCache" xml:space="preserve">
+    <value>Virtueller Cache</value>
+  </data>
+  <data name="Unauthorised" xml:space="preserve">
+    <value>Nicht autorisiert</value>
+  </data>
+  <data name="UnexpectedServerResponse" xml:space="preserve">
+    <value>Unerwartete Rückmeldung von Server: {0}</value>
+  </data>
+  <data name="UninstallWarning" xml:space="preserve">
+    <value>Durch die Deinstallation werden alle Spieldateien inklusive Logs und Screenshots entfernt.
+
+Spielstände und Einstellungen werden an anderer Stelle gespeichert und nicht entfernt.
+
+Versionen des Spiels, die auf diese Dateien zurückgreifen, werden im Launcher deaktiviert
+
+Das Spiel wirklich deinstallieren?</value>
+  </data>
+  <data name="UninstallWarningTitle" xml:space="preserve">
+    <value>Spiel deinstallieren</value>
+  </data>
+  <data name="UpdateCheckDisabled" xml:space="preserve">
+    <value>Kein Update möglich, während das Spiel läuft.</value>
+  </data>
+  <data name="UpdateCheckInstall" xml:space="preserve">
+    <value>Das Spiel muss vor einem Update komplett installiert sein.</value>
+  </data>
+  <data name="UpdateCheckPlay" xml:space="preserve">
+    <value>Aktuelle Spielversion ist installiert.</value>
+  </data>
+  <data name="UpdateCheckTitle" xml:space="preserve">
+    <value>Suche nach Updates</value>
+  </data>
+  <data name="UpdateCheckUpdate" xml:space="preserve">
+    <value>Es steht ein Update zur Verfügung.</value>
+  </data>
+  <data name="UpdateCheckUpdateDev" xml:space="preserve">
+    <value>\n\nDeaktiviere Updates ignorieren zum Installieren.</value>
+  </data>
+  <data name="UploadCrashReportDetails" xml:space="preserve">
+    <value>Upload von {0} als Crash-Dump fehlgeschlagen: {1}</value>
+  </data>
+  <data name="UploadCrashReportTitle" xml:space="preserve">
+    <value>Fehler beim Starten des Uploads</value>
+  </data>
+  <data name="UploadException" xml:space="preserve">
+    <value>Ausnahme bei der Verarbeitung des Crash-Dumps:
+
+{0}</value>
+  </data>
+  <data name="UploadingPrefix" xml:space="preserve">
+    <value>Bitte warten, bis der </value>
+  </data>
+  <data name="UploadingSuffix" xml:space="preserve">
+    <value> hochgeladen ist.</value>
+  </data>
+  <data name="VersionStatusFuture" xml:space="preserve">
+    <value>{0} ({1} Server)</value>
+  </data>
+  <data name="VersionStatusRequired" xml:space="preserve">
+    <value>{0} ({1} erforderlich, siehe News)</value>
+  </data>
+  <data name="VersionStatusSupported" xml:space="preserve">
+    <value>{0} ({1} verfügbar, siehe News)</value>
+  </data>
+  <data name="VideoDriverVersionCheckFailed" xml:space="preserve">
+    <value>Version {1} von Treiber {0} ist veraltet.
+
+Version {2} ist erforderlich.</value>
+  </data>
+  <data name="WTHIS_Close" xml:space="preserve">
+    <value>Schließen</value>
+  </data>
+  <data name="WTHIS_Message" xml:space="preserve">
+    <value>Der Server konnte deine Steam-Bibliothek-Produkte nicht bestätigen.
+
+Solltest du bereits über ein Frontier-Konto verfügen, kannst du dich möglicherweise mit diesen Anmeldedaten einloggen.
+
+Falls dein Konto via Steam erstellt wurde, oder du dich noch immer nicht einloggen kanst, rufe bitte dieses FAQ auf: [https://customersupport.frontier.co.uk/hc/en-us/articles/4404180354194-Elite-Dangerous-account-limitations-by-platform-Epic-Steam-Frontier-Console-]
+</value>
+  </data>
+  <data name="WTHIS_Title" xml:space="preserve">
+    <value>Verbindung zu Steam fehlgeschlagen</value>
+  </data>
+  <data name="HU_MessageEpic" xml:space="preserve">
+    <value>Es muss ein Update durchgeführt werden, bevor das Spiel gestartet werden kann. Du kannst im Epic Games Store nach Updates suchen, indem du in deiner Bibliothek die Option „Verifizieren“ auswählst.
+
+Es kann bei der Veröffentlichung des Updates zu leichten Zeitverzögerungen zwischen unseren Servern und den Servern von Epic kommen. Danke für deine Geduld.</value>
+  </data>
+  <data name="RW_LinkRequestEpic" xml:space="preserve">
+    <value>Bitte klicke unten auf die Verknüpfen-Schaltfläche, um dieses Epic-Konto mit deinem bestehenden Konto zu verknüpfen. Klicke auf die Einloggen-Schaltfläche, um dich ohne Verknüpfen einzuloggen.</value>
+  </data>
+  <data name="LW_RegistrationEpic" xml:space="preserve">
+    <value>Bitte melde dich mit deinen Elite Dangerous-Spielkontodaten an. Bitte registriere dich hier {HERE:here}, falls du noch kein Konto hast (dies sind nicht deine Epic-Kontodaten).</value>
+  </data>
+  <data name="RW_LinkIntroEpic" xml:space="preserve">
+    <value>Um Elite Dangerous zu spielen, kannst du dich in ein bestehendes Frontier-Konto einloggen oder dieses Epic-Konto mit deinem Frontier-Konto verknüpfen.</value>
+  </data>
+  <data name="TXT_NeedToLogin1" xml:space="preserve">
+    <value>Um Elite Dangerous spielen zu können, musst du dich in ein Frontier-Konto einloggen.</value>
+  </data>
+  <data name="TXT_NeedToLogin2" xml:space="preserve">
+    <value>Du kannst auch jetzt ein Konto anlegen, es ist kostenlos.</value>
+  </data>
+  <data name="TITLE_AreYouSureLogOut" xml:space="preserve">
+    <value>BIST DU SICHER, DASS DU DICH AUSLOGGEN MÖCHTEST?</value>
+  </data>
+  <data name="BTNT_Back" xml:space="preserve">
+    <value>zurück</value>
+  </data>
+  <data name="UpdateNotesLink" xml:space="preserve">
+    <value>update-notes</value>
+  </data>
+  <data name="UpdateNotesLinkLanguage" xml:space="preserve">
+    <value>de-DE</value>
+  </data>
+  <data name="TITLE_StoreNotLinkedToFDAccount" xml:space="preserve">
+    <value>dieses {0}-konto ist nicht mit einem frontier-konto verknüpft:</value>
+  </data>
+  <data name="TITLE_SuccessLinkStoreAndFD1" xml:space="preserve">
+    <value>erfolgreich!</value>
+  </data>
+  <data name="TITLE_SuccessLinkStoreAndFD2" xml:space="preserve">
+    <value>mlchtest du deine {0} und frontier-konto verknüpfen?</value>
+  </data>
+  <data name="TITLE_LinkingStoreAccount" xml:space="preserve">
+    <value>verknüpfen von {0}- und frontier-konten</value>
+  </data>
+  <data name="BTNT_HardwareSurvey" xml:space="preserve">
+    <value>hardware-übersicht</value>
+  </data>
+  <data name="BTNT_ManageCheckForUpdates" xml:space="preserve">
+    <value>suche nach updates</value>
+  </data>
+  <data name="BTNT_ManageValidateFiles" xml:space="preserve">
+    <value>dateien validieren</value>
+  </data>
+  <data name="BTNT_ManageUninstall" xml:space="preserve">
+    <value>deinstallieren</value>
+  </data>
+  <data name="LB_PasswordConfirm" xml:space="preserve">
+    <value>Bestätigen</value>
+  </data>
+  <data name="LW_ReturnToPage" xml:space="preserve">
+    <value>Zu {0} zurückkehren</value>
+  </data>
+  <data name="LW_Submit" xml:space="preserve">
+    <value>Abschicken</value>
+  </data>
+  <data name="LanguageAndCountryCode" xml:space="preserve">
+    <value>de-DE</value>
+  </data>
+  <data name="MenuUserConnectedAs" xml:space="preserve">
+    <value>VERBUNDEN ALS</value>
+  </data>
+  <data name="MenuUserManage" xml:space="preserve">
+    <value>verwalten</value>
+  </data>
+  <data name="MenuUserLogOut" xml:space="preserve">
+    <value>Ausloggen</value>
+  </data>
+  <data name="MenuUserSettings" xml:space="preserve">
+    <value>einstellungen</value>
+  </data>
+  <data name="MSG_ESTTime" xml:space="preserve">
+    <value>Voraussichtlich fertig in: {0}</value>
+  </data>
+  <data name="MSG_InvalidEmailAddress" xml:space="preserve">
+    <value>ungültige e-mail-adresse</value>
+  </data>
+  <data name="MSG_VerCanPlay" xml:space="preserve">
+    <value>bereit</value>
+  </data>
+  <data name="MSG_VerDisabled" xml:space="preserve">
+    <value>deaktiviert</value>
+  </data>
+  <data name="MSG_VerInvalid" xml:space="preserve">
+    <value>ungültig</value>
+  </data>
+  <data name="MSG_VerNotInstalled" xml:space="preserve">
+    <value>nicht installiert</value>
+  </data>
+  <data name="MSG_VerUpdateRequired" xml:space="preserve">
+    <value>update erforderlich</value>
+  </data>
+  <data name="PU_ManifestProcessing" xml:space="preserve">
+    <value>Verarbeite Manifest</value>
+  </data>
+  <data name="TITLE_ApplicationName" xml:space="preserve">
+    <value>elite-launcher</value>
+  </data>
+  <data name="TITLE_CommunityNews" xml:space="preserve">
+    <value>community-neuigkeiten</value>
+  </data>
+  <data name="TITLE_SubSuccessLinkSteamAndFD" xml:space="preserve">
+    <value>Wenn du deine Steam- und Frontier-Konten verknüpfst, kannst du dich in der Zukunft einfach mit deinen Steam-Anmeldedaten einloggen.</value>
+  </data>
+  <data name="TITLE_StoreSteam" xml:space="preserve">
+    <value>steam</value>
+  </data>
+  <data name="TITLE_StoreEpic" xml:space="preserve">
+    <value>epic</value>
+  </data>
+  <data name="TXT_Complete" xml:space="preserve">
+    <value> Abgeschlossen - </value>
+  </data>
+  <data name="TXT_ExamplePasswordConfirm" xml:space="preserve">
+    <value>Passwort erneut eingeben</value>
+  </data>
+  <data name="TXT_LauncherVersion" xml:space="preserve">
+    <value>Lancher-Version {0}</value>
+  </data>
+  <data name="TXT_ServerStatus" xml:space="preserve">
+    <value>Server-Status: {0}</value>
+  </data>
+  <data name="TXT_ServerStatusUnknown" xml:space="preserve">
+    <value>Unbekannt</value>
+  </data>
+  <data name="BTNT_LoginWithEPIC" xml:space="preserve">
+    <value>mit epic einloggen</value>
+  </data>
+  <data name="TITLE_AccLinkedToDiffSteam1" xml:space="preserve">
+    <value>dieses frontier-konto ist mit einem anderen steam-konto verknüpft.</value>
+  </data>
+  <data name="TITLE_AccLinkedToDiffSEpic1" xml:space="preserve">
+    <value>dieses frontier-konto ist mit einem anderen epic-konto verknüpft.</value>
+  </data>
+  <data name="TITLE_AccLinkedToDiffSteam2" xml:space="preserve">
+    <value>möchtest du die verknüpfung auf dieses steam-konto übertragen?</value>
+  </data>
+  <data name="TITLE_AccLinkedToDiffEpic2" xml:space="preserve">
+    <value>möchtest du die verknüpfung auf dieses epic-konto übertragen?</value>
+  </data>
+  <data name="TITLE_EPICLinkedToFDAccount" xml:space="preserve">
+    <value>dieses epic-konto ist mit einem frontier-konto verknüpft:</value>
+  </data>
+  <data name="TITLE_SubSuccessLinkEpicAndFD" xml:space="preserve">
+    <value>Wenn du deine Epic- und Frontier-Konten verknüpfst, kannst du dich in der Zukunft einfach mit deinen Epic-Anmeldedaten einloggen.</value>
+  </data>
+  <data name="BTNT_BrowseTutorials" xml:space="preserve">
+    <value>tutorials</value>
+  </data>
+  <data name="BTNT_MyAccount" xml:space="preserve">
+    <value>mein konto</value>
+  </data>
+  <data name="TITLE_GameDescription" xml:space="preserve">
+    <value>spielbeschreibung</value>
+  </data>
+  <data name="TITLE_MyAccount" xml:space="preserve">
+    <value>mein konto</value>
+  </data>
+  <data name="TITLE_Tutorials" xml:space="preserve">
+    <value>tutorials</value>
+  </data>
+  <data name="TXT_BrowseTutorialsNote" xml:space="preserve">
+    <value>Tutorials ansehen</value>
+  </data>
+  <data name="TXT_MyAccountNote" xml:space="preserve">
+    <value>Konto-Einstellungen</value>
+  </data>
+  <data name="TXT_Redeem25DigitCode" xml:space="preserve">
+    <value>Wenn du einen fünfundzwanzigstelligen Code hast, kannst du es hier tun:</value>
+  </data>
+  <data name="TXT_EmailAddressInUse" xml:space="preserve">
+    <value>Es gibt bereits ein Frontier-Konto mit dieser E-Mail-Adresse.</value>
+  </data>
+  <data name="TXT_PasswordsMismatch" xml:space="preserve">
+    <value>Passwörter stimmen nicht überein.</value>
+  </data>
+  <data name="TXT_PasswordDatesAreEasy_9c7ac60c" xml:space="preserve">
+    <value>Daten im Sinne von Zeitangaben sind oft leicht zu erraten.</value>
+  </data>
+  <data name="TXT_PasswordAvoidDates_8260ff9b" xml:space="preserve">
+    <value>Vermeide es Daten (Zeitangaben) und Jahre zu verwenden, die sich leicht mit dir in Verbindung bringen lassen.</value>
+  </data>
+  <data name="TXT_PasswordCaps_5e48faf9" xml:space="preserve">
+    <value>Großschreibung allein ist keine gute Lösung.</value>
+  </data>
+  <data name="TXT_PasswordAllCaps_d0f9e6e6" xml:space="preserve">
+    <value>Großbuchstaben sind genauso leicht zu erraten wie die ausschließliche Verwendung von Kleinbuchstaben.</value>
+  </data>
+  <data name="TXT_PasswordTop10_d04fec50" xml:space="preserve">
+    <value>Dieses Passwort ist in den Top 10 der gebräuchlichsten.</value>
+  </data>
+  <data name="TXT_PasswordTop100_d9cb0d3b" xml:space="preserve">
+    <value>Dieses Passwort ist in den Top 100 der gebräuchlichsten.</value>
+  </data>
+  <data name="TXT_PasswordVeryCommon_5fefdb80" xml:space="preserve">
+    <value>Dieses Passwort ist sehr häufig in Gebrauch.</value>
+  </data>
+  <data name="TXT_PasswordNearVeryCommon_9847c65c" xml:space="preserve">
+    <value>Dieses Passwort ähnelt einem, das häufig in Gebrauch ist.</value>
+  </data>
+  <data name="TXT_PasswordSingleWord_fe6d3a04" xml:space="preserve">
+    <value>Ein einzelnes, vollständiges Wort ist leicht zu erraten.</value>
+  </data>
+  <data name="TXT_PasswordNameSurname_ea60b49f" xml:space="preserve">
+    <value>Vor- und Nachnamen sind leicht zu erraten.</value>
+  </data>
+  <data name="TXT_PasswordCommonName_fa93fb1d" xml:space="preserve">
+    <value>Gewöhnliche Namen und Nachnamen sind leicht zu erraten.</value>
+  </data>
+  <data name="TXT_PasswordPredictableSub_74d5697c" xml:space="preserve">
+    <value>Vorhersehbare Ersetzungen wie „@“ anstelle von „a“ sind nicht sehr hilfreich.</value>
+  </data>
+  <data name="TXT_PasswordAddWords_61edf813" xml:space="preserve">
+    <value>Füge ein, zwei Wörter hinzu. Ungewöhnliche Wörter sind besser.</value>
+  </data>
+  <data name="TXT_PasswordRepeats_1fb918fb" xml:space="preserve">
+    <value>Wiederholte Buchstaben wie „aaa“ sind leicht zu erraten.</value>
+  </data>
+  <data name="TXT_PasswordRepeats_23829bf0" xml:space="preserve">
+    <value>Wiederholte Buchstabensequenzen wie „abcabcabc“ sind ähnlich leicht zu erraten wie „abc“.</value>
+  </data>
+  <data name="TXT_PasswordRepeatedWords_0fdf1c51" xml:space="preserve">
+    <value>Vermeide die Verwendung wiederholter Wörter und Zeichen.</value>
+  </data>
+  <data name="TXT_PasswordReversedWords_18b0045b" xml:space="preserve">
+    <value>Auch Wortumkehrungen sind relativ leicht zu erraten.</value>
+  </data>
+  <data name="TXT_PasswordSequenceLike_807fb9ae" xml:space="preserve">
+    <value>Sequenzen wie „abc“ oder „6543“ sind leicht zu erraten.</value>
+  </data>
+  <data name="TXT_PasswordAvoidSequence_f6e20121" xml:space="preserve">
+    <value>Vermeide die Verwendung von Sequenzen.</value>
+  </data>
+  <data name="TXT_PasswordStraightKeyRows_ac4522c4" xml:space="preserve">
+    <value>Einfache Tastaturfolgen (etwa horizontal) sind leicht zu erraten.</value>
+  </data>
+  <data name="TXT_PasswordShortFBPatterns_50a6280f" xml:space="preserve">
+    <value>Kurze Tastaturmuster sind leicht zu erraten.</value>
+  </data>
+  <data name="TXT_PasswordLongKBPattern_1deedb29" xml:space="preserve">
+    <value>Verwende ein längeres Tastaturmuster mit mehreren Richtungswechseln.</value>
+  </data>
+  <data name="TXT_PasswordRecentYears_823d07f3" xml:space="preserve">
+    <value>Aktuelle Jahreszahlen sind leicht zu erraten.</value>
+  </data>
+  <data name="TXT_PasswordAvoidRecentYears_727620c4" xml:space="preserve">
+    <value>Vermeide die Verwendung von aktuellen Jahreszahlen.</value>
+  </data>
+  <data name="TXT_PasswordAvoidAssociatedYears_71568b72" xml:space="preserve">
+    <value>Vermeide es Jahre zu verwenden, die sich leicht mit dir in Verbindung bringen lassen.</value>
+  </data>
+  <data name="TXT_PasswordAvoidPhrases_8c4c0923" xml:space="preserve">
+    <value>Verwende mehrere Wörter, vermeide dabei aber feste Wendungen.</value>
+  </data>
+  <data name="TXT_PasswordMoreSymbols_f8de7985" xml:space="preserve">
+    <value>Symbole, Ziffern und Großbuchstaben sind nicht nötig.</value>
+  </data>
+  <data name="TXT_PassWarnDefault" xml:space="preserve">
+    <value>Unzulässiges Passwort.</value>
+  </data>
+  <data name="MSG_BuyNow" xml:space="preserve">
+    <value>Jetzt kaufen</value>
+  </data>
+</root>

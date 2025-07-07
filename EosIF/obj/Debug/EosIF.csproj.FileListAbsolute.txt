@@ -1,0 +1,4 @@
+G:\ED Launchers\Src\EosIF\obj\Debug\EosIF.csproj.AssemblyReference.cache
+G:\ED Launchers\Src\EosIF\obj\Debug\EosIF.csproj.CoreCompileInputs.cache
+G:\GitLab Repo\EDLauncher\Src\EosIF\obj\Debug\EosIF.csproj.AssemblyReference.cache
+G:\GitLab Repo\EDLauncher\Src\EosIF\obj\Debug\EosIF.csproj.CoreCompileInputs.cache

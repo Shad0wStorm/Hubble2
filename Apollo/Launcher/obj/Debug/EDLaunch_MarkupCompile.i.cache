@@ -1,0 +1,20 @@
+﻿EDLaunch
+
+
+winexe
+C#
+.cs
+G:\GitLab Repo\EDLauncher\Src\Apollo\Launcher\obj\Debug\
+Launcher
+none
+false
+DEBUG;TRACE
+G:\GitLab Repo\EDLauncher\Src\Apollo\Launcher\App.xaml
+411589271238
+
+56933099305
+411271680940
+InfoUserCtrl.xaml;ProductMainBtnsUserCtrl.xaml;ProductManageBtnsUserCtrl.xaml;ProjectSelectionDevUserCtrl.xaml;ProjectSelectionUserCtrl.xaml;DownloadInfoUserCtrl.xaml;DynContentUserCtrl.xaml;FrontierLinksUserCtrl.xaml;FrontPage.xaml;HomeCreateAccountPage.xaml;HomeDoesNotOwnElitePage.xaml;HomeFirstOpenLinkingPage.xaml;HomeFirstOpenUnlinkedPage.xaml;HomeLinkedToAnotherStorePage.xaml;HomeVerificationPage.xaml;LauncherWindow.xaml;HomeLoginPage.xaml;LinkPackageUserCtrl.xaml;LogoUserCtrl.xaml;OptionsUserCtrl.xaml;PopupPage.xaml;ProductUserCtrl.xaml;SettingsPage.xaml;StoreFirstOpenLinkedPage.xaml;StoreFirstOpenUnlinkedPage.xaml;Styles\ButtonStyles.xaml;Styles\CheckBoxStyles.xaml;Styles\ContextMenuStyles.xaml;Styles\HyperlinkStyle.xaml;Styles\ImageStyles.xaml;Styles\LabelStyles.xaml;Styles\RadioButtonStyles.xaml;Styles\ScrollBarStyles.xaml;Styles\TextBlockStyles.xaml;Styles\TextBoxStyles.xaml;Styles\ViewboxStyles.xaml;Styles\WindowStyles.xaml;SupportUserCtrl.xaml;VersionsPage.xaml;WaitPage.xaml;Styles\MainPageLayout.xaml;
+
+False
+

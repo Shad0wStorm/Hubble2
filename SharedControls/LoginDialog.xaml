@@ -1,0 +1,49 @@
+﻿<UserControl x:Class="SharedControls.LoginDialog"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="320" d:DesignWidth="480">
+    <Grid Margin="16">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="Auto" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="2*" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="2*" />
+        </Grid.RowDefinitions>
+        <Grid.Resources>
+            <Style TargetType="{x:Type TextBox}">
+                <Setter Property="Margin" Value="8"/>
+            </Style>
+            <Style TargetType="{x:Type PasswordBox}">
+                <Setter Property="Margin" Value="8"/>
+            </Style>
+            <Style TargetType="{x:Type TextBlock}">
+                <Setter Property="Margin" Value="8"/>
+            </Style>
+            <Style TargetType="{x:Type CheckBox}">
+                <Setter Property="Margin" Value="8"/>
+            </Style>
+        </Grid.Resources>
+        <TextBlock x:Name="Status" Grid.Column="1" Grid.Row="1" TextAlignment="Center" TextWrapping="Wrap"/>
+        <TextBlock x:Name="UserNameLabel" Grid.Column="0" Grid.Row="2" TextAlignment="Right" VerticalAlignment="Center" Padding="4">User:</TextBlock>
+        <TextBlock x:Name="EFFLabel" Grid.Column="0" Grid.Row="3" TextAlignment="Right" VerticalAlignment="Center" Padding="4">Password:</TextBlock>
+        <TextBlock x:Name="TwoFactorLabel" Grid.Column="0" Grid.Row="4" TextAlignment="Right" VerticalAlignment="Center" Padding="4">Verification Code:</TextBlock>
+        <TextBox x:Name="UserName" Grid.Column="1" Grid.Row="2" VerticalAlignment="Center" GotFocus="ReceiveFocus" MouseDoubleClick="ReceiveFocus"/>
+        <PasswordBox x:Name="EFF" Grid.Column="1" Grid.Row="3" VerticalAlignment="Center" GotFocus="ReceiveFocus" MouseDoubleClick="ReceiveFocus"/>
+        <TextBox x:Name="TwoFactor" Grid.Column="1" Grid.Row="4" VerticalAlignment="Center" GotFocus="ReceiveFocus" MouseDoubleClick="ReceiveFocus"/>
+        <CheckBox x:Name="Remember"  Grid.Column="1" Grid.Row="5" VerticalAlignment="Center">Remember Me</CheckBox>
+        <Button Grid.Column="1" Grid.Row="6" HorizontalAlignment="Right" Click="SubmitDetails" IsDefault="True">Login</Button>
+    </Grid>
+</UserControl>

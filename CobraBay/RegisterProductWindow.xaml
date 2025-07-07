@@ -1,0 +1,199 @@
+﻿<Window x:Class="CobraBay.RegisterProductWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:resx="clr-namespace:LocalResources.Properties;assembly=LocalResources"
+        xmlns:cbv="clr-namespace:CBViewModel;assembly=CBViewModel"
+        Title="RegisterProductWindow"
+        Height="440"
+        Width="440"
+        ResizeMode="NoResize"
+        ShowInTaskbar="False"
+        WindowStyle="None"
+        Background="#1A1A1A"
+        KeyDown="KeyPressed">
+
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Styles/Elite/Shiny.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+
+    <Grid Margin="10">
+        <!-- Define column definitions -->
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- Define row definitions -->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!-- Logo Section -->
+        <Image x:Name="FrontierLogo"
+               Grid.Row="0"
+               Grid.Column="0"
+               Stretch="None"
+               Source="/EDLaunch;component/EliteImages/frontier_logo_grey_sml.png"
+               HorizontalAlignment="Left"
+               VerticalAlignment="Top" />
+
+        <!-- Close Button -->
+        <Button Style="{StaticResource CloseButtonStyle}"
+                Click="OnClose"
+                Grid.Column="0"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Top"
+                AutomationProperties.Name="Close Window"/>
+
+        <!-- Main Content Grid -->
+        <Grid Margin="20"
+              Grid.Row="1"
+              Background="#1A1A1A">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <!-- Border separating the header section -->
+            <Border Grid.Row="0"
+                    BorderBrush="{Binding Source={x:Static cbv:CBTheme.Theme}, Path=DefaultButtonColour}"
+                    BorderThickness="0 0 0 1"/>
+
+            <!-- Title and Introduction Text -->
+            <TextBlock x:Name="DialogTitle"
+                      TextWrapping="WrapWithOverflow"
+                      Foreground="White"
+                      Margin="0,0,0,3"
+                      Text="{x:Static resx:Resources.DialogTitle}"
+                      FontFamily="/EDlaunch;component/Fonts/#Euro Caps"
+                      FontWeight="Bold"
+                      FontSize="24"/>
+
+            <TextBlock x:Name="LinkIntroBlock"
+                      Grid.Row="1"
+                      Text="{x:Static resx:Resources.RW_RegisterIntro}"
+                      TextAlignment="Left"
+                      TextWrapping="Wrap"
+                      Foreground="White"
+                      Margin="0,10,0,0"
+                      FontFamily="/EDlaunch;component/Fonts/#Sintony"
+                      FontSize="15"/>
+
+            <!-- Main Action Grid -->
+            <Grid VerticalAlignment="Center" Grid.Row="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="20"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <!-- New Account Section -->
+                <TextBlock Grid.Row="0"
+                          Grid.Column="0"
+                          Text="{x:Static resx:Resources.RW_CreateNewAccount}"
+                          TextAlignment="Left"
+                          TextWrapping="Wrap"
+                          Foreground="White"
+                          VerticalAlignment="Bottom"
+                          FontFamily="/EDlaunch;component/Fonts/#Euro Caps"
+                          FontWeight="Bold"
+                          FontSize="20"/>
+
+                <TextBlock Grid.Row="1"
+                          Grid.Column="0"
+                          Text="{x:Static resx:Resources.RW_CreateNewAccountDesc}"
+                          TextAlignment="Left"
+                          TextWrapping="Wrap"
+                          Foreground="White"
+                          VerticalAlignment="Top"
+                          FontFamily="/EDlaunch;component/Fonts/#Sintony"
+                          FontSize="14"/>
+
+                <!-- Register Button -->
+                <Button Grid.Row="0"
+                        Grid.Column="1"
+                        Grid.RowSpan="2"
+                        HorizontalAlignment="Right"
+                        x:Name="RegisterButton"
+                        Width="40"
+                        Height="40"
+                        Margin="5,5,0,5"
+                        Background="{Binding Source={x:Static cbv:CBTheme.Theme}, Path=DefaultButtonColour}"
+                        Click="OnRegisterClick">
+                    <Image Source="/EDLaunch;component/EliteImages/arrow.png"
+                           Margin="12"/>
+                </Button>
+
+                <!-- Existing Users Section -->
+                <TextBlock Grid.Row="3"
+                          Grid.Column="0"
+                          Text="{x:Static resx:Resources.RW_ExistingUsers}"
+                          TextAlignment="Left"
+                          TextWrapping="Wrap"
+                          Foreground="White"
+                          VerticalAlignment="Bottom"
+                          FontFamily="/EDlaunch;component/Fonts/#Euro Caps"
+                          FontWeight="Bold"
+                          FontSize="20"/>
+
+                <TextBlock Grid.Row="4"
+                          Grid.Column="0"
+                          Text="{x:Static resx:Resources.RW_ExistingUsersDesc}"
+                          TextAlignment="Left"
+                          TextWrapping="Wrap"
+                          Foreground="White"
+                          VerticalAlignment="Top"
+                          FontFamily="/EDlaunch;component/Fonts/#Sintony"
+                          FontSize="14"/>
+
+                <!-- Login Button -->
+                <Button Grid.Row="3"
+                        Grid.Column="1"
+                        Grid.RowSpan="2"
+                        HorizontalAlignment="Right"
+                        x:Name="LinkButton"
+                        Width="40"
+                        Height="40"
+                        Margin="5,5,0,5"
+                        Background="{Binding Source={x:Static cbv:CBTheme.Theme}, Path=DefaultButtonColour}"
+                        Click="OnLoginClick">
+                    <Image Source="/EDLaunch;component/EliteImages/arrow.png"
+                           Margin="12"/>
+                </Button>
+            </Grid>
+
+            <!-- Support Link -->
+            <TextBlock Grid.Row="3"
+                      TextAlignment="Left"
+                      TextWrapping="Wrap"
+                      Foreground="#a5a5a5"
+                      Margin="0,0,0,0"
+                      FontFamily="/EDlaunch;component/Fonts/#Sintony"
+                      FontSize="13">
+                <Run Text="{x:Static resx:Resources.RW_SupportPre}"/>
+                <Hyperlink x:Name="LinkHelp"
+                           Foreground="{Binding Source={x:Static cbv:CBTheme.Theme}, Path=DefaultButtonColour}"
+                           Click="OnSupportClick">
+                    <Run x:Name="AccountLinkText"
+                         Text="{x:Static resx:Resources.RW_SupportLinkText}"/>
+                </Hyperlink>
+                <Run Text="{x:Static resx:Resources.RW_SupportPost}"/>
+            </TextBlock>
+        </Grid>
+    </Grid>
+</Window>

@@ -1,0 +1,39 @@
+﻿<!--
+//! Copyright(c) 2022 Frontier Development Plc
+//
+//! GridLayoutUserCtrl
+//
+//! Author:     Alan MacAree
+//! Created:    05 Oct 2022
+-->
+
+<UserControl x:Class="FDUserControls.GridLayoutUserCtrl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:FDUserControls"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    
+    <!-- The Border Grid -->
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="{Binding Path=BorderWidth, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type local:GridLayoutUserCtrl}}}" ></ColumnDefinition>
+            <ColumnDefinition Width="*" ></ColumnDefinition>
+            <ColumnDefinition Width="{Binding Path=BorderWidth, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type local:GridLayoutUserCtrl}}}" ></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="{Binding Path=BorderHeight, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type local:GridLayoutUserCtrl}}}" ></RowDefinition>
+            <RowDefinition Height="*" ></RowDefinition>
+            <RowDefinition Height="{Binding Path=BorderHeight, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type local:GridLayoutUserCtrl}}}" ></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <!-- The dynamic Grid, Rows and Cols are added dynamically via the C# code -->
+        <Grid x:Name="PART_DynamicGrid" Grid.Row="1" Grid.Column="1">
+            
+        </Grid>
+    </Grid>
+    
+</UserControl>

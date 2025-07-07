@@ -1,0 +1,43 @@
+﻿<Window x:Class="ManifestTool.ExportSettingsDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Export Manifest" Height="340" Width="400">
+    <StackPanel Margin="16">
+        <TextBlock TextWrapping="Wrap">
+        The selected target directory has existing contents. How should existing files be treated?
+        </TextBlock>
+        <RadioButton Name="Clean" GroupName="Mode" Margin="16,16,16,0">
+            <StackPanel Orientation="Vertical">
+                <TextBlock FontWeight="Bold">Clean</TextBlock>
+                <TextBlock TextWrapping="Wrap">
+                 Remove all existing contents before exporting manifest contents.
+                </TextBlock>
+            </StackPanel>
+        </RadioButton>
+        <RadioButton Name="Tidy" GroupName="Mode" Margin="16,16,16,0">
+            <StackPanel Orientation="Vertical">
+                <TextBlock FontWeight="Bold">Update</TextBlock>
+                <TextBlock TextWrapping="Wrap">
+                Replace modified files, add new files and remove files not included in the manifest.
+                </TextBlock>
+            </StackPanel>
+        </RadioButton>
+        <RadioButton Name="Merge" GroupName="Mode" Margin="16,16,16,0">
+            <StackPanel Orientation="Vertical">
+                <TextBlock FontWeight="Bold">Merge</TextBlock>
+                <TextBlock TextWrapping="Wrap">
+                Replace modified files and add new files but keep all other files.
+                </TextBlock>
+            </StackPanel>
+        </RadioButton>
+        <Grid Margin="16,32,16,16" HorizontalAlignment="Right" Grid.IsSharedSizeScope="True">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition SharedSizeGroup="B"/>
+                <ColumnDefinition Width="20"/>
+                <ColumnDefinition SharedSizeGroup="B"/>
+            </Grid.ColumnDefinitions>
+            <Button Content="OK" Grid.Column="0" Click="SelectMode"/>
+            <Button Content="Cancel" Grid.Column="2" Click="CancelMode"/>
+        </Grid>
+    </StackPanel>
+</Window>

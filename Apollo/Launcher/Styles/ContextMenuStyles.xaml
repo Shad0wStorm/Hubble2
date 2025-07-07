@@ -1,0 +1,56 @@
+﻿<!--
+//! Copyright(c) 2022 Frontier Development Plc
+//
+//! ContextMenu Styles
+//
+//! Author:     Alan MacAree
+//! Created:    14 Dec 2022
+-->
+    
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:sys="clr-namespace:System;assembly=mscorlib">
+
+    <SolidColorBrush  x:Key="NormalBackground">#B4956D</SolidColorBrush>
+    <SolidColorBrush  x:Key="MouseOverBackground">#000000</SolidColorBrush>
+    <SolidColorBrush  x:Key="NormalForeground">#000000</SolidColorBrush>
+    <SolidColorBrush  x:Key="MouseOverForeground">#FFFFFF</SolidColorBrush>
+    <SolidColorBrush  x:Key="ActiveBorderBrush">#FFFFFF</SolidColorBrush>
+
+    <!--- Our font -->
+    <FontFamily x:Key="NormaltextFont">pack://application:,,,/Fonts/#Sintony Regular</FontFamily> 
+    <!-- Normal Text Font Size-->
+    <sys:Double x:Key="NormalTextFontSize">16</sys:Double>
+    
+    <Style TargetType="{x:Type ContextMenu}">
+        <Setter Property="SnapsToDevicePixels" Value="True"></Setter>
+        <Setter Property="FontSize" Value="{StaticResource NormalTextFontSize}"></Setter>
+        <Setter Property="FontFamily" Value="{StaticResource TitleTextFont}"></Setter>
+        <Setter Property="Background" Value="{StaticResource NormalBackground}"></Setter>
+        <Setter Property="Foreground" Value="{StaticResource NormalForeground}"></Setter>
+        <Setter Property="BorderBrush" Value="{StaticResource NormalBackground}"></Setter>
+        <Setter Property="Padding" Value="0"></Setter>
+        <Setter Property="Margin" Value="2"></Setter>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="{StaticResource MouseOverBackground}"></Setter>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <Style TargetType="{x:Type MenuItem}">
+        <Setter Property="SnapsToDevicePixels" Value="True"></Setter>
+        <Setter Property="Background" Value="{StaticResource NormalBackground}"></Setter>
+        <Setter Property="BorderBrush" Value="{StaticResource NormalBackground}"></Setter>
+        <Setter Property="Foreground" Value="{StaticResource NormalForeground}"></Setter>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Foreground" Value="{StaticResource MouseOverForeground}"></Setter>
+            </Trigger>
+            <Trigger Property="IsKeyboardFocusWithin" Value="True">
+                <Setter Property="Foreground" Value="{StaticResource MouseOverForeground}"></Setter>
+                <Setter Property="Background" Value="{StaticResource MouseOverBackground}"></Setter>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+</ResourceDictionary>

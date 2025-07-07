@@ -1,0 +1,218 @@
+Build Instructions
+==================
+
+The process for creating a releasable build of the Elite Dangerous Launcher
+is somewhat convoluted, partly due to the development history and partly due
+to a significant level of uncertainty regarding the future plans for the
+project.
+
+IMPORTANT: Before building a Release Version
+--------------------------------------------
+
+Before building the release version ensure you have NO local changes in your
+subversion directory. Even a file as seemingly benign as vcproj upgraded to the 
+latest toolset or fixing the certificate name in a batch file will cause the
+version info to be inappropriate for a release. You must commit your changes
+before you can use them for a release build.
+
+Version Numbers
+---------------
+
+The version number is generated via the "VersionInfo" Project which simply
+links back to files in the Launcher solution directory. This uses the
+TortoiseSVN SubWCRev tool to generate a version number of the form X.Y.R.M
+where X and Y are major and minor version numbers specified through the
+VersionInfo_Template.cs file. These are therefore set manually and should be
+modified only when are sufficient changes to warrent it. R is the revision
+number as determined by SVN. M indicates any modifications that were present
+at compilation time, local changes which have not been checked in or mixed
+revisions which are typically local changes checked in but without a subsequent
+update to bring everything up to the same version. M should always be zero for
+a released version. This can be ensured by checking in, or reverting, any
+local changes and then updating to ensure everything is at the same revision.
+
+Furthermore all C# DLLs/executables should link to the solution level
+VersionInfo.cs file which will then set the file version for the file to match
+the release version. Any such projects should also list the VersionInfo project
+as a dependency to ensure they are not built until after it has generated the
+new VersionInfo.cs file.
+
+In order to automate the versioning system as much as possible the development
+and release versions of the application built from the same sources will have
+the same version number set on the generated files. When run the development
+version will add "200" to M so it can be seen from the UI which version was
+in use. Although it may seem more obvious to add a "Dev" prefix or suffix to
+the version number this approach ensures that the version number is correctly
+decodable into the component parts (e.g. when submitting to the server) and
+will not be stripped out by a user only quoting the numbers.
+
+Building the Executables
+------------------------
+
+1) Run SVN clean up removing all modifications and unversioned files. This step
+   can be skipped during development but the resulting executables should not
+   be committed.
+
+2) Select the "Visual Studio" Platform.
+
+3) Select the "64 bit tools" Configuration.
+
+4) Under the ReleaseTools folder right click WatchDog and select "Build".
+
+5) Select the "Release" configuration.
+
+6) Under the Launchers folder right click Fission and select "Build". This is
+   not strictly necessary. Fission was the original version of the launcher
+   intended to support multiple independent games rather than the Elite
+   specific CobraBay. As they share libraries for talking to the server
+   continuing to build it can flag up library changes that could have a wider
+   impact but none of the release stages rely on anything built only with
+   Fission.
+
+7) Under the Launchers folder right click CobraBay and select "Build".
+
+8) Under the InternalTools folder right click ManifestTool and select "Build".
+
+9) Under the InternalTools folder right click LocalisationTool and select
+   "Build".
+
+10) Select the "Dev-Release" configuration.
+
+11) Repeat steps 6-7 (there is no ManifestTool build for Dev-Release).
+
+12) From windows explorer run the "Launcher/Release.py" python script. This will
+    copy built files to the output folders ready for committing/Building the
+    Installer, see below. Note that this may generate errors related to code
+	signing, see below for details.
+
+You may then run the executables directly from "FORC_Client\Launcher\bin", this
+will share a products folder with the version run under visual studio. In order
+to use the development features, such as switching the server the client
+communicates with or providing an alternate revision number use the version
+in "FORC_Client\Launcher\devbin". In either case use "EDLaunch.exe" as the 
+main application.
+
+Signing the Executables
+-----------------------
+
+The release script will also attempt to sign the assembly files (exe and dll)
+if a suitable script can be found. Signing is not necessary for local builds or
+testing but does improve trust on released versions, some internet security
+software blocks unsigned software by default for example.
+
+This process has been updated to make use of a new code signing key. The
+additional security makes the process somewhat more complicated. Building on
+a machine not already set up for code signing is likely to need additional
+software to be installed by Tech.
+
+Even if the machine is still set up the key is made available over the network
+so it is necessary to connect to it beforehand.
+
+1) Run "SX Virtual Link" and connect to the key device.
+
+2) Run "SafeNet Authentication Client Tools" to add the certificate from the key
+device into the user certificate store.
+
+3) Run "Launcher\Release.py". With the current configuration the default is to
+   use the live keys for signing. This requires the password to be entered to
+   unlock the key. All the files to be signed will be processed as a block at
+   the end.
+
+See the "Code Signing Configuration" below for more information on how code
+signing is set up if changes are required in the future.
+
+Building the Installer
+----------------------
+
+The installer is built using the INNOSetupCompiler application
+(http://www.jrsoftware.org/isinfo.php) which must have been installed with the
+preprocessor to allow use of a few more advanced features such as setting the
+installer version to the same version as the application the installer is being
+built for.
+
+The usual version used has been "5.5.9 (u)". Unless security issues are
+identified or newer features needed it is recommended that this version
+continues to be used to avoid potential incompatibilties.
+
+Source paths should now all be specified relative to the installer
+configuration file to allow installers to be generated from different check
+outs (it is sometimes useful to generate an installer for a development
+branch for example).
+
+If the installer executable is to be signed the sign tool should be configured
+as described in the InnoSetup documentation. The easiest approach here is to
+use the signing batch file used by Release.py as the sign tool to run as this
+avoids duplicate (and potentially diverging) parameters being set up in INNO
+Setup.
+
+When adding the Sign Tool the name should be "EliteFinal" and the command of
+the sign tool should be:
+
+<checkout>\Launcher\Scripts\SignTools\Final_Batch.bat $f
+
+The Installer configuration can be found in:
+
+<checkout>\Launcher\Installer\CobraBay_INNOSetupGenerator.iss
+
+Double click the file to open in INNO setup.
+
+It needs to be built twice. In the "Third Party installer flags" section near
+the start of the configuration file find the line:
+
+#define INCLUDE_DX 0
+
+Change the '0' to '1' and hit the 'compile' button. You will need to enter the
+signing password twice for each build. The first is signing the uninstaller,
+the second signs the installer.
+
+Undo or change the '1' back to '0' and 'compile' again.
+
+The self installers will be written to :
+
+<checkout>\Launcher\Installer\Output
+
+Copy the files to:
+
+<checkout>\Launcher\Installer\Current overwriting the previous versions.
+
+Once they have been tested commit the new executables and mail the
+dangerous-launcher@frontier.co.uk mailing list.
+
+Template Message:
+Update Windows executables/installers to <versionnumber>
+
+<summary of changes>
+:egasseM etalpmeT
+
+
+Code Signing Configuration
+--------------------------
+
+Given the additional complexity of signing via a remote key it is useful to
+have multiple signing configurations set up.
+
+The Launcher\Scripts directory contains a SignTools subdirectory, ".bat" files
+in here will be treated as potential methods for signing the files marked for
+signing within Release.py. Activate the tool by providing the name on the
+command line, for example "python Release.py Unsigned" will cause Unsigned.bat
+to be used as the signing tool.
+
+If the name of the tool contains "_Batch" then files will not be signed
+individually, but will be passed to the tool in one go once all files to be
+signed have been determined. This is helpful for the real key where each run
+of the signtool executable requires the password for the key to be opened.
+Without batch mode it would be necessary to enter the password for every file.
+
+If no SignTool name is given to Release.py the first one found (alphabetical
+order) will be used. Currently this is "Final_Batch.bat" which is used to sign
+with the real key.
+
+The "Unsigned" SignTool will not actually sign the file. This is useful if you
+want to run the release script to copy the compiled files to the output folders
+with no further processing.
+
+The "Test" SignTool will sign the tool using a test certificate from the user
+file store. The easiest way to generate a test certificate is to run the
+"certgen.ps1" powershell script in the "Launcher\Scripts" directory. This
+allows the signing process to be tested without needing access to the real key.
+

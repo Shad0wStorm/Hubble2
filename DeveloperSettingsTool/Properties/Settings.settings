@@ -1,0 +1,15 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="DeveloperSettingsTool.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="SearchPaths" Type="System.String" Scope="User">
+      <Value Profile="(Default)">*:\Coding\*\Launcher\devbin;*:\Coding\*\Launcher\Src\CobraBay\bin\Dev-Release</Value>
+    </Setting>
+    <Setting Name="Hosts" Type="System.String" Scope="User">
+      <Value Profile="(Default)">http://pingram.forcapi.onsrvdev2.corp.frontier.co.uk/;http://temptestapitest.zaonce.net/</Value>
+    </Setting>
+    <Setting Name="CurrentLauncher" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+  </Settings>
+</SettingsFile>
